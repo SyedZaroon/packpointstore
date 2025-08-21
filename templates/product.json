@@ -237,8 +237,8 @@
         "limit_details_width": false,
         "gap": 48,
         "color_scheme": "",
-        "padding-block-start": 0,
-        "padding-block-end": 0
+        "padding-block-start": 50,
+        "padding-block-end": 50
       }
     },
     "section_4ckrGa": {
