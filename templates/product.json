@@ -304,7 +304,7 @@
                   "name": "t:names.text",
                   "settings": {
                     "text": "{{ closest.product.description }}",
-                    "width": "100%",
+                    "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
                     "type_preset": "rte",
@@ -315,7 +315,7 @@
                     "case": "none",
                     "wrap": "pretty",
                     "color": "var(--color-foreground)",
-                    "background": false,
+                    "background": true,
                     "background_color": "#00000026",
                     "corner_radius": 0,
                     "padding-block-start": 0,
