@@ -1,6 +1,498 @@
+{% doc %}
+  @prompt
+    can you genrate a collapsable block that have a table from metafields and metafields take json data and disply in table form in the block, json table data should be dynamic so it takes value form metafield
+
+{% enddoc %}
+{% assign ai_gen_id = block.id | replace: '_', '' | downcase %}
+
+{% style %}
+  .ai-collapsible-table-{{ ai_gen_id }} {
+    border: 1px solid {{ block.settings.border_color }};
+    border-radius: {{ block.settings.border_radius }}px;
+    overflow: hidden;
+    background-color: {{ block.settings.background_color }};
+  }
+
+  .ai-collapsible-header-{{ ai_gen_id }} {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: {{ block.settings.header_padding }}px;
+    background-color: {{ block.settings.header_background_color }};
+    cursor: pointer;
+    border: none;
+    width: 100%;
+    text-align: left;
+    transition: background-color 0.3s ease;
+  }
+
+  .ai-collapsible-header-{{ ai_gen_id }}:hover {
+    background-color: {{ block.settings.header_hover_color }};
+  }
+
+  .ai-collapsible-title-{{ ai_gen_id }} {
+    font-size: {{ block.settings.title_size }}px;
+    font-weight: {{ block.settings.title_weight }};
+    color: {{ block.settings.title_color }};
+    margin: 0;
+  }
+
+  .ai-collapsible-icon-{{ ai_gen_id }} {
+    width: 20px;
+    height: 20px;
+    color: {{ block.settings.icon_color }};
+    transition: transform 0.3s ease;
+  }
+
+  .ai-collapsible-icon-{{ ai_gen_id }}.expanded {
+    transform: rotate(180deg);
+  }
+
+  .ai-collapsible-content-{{ ai_gen_id }} {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+
+  .ai-collapsible-content-{{ ai_gen_id }}.expanded {
+    max-height: 1000px;
+  }
+
+  .ai-table-wrapper-{{ ai_gen_id }} {
+    padding: {{ block.settings.content_padding }}px;
+    overflow-x: auto;
+  }
+
+  .ai-table-{{ ai_gen_id }} {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: {{ block.settings.table_font_size }}px;
+  }
+
+  .ai-table-{{ ai_gen_id }} th {
+    background-color: {{ block.settings.header_row_color }};
+    color: {{ block.settings.header_text_color }};
+    padding: {{ block.settings.cell_padding }}px;
+    text-align: left;
+    font-weight: {{ block.settings.header_font_weight }};
+    border-bottom: 1px solid {{ block.settings.border_color }};
+  }
+
+  .ai-table-{{ ai_gen_id }} td {
+    padding: {{ block.settings.cell_padding }}px;
+    border-bottom: 1px solid {{ block.settings.border_color }};
+    color: {{ block.settings.text_color }};}
+
+  .ai-table-{{ ai_gen_id }} tr:nth-child(even) {
+    background-color: {{ block.settings.alternate_row_color }};
+  }
+
+  .ai-table-{{ ai_gen_id }} tr:hover {
+    background-color: {{ block.settings.row_hover_color }};
+  }
+
+  .ai-empty-state-{{ ai_gen_id }} {
+    padding: {{ block.settings.content_padding }}px;
+    text-align: center;
+    color: {{ block.settings.empty_state_color }};
+    font-style: italic;
+  }
+
+  @media screen and (max-width: 749px) {
+    .ai-collapsible-header-{{ ai_gen_id }} {
+      padding: {{ block.settings.header_padding | times: 0.8 }}px;
+    }
+
+    .ai-table-wrapper-{{ ai_gen_id }} {
+      padding: {{ block.settings.content_padding | times: 0.8 }}px;
+    }
+
+    .ai-table-{{ ai_gen_id }} {
+      font-size: {{ block.settings.table_font_size | times: 0.9 }}px;
+    }
+
+    .ai-table-{{ ai_gen_id }} th,
+    .ai-table-{{ ai_gen_id }} td {
+      padding: {{ block.settings.cell_padding | times: 0.8 }}px;
+    }
+  }
+{% endstyle %}
+
+<collapsible-table-{{ ai_gen_id }}
+  class="ai-collapsible-table-{{ ai_gen_id }}"
+  {{ block.shopify_attributes }}
+>
+  <button
+    class="ai-collapsible-header-{{ ai_gen_id }}"
+    aria-expanded="{% if block.settings.default_open %}true{% else %}false{% endif %}"
+    aria-controls="ai-collapsible-content-{{ ai_gen_id }}">
+    <h3 class="ai-collapsible-title-{{ ai_gen_id }}">{{ block.settings.title }}</h3>
+    <svg
+      class="ai-collapsible-icon-{{ ai_gen_id }}{% if block.settings.default_open %} expanded{% endif %}"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    >
+      <polyline points="6,9 12,15 18,9"></polyline>
+    </svg>
+  </button>
+
+  <div
+    id="ai-collapsible-content-{{ ai_gen_id }}"
+    class="ai-collapsible-content-{{ ai_gen_id }}{% if block.settings.default_open %} expanded{% endif %}">
+    {% liquid
+      assign metafield_value = null
+      
+      if block.settings.metafield_source == 'product' and product
+        assign metafield_value = product.metafields[block.settings.metafield_namespace][block.settings.metafield_key].value
+      elsif block.settings.metafield_source == 'variant' and product.selected_variant
+        assign metafield_value = product.selected_variant.metafields[block.settings.metafield_namespace][block.settings.metafield_key].value
+      elsif block.settings.metafield_source == 'collection' and collection
+        assign metafield_value = collection.metafields[block.settings.metafield_namespace][block.settings.metafield_key].value
+      elsif block.settings.metafield_source == 'shop'
+        assign metafield_value = shop.metafields[block.settings.metafield_namespace][block.settings.metafield_key].value
+      endif%}
+
+    {% if metafield_value != blank %}
+      {% assign table_data = metafield_value | parse_json %}
+      {% if table_data and table_data.size > 0 %}
+        <div class="ai-table-wrapper-{{ ai_gen_id }}">
+          <table class="ai-table-{{ ai_gen_id }}">
+            {% if block.settings.show_headers and table_data[0] %}
+              <thead>
+                <tr>
+                  {% for key in table_data[0] %}
+                    <th>{{ key[0] | capitalize }}</th>
+                  {% endfor %}
+                </tr>
+              </thead>
+            {% endif %}
+            <tbody>
+              {% for row in table_data %}
+                <tr>
+                  {% for cell in row %}
+                    <td>{{ cell[1] }}</td>
+                  {% endfor %}
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+        </div>
+      {% else %}
+        <div class="ai-empty-state-{{ ai_gen_id }}">
+          {{ block.settings.empty_message }}
+        </div>
+      {% endif %}
+    {% else %}
+      <div class="ai-empty-state-{{ ai_gen_id }}">
+        Next, configure the metafield settings to display table data
+      </div>
+    {% endif %}
+  </div>
+</collapsible-table-{{ ai_gen_id }}>
+
+<script>
+  (function() {
+    class CollapsibleTable{{ ai_gen_id }} extends HTMLElement {
+      constructor() {
+        super();
+      }
+
+      connectedCallback() {
+        this.header = this.querySelector('.ai-collapsible-header-{{ ai_gen_id }}');
+        this.content = this.querySelector('.ai-collapsible-content-{{ ai_gen_id }}');
+        this.icon = this.querySelector('.ai-collapsible-icon-{{ ai_gen_id }}');
+
+        this.header.addEventListener('click', this.toggle.bind(this));
+      }
+
+      toggle() {
+        const isExpanded = this.content.classList.contains('expanded');
+        
+        if (isExpanded) {
+          this.content.classList.remove('expanded');
+          this.icon.classList.remove('expanded');this.header.setAttribute('aria-expanded', 'false');
+        } else {
+          this.content.classList.add('expanded');
+          this.icon.classList.add('expanded');
+          this.header.setAttribute('aria-expanded', 'true');
+        }
+      }
+    }
+
+    customElements.define('collapsible-table-{{ ai_gen_id }}', CollapsibleTable{{ ai_gen_id }});
+  })();
+</script>
+
 {% schema %}
- {
-   "name": "AI_Block",
-   "tag": "shopify-ai-generated-block"
- }
+{
+  "name": "Collapsible table",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Product specifications"
+    },
+    {
+      "type": "select",
+      "id": "metafield_source",
+      "label": "Metafield source",
+      "options": [
+        {
+          "value": "product",
+          "label": "Product"
+        },
+        {
+          "value": "variant",
+          "label": "Product variant"
+        },
+        {
+          "value": "collection",
+          "label": "Collection"
+        },
+        {
+          "value": "shop",
+          "label": "Shop"
+        }
+      ],
+      "default": "product"
+    },
+    {
+      "type": "text",
+      "id": "metafield_namespace",
+      "label": "Metafield namespace",
+      "default": "custom"
+    },
+    {
+      "type": "text",
+      "id": "metafield_key",
+      "label": "Metafield key",
+      "default": "table_data"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_headers",
+      "label": "Show table headers",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "default_open",
+      "label": "Open by default",
+      "default": false
+    },
+    {
+      "type": "text",
+      "id": "empty_message",
+      "label": "Empty state message",
+      "default": "No data available"
+    },
+    {
+      "type": "header",
+      "content": "Colors"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "border_color",
+      "label": "Border",
+      "default": "#e6e6e6"
+    },
+    {
+      "type": "color",
+      "id": "header_background_color",
+      "label": "Header background",
+      "default": "#f8f8f8"
+    },
+    {
+      "type": "color",
+      "id": "header_hover_color",
+      "label": "Header hover",
+      "default": "#f0f0f0"
+    },
+    {
+      "type": "color",
+      "id": "title_color",
+      "label": "Title",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon",
+      "default": "#666666"
+    },
+    {
+      "type": "color",
+      "id": "header_row_color",
+      "label": "Table header background",
+      "default": "#f5f5f5"
+    },
+    {
+      "type": "color",
+      "id": "header_text_color",
+      "label": "Table header text",
+      "default": "#333333"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Table text",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "alternate_row_color",
+      "label": "Alternate row background",
+      "default": "#fafafa"
+    },
+    {
+      "type": "color",
+      "id": "row_hover_color",
+      "label": "Row hover background",
+      "default": "#f0f0f0"
+    },
+    {
+      "type": "color",
+      "id": "empty_state_color",
+      "label": "Empty state text",
+      "default": "#999999"
+    },
+    {
+      "type": "header",
+      "content": "Typography"
+    },
+    {
+      "type": "range",
+      "id": "title_size",
+      "min": 14,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Title size",
+      "default": 18
+    },
+    {
+      "type": "select",
+      "id": "title_weight",
+      "label": "Title weight",
+      "options": [
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semibold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "range",
+      "id": "table_font_size",
+      "min": 12,
+      "max": 18,
+      "step": 1,
+      "unit": "px",
+      "label": "Table font size",
+      "default": 14
+    },
+    {
+      "type": "select",
+      "id": "header_font_weight",
+      "label": "Table header weight",
+      "options": [
+        {
+          "value": "400",
+          "label": "Normal"
+        },
+        {
+          "value": "500",
+          "label": "Medium"
+        },
+        {
+          "value": "600",
+          "label": "Semibold"
+        },
+        {
+          "value": "700",
+          "label": "Bold"
+        }
+      ],
+      "default": "600"
+    },
+    {
+      "type": "header",
+      "content": "Spacing"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Border radius",
+      "default": 8
+    },
+    {
+      "type": "range",
+      "id": "header_padding",
+      "min": 8,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Header padding",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "content_padding",
+      "min": 8,
+      "max": 32,
+      "step": 2,
+      "unit": "px",
+      "label": "Content padding",
+      "default": 16
+    },
+    {
+      "type": "range",
+      "id": "cell_padding",
+      "min": 4,
+      "max": 20,
+      "step": 2,
+      "unit": "px",
+      "label": "Table cell padding",
+      "default": 12
+    }
+  ],
+  "presets": [
+    {
+      "name": "Collapsible table"
+    }
+  ]
+}
 {% endschema %}
