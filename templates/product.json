@@ -220,13 +220,22 @@
                 }
               },
               "block_order": []
+            },
+            "size_guide_D9qCQJ": {
+              "type": "size-guide",
+              "name": "Programming Example",
+              "settings": {
+                "my_text": "Hello World!"
+              },
+              "blocks": {}
             }
           },
           "block_order": [
             "group_icgrde",
             "divider_VJhene",
             "variant_picker_R3rGDr",
-            "buy_buttons_eYQEYi"
+            "buy_buttons_eYQEYi",
+            "size_guide_D9qCQJ"
           ]
         }
       },
