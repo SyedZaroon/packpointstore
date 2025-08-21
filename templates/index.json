@@ -230,7 +230,17 @@
       ],
       "name": "t:names.collections_bento",
       "settings": {
-        "collection_list": [],
+        "collection_list": [
+          "cardboard-boxes",
+          "envelopes",
+          "labels",
+          "machines",
+          "mailing-bags",
+          "miscellaneous",
+          "pallet-wrap",
+          "tapes",
+          "void-fill"
+        ],
         "layout_type": "bento",
         "carousel_on_mobile": false,
         "columns": 4,
