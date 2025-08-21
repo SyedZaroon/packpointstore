@@ -133,7 +133,7 @@
               "type": "text",
               "name": "t:names.text",
               "settings": {
-                "text": "<h3>Shop by collection</h3>",
+                "text": "<h4><strong>SOHP BY COLLECTION</strong></h4>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
