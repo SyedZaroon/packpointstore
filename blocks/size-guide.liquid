@@ -1,21 +1,127 @@
+{% style %}
+.size-wrapper {
+  padding-top: {{ section.settings.size_top_padding }}px;
+  padding-bottom: {{ section.settings.size_bottom_padding }}px;
+}
+
+.size-guide-container {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+.size-guide-container.open {
+  max-height: 2000px; /* big enough for tall tables */
+}
+
+.size-guide-toggle {
+  width: 100%;
+  cursor: pointer;
+  text-align: center;
+}
+
+.size-guide-container table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: auto; /* let browser auto adjust column width */
+  
+}
+
+.table-container{
+padding-top: 20px;
+}
+
+.size-guide-container th,
+.size-guide-container td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: center;
+}
+{% endstyle %}
+
+
+{% assign size = product.metafields.custom.product_size_guide | default: '' %}
+
+
+{%- if size != blank -%}
+
+  <div class="size-wrapper">
+  <!-- Toggle Button -->
+  <div class="size-guide-toggle button-secondary button" onclick="toggleSizeGuide()">📏 View Size Guide</div>
+
+  <!-- Collapsible Content -->
+  <div class="size-guide-container" id="sizeGuide">
+    {% assign size_array = size.value | parse_json %}
+    <div class="table-container" style="overflow-x:auto;">
+      <table border="1" cellpadding="0">
+        <thead>
+          <tr>
+            {%- for key in size_array[0] -%}
+              <th>{{ key[0] }}</th>
+            {%- endfor -%}
+          </tr>
+        </thead>
+        <tbody>
+          {%- for row in size_array -%}
+            <tr>
+              {%- for key in size_array[0] -%}
+                <td>{{ row[key[0]] }}</td>
+              {%- endfor -%}
+            </tr>
+          {%- endfor -%}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+  <script>
+    function toggleSizeGuide() {
+      const guide = document.getElementById('sizeGuide');
+      const toggleBtn = document.querySelector('.size-guide-toggle');
+
+      guide.classList.toggle('open');
+
+      if (guide.classList.contains('open')) {
+        toggleBtn.innerText = '❌ Close Size Guide';
+      } else {
+        toggleBtn.innerText = '📏 View Size Guide';
+      }
+    }
+  </script>
+{%- endif -%}
+
 {% schema %}
 {
-  "name": "My First Section",
+  "name": "Size Guide",
   "settings": [
-        {
-          "type": "text",
-          "id": "my_text",
-          "label": "Enter Your Text",
-          "default": "Hello World!"
-        }
-      ],
+    {
+      "type": "header",
+      "content": "Padding"
+    },
+    {
+      "type": "range",
+      "id": "size_top_padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Top Padding",
+      "default": 10
+    },
+    {
+      "type": "range",
+      "id": "size_bottom_padding",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Bottom Padding",
+      "default": 10
+    }
+  ],
   "presets": [
     {
-      "name": "Programming Example"
+      "name": "Size Guide"
     }
   ]
 }
 {% endschema %}
-
-
-
