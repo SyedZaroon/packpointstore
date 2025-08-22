@@ -23,11 +23,10 @@
   width: 100%;
   border-collapse: collapse;
   table-layout: auto; /* let browser auto adjust column width */
-  
 }
 
-.table-container{
-padding-top: 20px;
+.table-container {
+  padding-top: 20px;
 }
 
 .size-guide-container th,
@@ -41,38 +40,38 @@ padding-top: 20px;
 
 {% assign size = product.metafields.custom.product_size_guide | default: '' %}
 
-
 {%- if size != blank -%}
 
   <div class="size-wrapper">
-  <!-- Toggle Button -->
-  <div class="size-guide-toggle button-secondary button" onclick="toggleSizeGuide()">📏 View Size Guide</div>
+    <!-- Toggle Button -->
+    <div class="size-guide-toggle button-secondary button" onclick="toggleSizeGuide()">📏 View Size Guide</div>
 
-  <!-- Collapsible Content -->
-  <div class="size-guide-container" id="sizeGuide">
-    {% assign size_array = size.value %}
-    <div class="table-container" style="overflow-x:auto;">
-      <table border="1" cellpadding="0">
-        <thead>
-          <tr>
-            {%- for key in size_array[0] -%}
-              <th>{{ key[0] }}</th>
-            {%- endfor -%}
-          </tr>
-        </thead>
-        <tbody>
-          {%- for row in size_array -%}
+    <!-- Collapsible Content -->
+    <div class="size-guide-container" id="sizeGuide">
+      {% assign size_array = size.value | parse_json %}
+      <div class="table-container" style="overflow-x:auto;">
+        <table>
+          <thead>
             <tr>
               {%- for key in size_array[0] -%}
-                <td>{{ row[key[0]] }}</td>
+                <th>{{ key[0] }}</th>
               {%- endfor -%}
             </tr>
-          {%- endfor -%}
-        </tbody>
-      </table>
+          </thead>
+          <tbody>
+            {%- for row in size_array -%}
+              <tr>
+                {%- for key in size_array[0] -%}
+                  <td>{{ row[key[0]] }}</td>
+                {%- endfor -%}
+              </tr>
+            {%- endfor -%}
+          </tbody>
+        </table>
+      </div>
     </div>
   </div>
-</div>
+
   <script>
     function toggleSizeGuide() {
       const guide = document.getElementById('sizeGuide');
@@ -87,7 +86,9 @@ padding-top: 20px;
       }
     }
   </script>
+
 {%- endif -%}
+
 
 {% schema %}
 {
