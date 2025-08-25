@@ -4336,3 +4336,6 @@ text-component {
 .facets__label{
   font-size: var(--font-h5--size);
 }
+.price{
+  font-size: var(--font-size--h3);
+}
