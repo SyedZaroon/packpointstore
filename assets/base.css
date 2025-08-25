@@ -4330,3 +4330,9 @@ text-component {
 .button{
   border-radius: unset;
 }
+
+/* Collection page filter */
+
+.facets__summary{
+  font-size: var(--font-h5--size);
+}
