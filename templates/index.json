@@ -46,7 +46,7 @@
             "link": "shopify://collections/all",
             "open_in_new_tab": false,
             "style_class": "button",
-            "width": "custom",
+            "width": "fit-content",
             "custom_width": 15,
             "width_mobile": "fit-content",
             "custom_width_mobile": 100
@@ -382,7 +382,7 @@
                 "open_in_new_tab": false,
                 "style_class": "button",
                 "width": "fit-content",
-                "custom_width": 100,
+                "custom_width": 25,
                 "width_mobile": "fit-content",
                 "custom_width_mobile": 100
               },
