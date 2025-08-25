@@ -2515,7 +2515,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   width: var(--checkbox-size);
   flex-shrink: 0;
   border: var(--checkbox-border);
-  border-radius: var(--checkbox-border-radius);
+  /* border-radius: var(--checkbox-border-radius); */
   background-color: var(--color-background);
 }
 
