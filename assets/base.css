@@ -4346,3 +4346,9 @@ text-component {
 button.shopify-payment-button__button.shopify-payment-button__button--unbranded {
     border-radius: 0px !important;
 }
+
+/* Variant color */
+
+.variant-option__button-label:has(:checked){
+  background-color:#FF7A09;
+}
