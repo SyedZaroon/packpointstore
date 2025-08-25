@@ -326,7 +326,7 @@
                   "settings": {
                     "text": "{{ closest.product.description }}",
                     "width": "fit-content",
-                    "max_width": "normal",
+                    "max_width": "none",
                     "alignment": "left",
                     "type_preset": "rte",
                     "font": "var(--font-body--family)",
@@ -337,7 +337,7 @@
                     "wrap": "pretty",
                     "color": "var(--color-foreground)",
                     "background": true,
-                    "background_color": "#00000026",
+                    "background_color": "#00000000",
                     "corner_radius": 0,
                     "padding-block-start": 0,
                     "padding-block-end": 0,
