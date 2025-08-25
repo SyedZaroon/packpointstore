@@ -85,6 +85,9 @@
         "text_WLcc4T",
         "button_H9gpTf"
       ],
+      "custom_css": [
+        ".spacing-style.text-block.text-block--AWUE5QzdrWWFaSjV3T__text_YLPk4p.h2 {width: 50%;}"
+      ],
       "name": "t:names.hero",
       "settings": {
         "media_type_1": "image",
