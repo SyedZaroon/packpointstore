@@ -4340,6 +4340,6 @@ text-component {
   font-size: var(--font-size--h3);
 }
 
-.shopify-payment-button__button{
-  border-radius:unset;
+button.shopify-payment-button__button.shopify-payment-button__button--unbranded {
+    border-radius: 0px !important;
 }
