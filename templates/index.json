@@ -18,9 +18,9 @@
           "settings": {
             "text": "<h4><strong>Packaging solutions your products deserve from the people you can count on</strong></h4>",
             "width": "fit-content",
-            "max_width": "narrow",
+            "max_width": "none",
             "alignment": "left",
-            "type_preset": "h2",
+            "type_preset": "h3",
             "font": "var(--font-body--family)",
             "font_size": "1rem",
             "line_height": "normal",
@@ -28,6 +28,32 @@
             "case": "none",
             "wrap": "pretty",
             "color": "var(--color-foreground-heading)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
+        "text_WLcc4T": {
+          "type": "text",
+          "name": "t:names.text",
+          "settings": {
+            "text": "<p>From wholesale to bespoke and sector solutions, PackPoint are the packaging experts you can trust.</p>",
+            "width": "fit-content",
+            "max_width": "normal",
+            "alignment": "left",
+            "type_preset": "rte",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "normal",
+            "letter_spacing": "normal",
+            "case": "none",
+            "wrap": "pretty",
+            "color": "var(--color-foreground)",
             "background": false,
             "background_color": "#00000026",
             "corner_radius": 0,
@@ -56,6 +82,7 @@
       },
       "block_order": [
         "text_YLPk4p",
+        "text_WLcc4T",
         "button_H9gpTf"
       ],
       "name": "t:names.hero",
