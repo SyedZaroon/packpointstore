@@ -51,8 +51,8 @@
       "settings": {
         "content_direction": "column",
         "gap": 32,
-        "color_scheme": "",
-        "padding-block-start": 40,
+        "color_scheme": "scheme-6c522ddc-9536-4a52-a825-bc3f1c8d4e7e",
+        "padding-block-start": 160,
         "padding-block-end": 80
       }
     }
