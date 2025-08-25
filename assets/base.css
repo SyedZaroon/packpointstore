@@ -54,7 +54,7 @@ input,
 textarea,
 select {
   font: inherit;
-  border-radius: var(--style-border-radius-inputs);
+  /* border-radius: var(--style-border-radius-inputs); */
 }
 
 input:hover {
@@ -2338,7 +2338,7 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
 .field__input {
   flex-grow: 1;
   text-align: left;
-  border-radius: var(--style-border-radius-inputs);
+  /* border-radius: var(--style-border-radius-inputs); */
   transition: box-shadow var(--animation-speed) ease, background-color var(--animation-speed) ease;
   padding: var(--input-padding);
   box-shadow: var(--input-box-shadow);
@@ -2359,9 +2359,9 @@ product-price.text-block:is(.h1, .h2, .h3, .h4, .h5, .h6) > *:not(.tax-note) {
   background-color: var(--color-input-hover-background);
 }
 
-.field__input--button-radius {
+/* .field__input--button-radius {
   border-radius: var(--style-border-radius-buttons-primary);
-}
+} */
 
 .field__input--button-padding {
   padding-inline: var(--padding-3xl);
