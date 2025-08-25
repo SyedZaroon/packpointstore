@@ -225,6 +225,7 @@
                 },
                 "accelerated-checkout": {
                   "type": "accelerated-checkout",
+                  "disabled": true,
                   "static": true,
                   "settings": {},
                   "blocks": {}
@@ -337,7 +338,7 @@
                     "wrap": "pretty",
                     "color": "var(--color-foreground)",
                     "background": true,
-                    "background_color": "#00000000",
+                    "background_color": "rgba(0,0,0,0)",
                     "corner_radius": 0,
                     "padding-block-start": 0,
                     "padding-block-end": 0,
