@@ -4354,10 +4354,6 @@ button.shopify-payment-button__button.shopify-payment-button__button--unbranded 
   border-color: #FF7A09 !important;
 }
 
-{% if template == 'page.faqs' %}
-  <style>
-    .accordion--dividers accordion-custom:first-child .details {
-    border-block-start: calc(var(--style-border-width) * var(--show-fallback-borders)) solid var(--color-border);
-}
-  </style>
-{% endif %}
+.template-page.page-about-us .accordion--dividers accordion-custom:first-child .details {
+    border-block-start: calc(var(--style-border-width) * var(--show-fallback-borders)) solid var(--color-border);}
+    
