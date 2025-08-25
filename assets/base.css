@@ -4356,6 +4356,11 @@ button.shopify-payment-button__button.shopify-payment-button__button--unbranded 
 
 details.details {
   border: 1px solid var(--color-border, rgb(0 0 0 / 0.06)) !important;
+      margin-bottom: 20px;
 }
 
+summary.details__header,
+.details-content {
+    padding: 10px;
+}
     
