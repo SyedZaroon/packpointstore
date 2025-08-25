@@ -4351,4 +4351,5 @@ button.shopify-payment-button__button.shopify-payment-button__button--unbranded 
 
 .variant-option__button-label:has(:checked){
   background-color:#FF7A09 !important;
+  border-color: #FF7A09 !important;
 }
