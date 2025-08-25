@@ -4339,3 +4339,7 @@ text-component {
 .price{
   font-size: var(--font-size--h3);
 }
+
+.shopify-payment-button__button{
+  border-radius:unset;
+}
