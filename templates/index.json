@@ -86,7 +86,8 @@
         "button_H9gpTf"
       ],
       "custom_css": [
-        ".spacing-style.text-block.text-block--AWUE5QzdrWWFaSjV3T__text_YLPk4p.h2 {width: 50%;}"
+        ".spacing-style.text-block.text-block--AWUE5QzdrWWFaSjV3T__text_YLPk4p.h2 {width: 50%;}",
+        "@media screen and (max-width: 992px) {.spacing-style.text-block.text-block--AWUE5QzdrWWFaSjV3T__text_YLPk4p.h2 {width: 70%; }}"
       ],
       "name": "t:names.hero",
       "settings": {
