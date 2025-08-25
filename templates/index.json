@@ -16,7 +16,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<p>Browse our latest products</p>",
+            "text": "<h4><strong>Packaging solutions your products deserve from the people you can count on</strong></h4>",
             "width": "fit-content",
             "max_width": "narrow",
             "alignment": "left",
