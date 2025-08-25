@@ -4278,3 +4278,55 @@ text-component {
     font-size: max(1rem, 100%);
   }
 }
+
+
+/* / * Custom Css  */
+
+.header{
+  position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 1400px;
+    width: 100%;
+    padding: 0px 20px;
+
+}
+
+.header__row.header__row--top{
+  padding: 5px 0px;
+}
+
+/* Collection Card Design */
+
+.collection-card__content .spacing-style.text-block{
+  background-color: #FF7C0C;
+  color:white;
+}
+
+.collection-card.collection-card--image-bg {
+  aspect-ratio: 3 / 4 !important;
+}
+
+@media screen and (max-width:440px) {
+  .resource-list--grid {
+      grid-template-columns: 1fr;
+    }
+  
+}
+.resource-list__item {
+  overflow: hidden;
+}
+
+.resource-list__item img.image-block__image {
+  transition: transform 0.5s ease-in-out;
+}
+
+.resource-list__item:hover img.image-block__image {
+  transform: scale(1.1);
+}
+
+/* button styling */
+.button{
+  border-radius: unset;
+}
