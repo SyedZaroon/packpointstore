@@ -16,7 +16,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h4><strong>Packaging solutions your products deserve from the people you can count on</strong></h4>",
+            "text": "<h2><strong>Packaging solutions your products deserve, from people you can rely on.</strong></h2>",
             "width": "fit-content",
             "max_width": "none",
             "alignment": "left",
@@ -42,7 +42,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>From wholesale to bespoke and sector solutions, PackPoint are the packaging experts you can trust.</p>",
+            "text": "<p>From wholesale supplies to bespoke and industry-specific packaging, Packpoint is the expert partner you can trust.”</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
