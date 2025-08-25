@@ -4333,6 +4333,6 @@ text-component {
 
 /* Collection page filter */
 
-.facets__summary{
+.facets__label{
   font-size: var(--font-h5--size);
 }
