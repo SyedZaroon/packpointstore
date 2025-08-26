@@ -1871,7 +1871,7 @@
           "blocks": {
             "group_YBktJ4": {
               "type": "group",
-              "name": "Group 1",
+              "name": "Personal service",
               "settings": {
                 "link": "",
                 "open_in_new_tab": false,
@@ -1922,6 +1922,7 @@
                 },
                 "group_wtB3F4": {
                   "type": "group",
+                  "name": "Personal service text",
                   "settings": {
                     "link": "",
                     "open_in_new_tab": false,
@@ -1962,7 +1963,7 @@
                     "text_rNzx3C": {
                       "type": "text",
                       "settings": {
-                        "text": "<h4><strong>Service</strong></h4>",
+                        "text": "<h4><strong>Personal service</strong></h4>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "center",
@@ -1987,7 +1988,7 @@
                     "text_9x6XU7": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>We listen carefully, keep our promises, and always put our customers first.</p>",
+                        "text": "<p>Dedicated Account Manager - Resolutions within 4 hours</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "center",
@@ -2023,7 +2024,7 @@
             },
             "group_hGEczb": {
               "type": "group",
-              "name": "Group 2",
+              "name": "Always in-stock",
               "settings": {
                 "link": "",
                 "open_in_new_tab": false,
@@ -2065,7 +2066,8 @@
                   "type": "icon",
                   "settings": {
                     "icon": "eye",
-                    "width": 32,
+                    "image_upload": "shopify://shop_images/stock_quhsk.png",
+                    "width": 200,
                     "link": "",
                     "open_in_new_tab": false
                   },
@@ -2073,6 +2075,7 @@
                 },
                 "group_bEFC3n": {
                   "type": "group",
+                  "name": "Always in-stock text",
                   "settings": {
                     "link": "",
                     "open_in_new_tab": false,
@@ -2113,7 +2116,7 @@
                     "text_7HhbDJ": {
                       "type": "text",
                       "settings": {
-                        "text": "<p><strong>Teamwork</strong></p>",
+                        "text": "<h4><strong>Always in-stock</strong></h4>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "center",
@@ -2138,7 +2141,7 @@
                     "text_cizqnE": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>We succeed together – one team, one mission.</p>",
+                        "text": "<p>2500 products always in stock</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "center",
@@ -2174,7 +2177,7 @@
             },
             "group_d6x79w": {
               "type": "group",
-              "name": "Group 3",
+              "name": "Innovative expert solutions",
               "settings": {
                 "link": "",
                 "open_in_new_tab": false,
@@ -2216,7 +2219,8 @@
                   "type": "icon",
                   "settings": {
                     "icon": "eye",
-                    "width": 32,
+                    "image_upload": "shopify://shop_images/innovtive-solutions_xqjfi.png",
+                    "width": 200,
                     "link": "",
                     "open_in_new_tab": false
                   },
@@ -2224,6 +2228,7 @@
                 },
                 "group_E4K9Dx": {
                   "type": "group",
+                  "name": "Innovative expert solutions text",
                   "settings": {
                     "link": "",
                     "open_in_new_tab": false,
@@ -2264,7 +2269,7 @@
                     "text_n3H4ax": {
                       "type": "text",
                       "settings": {
-                        "text": "<p><strong>Improvement</strong></p>",
+                        "text": "<h4><strong>Innovative expert solutions</strong></h4>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "center",
@@ -2289,7 +2294,7 @@
                     "text_nFjTFg": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>We strive to be better tomorrow than we are today through learning and innovation.</p>",
+                        "text": "<p>Innovative expert solutions</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "center",
