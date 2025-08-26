@@ -954,7 +954,7 @@
           "settings": {
             "link": "",
             "open_in_new_tab": false,
-            "content_direction": "column",
+            "content_direction": "row",
             "vertical_on_mobile": true,
             "horizontal_alignment": "flex-start",
             "vertical_alignment": "center",
@@ -982,7 +982,7 @@
             "overlay_color": "#00000026",
             "overlay_style": "solid",
             "gradient_direction": "to top",
-            "padding-block-start": 0,
+            "padding-block-start": 30,
             "padding-block-end": 0,
             "padding-inline-start": 0,
             "padding-inline-end": 0
