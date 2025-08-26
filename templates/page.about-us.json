@@ -2330,7 +2330,7 @@
             },
             "group_VN6Vwf": {
               "type": "group",
-              "name": "Group 4",
+              "name": "Fast next day delivery",
               "settings": {
                 "link": "",
                 "open_in_new_tab": false,
@@ -2372,7 +2372,8 @@
                   "type": "icon",
                   "settings": {
                     "icon": "eye",
-                    "width": 32,
+                    "image_upload": "shopify://shop_images/next-day-delivery_iwnnf.png",
+                    "width": 200,
                     "link": "",
                     "open_in_new_tab": false
                   },
@@ -2380,6 +2381,7 @@
                 },
                 "group_rGyjPm": {
                   "type": "group",
+                  "name": "Fast next day delivery text",
                   "settings": {
                     "link": "",
                     "open_in_new_tab": false,
@@ -2420,7 +2422,7 @@
                     "text_dLNdqt": {
                       "type": "text",
                       "settings": {
-                        "text": "<p><strong>Family</strong></p>",
+                        "text": "<h4><strong>Fast next day delivery</strong></h4>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "center",
@@ -2445,7 +2447,7 @@
                     "text_jxepKM": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>We treat colleagues, partners, and customers with care and respect – like family.</p>",
+                        "text": "<p>*Order before 15:00 - 98% OTIF</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "center",
