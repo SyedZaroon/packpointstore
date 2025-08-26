@@ -957,7 +957,7 @@
             "content_direction": "row",
             "vertical_on_mobile": true,
             "horizontal_alignment": "flex-start",
-            "vertical_alignment": "center",
+            "vertical_alignment": "flex-start",
             "align_baseline": false,
             "horizontal_alignment_flex_direction_column": "flex-start",
             "vertical_alignment_flex_direction_column": "center",
@@ -988,9 +988,160 @@
             "padding-inline-end": 0
           },
           "blocks": {
-            "group_3wDMHV": {
+            "group_tLLaBQ": {
               "type": "group",
               "name": "Group 1",
+              "settings": {
+                "link": "",
+                "open_in_new_tab": false,
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "center",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 16,
+                "width": "fill",
+                "custom_width": 100,
+                "width_mobile": "fill",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "placeholder": "",
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "icon_XdzC49": {
+                  "type": "icon",
+                  "settings": {
+                    "icon": "eye",
+                    "width": 32,
+                    "link": "",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
+                },
+                "group_arEb9D": {
+                  "type": "group",
+                  "settings": {
+                    "link": "",
+                    "open_in_new_tab": false,
+                    "content_direction": "column",
+                    "vertical_on_mobile": true,
+                    "horizontal_alignment": "flex-start",
+                    "vertical_alignment": "center",
+                    "align_baseline": false,
+                    "horizontal_alignment_flex_direction_column": "flex-start",
+                    "vertical_alignment_flex_direction_column": "center",
+                    "gap": 4,
+                    "width": "fill",
+                    "custom_width": 100,
+                    "width_mobile": "fill",
+                    "custom_width_mobile": 100,
+                    "height": "fit",
+                    "custom_height": 100,
+                    "inherit_color_scheme": true,
+                    "color_scheme": "",
+                    "background_media": "none",
+                    "video_position": "cover",
+                    "background_image_position": "cover",
+                    "border": "none",
+                    "border_width": 1,
+                    "border_opacity": 100,
+                    "border_radius": 0,
+                    "placeholder": "",
+                    "toggle_overlay": false,
+                    "overlay_color": "#00000026",
+                    "overlay_style": "solid",
+                    "gradient_direction": "to top",
+                    "padding-block-start": 0,
+                    "padding-block-end": 0,
+                    "padding-inline-start": 0,
+                    "padding-inline-end": 0
+                  },
+                  "blocks": {
+                    "text_rtWRWW": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<h4><strong>Service</strong></h4>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "center",
+                        "type_preset": "h4",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    },
+                    "text_XjBDif": {
+                      "type": "text",
+                      "settings": {
+                        "text": "<p>We listen carefully, keep our promises, and always put our customers first.</p>",
+                        "width": "100%",
+                        "max_width": "normal",
+                        "alignment": "center",
+                        "type_preset": "rte",
+                        "font": "var(--font-body--family)",
+                        "font_size": "1rem",
+                        "line_height": "normal",
+                        "letter_spacing": "normal",
+                        "case": "none",
+                        "wrap": "pretty",
+                        "color": "var(--color-foreground)",
+                        "background": false,
+                        "background_color": "#00000026",
+                        "corner_radius": 0,
+                        "padding-block-start": 0,
+                        "padding-block-end": 0,
+                        "padding-inline-start": 0,
+                        "padding-inline-end": 0
+                      },
+                      "blocks": {}
+                    }
+                  },
+                  "block_order": [
+                    "text_rtWRWW",
+                    "text_XjBDif"
+                  ]
+                }
+              },
+              "block_order": [
+                "icon_XdzC49",
+                "group_arEb9D"
+              ]
+            },
+            "group_3wDMHV": {
+              "type": "group",
+              "name": "Group 2",
               "settings": {
                 "link": "",
                 "open_in_new_tab": false,
@@ -1080,11 +1231,11 @@
                     "text_UX9r4b": {
                       "type": "text",
                       "settings": {
-                        "text": "<h2>Intentional design</h2>",
+                        "text": "<p><strong>Teamwork</strong></p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "center",
-                        "type_preset": "h3",
+                        "type_preset": "h4",
                         "font": "var(--font-body--family)",
                         "font_size": "1rem",
                         "line_height": "normal",
@@ -1105,7 +1256,7 @@
                     "text_rhFWwQ": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Everything we do starts with why</p>",
+                        "text": "<p>We succeed together – one team, one mission.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "center",
@@ -1139,9 +1290,9 @@
                 "group_yrK3bR"
               ]
             },
-            "group_hUQYwL": {
+            "group_hrW87P": {
               "type": "group",
-              "name": "Group 1",
+              "name": "Group 3",
               "settings": {
                 "link": "",
                 "open_in_new_tab": false,
@@ -1179,7 +1330,7 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "icon_XjVinG": {
+                "icon_YgGEGc": {
                   "type": "icon",
                   "settings": {
                     "icon": "eye",
@@ -1189,7 +1340,7 @@
                   },
                   "blocks": {}
                 },
-                "group_Tx3DKK": {
+                "group_3C3xHP": {
                   "type": "group",
                   "settings": {
                     "link": "",
@@ -1228,14 +1379,14 @@
                     "padding-inline-end": 0
                   },
                   "blocks": {
-                    "text_RGFmdx": {
+                    "text_DiT9Re": {
                       "type": "text",
                       "settings": {
-                        "text": "<h2>Intentional design</h2>",
+                        "text": "<p><strong>Improvement</strong></p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "center",
-                        "type_preset": "h3",
+                        "type_preset": "h4",
                         "font": "var(--font-body--family)",
                         "font_size": "1rem",
                         "line_height": "normal",
@@ -1253,10 +1404,10 @@
                       },
                       "blocks": {}
                     },
-                    "text_dVHhCw": {
+                    "text_TVaUE9": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Everything we do starts with why</p>",
+                        "text": "<p>We strive to be better tomorrow than we are today through learning and innovation.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "center",
@@ -1280,18 +1431,19 @@
                     }
                   },
                   "block_order": [
-                    "text_RGFmdx",
-                    "text_dVHhCw"
+                    "text_DiT9Re",
+                    "text_TVaUE9"
                   ]
                 }
               },
               "block_order": [
-                "icon_XjVinG",
-                "group_Tx3DKK"
+                "icon_YgGEGc",
+                "group_3C3xHP"
               ]
             },
-            "group_ytEKrU": {
+            "group_mNgEVr": {
               "type": "group",
+              "name": "Group 4",
               "settings": {
                 "link": "",
                 "open_in_new_tab": false,
@@ -1329,17 +1481,17 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "icon_FGRJRG": {
+                "icon_LjUqUq": {
                   "type": "icon",
                   "settings": {
-                    "icon": "silhouette",
+                    "icon": "eye",
                     "width": 32,
                     "link": "",
                     "open_in_new_tab": false
                   },
                   "blocks": {}
                 },
-                "group_eNAWPG": {
+                "group_x3Mpzz": {
                   "type": "group",
                   "settings": {
                     "link": "",
@@ -1378,14 +1530,14 @@
                     "padding-inline-end": 0
                   },
                   "blocks": {
-                    "text_CbbGtF": {
+                    "text_MgEUUt": {
                       "type": "text",
                       "settings": {
-                        "text": "<h2>A team with a goal</h2>",
+                        "text": "<p><strong>Family</strong></p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "center",
-                        "type_preset": "h3",
+                        "type_preset": "h4",
                         "font": "var(--font-body--family)",
                         "font_size": "1rem",
                         "line_height": "normal",
@@ -1403,10 +1555,10 @@
                       },
                       "blocks": {}
                     },
-                    "text_JyQAC4": {
+                    "text_Ywrqwa": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>Real people making great products</p>",
+                        "text": "<p>We treat colleagues, partners, and customers with care and respect – like family.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "center",
@@ -1430,18 +1582,19 @@
                     }
                   },
                   "block_order": [
-                    "text_CbbGtF",
-                    "text_JyQAC4"
+                    "text_MgEUUt",
+                    "text_Ywrqwa"
                   ]
                 }
               },
               "block_order": [
-                "icon_FGRJRG",
-                "group_eNAWPG"
+                "icon_LjUqUq",
+                "group_x3Mpzz"
               ]
             },
-            "group_6hc6NN": {
+            "group_fqPnx9": {
               "type": "group",
+              "name": "Group 5",
               "settings": {
                 "link": "",
                 "open_in_new_tab": false,
@@ -1479,17 +1632,17 @@
                 "padding-inline-end": 0
               },
               "blocks": {
-                "icon_BCzUdi": {
+                "icon_PjBpeV": {
                   "type": "icon",
                   "settings": {
-                    "icon": "heart",
+                    "icon": "eye",
                     "width": 32,
                     "link": "",
                     "open_in_new_tab": false
                   },
                   "blocks": {}
                 },
-                "group_HFTBk6": {
+                "group_DbQmk8": {
                   "type": "group",
                   "settings": {
                     "link": "",
@@ -1528,14 +1681,14 @@
                     "padding-inline-end": 0
                   },
                   "blocks": {
-                    "text_FkW4Wn": {
+                    "text_i6DVKn": {
                       "type": "text",
                       "settings": {
-                        "text": "<h2>Made with care</h2>",
+                        "text": "<p><strong>Family</strong></p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "center",
-                        "type_preset": "h3",
+                        "type_preset": "h4",
                         "font": "var(--font-body--family)",
                         "font_size": "1rem",
                         "line_height": "normal",
@@ -1553,10 +1706,10 @@
                       },
                       "blocks": {}
                     },
-                    "text_tNCAgQ": {
+                    "text_kcci4b": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>We believe in building better</p>",
+                        "text": "<p>We treat colleagues, partners, and customers with care and respect – like family.</p>",
                         "width": "100%",
                         "max_width": "normal",
                         "alignment": "center",
@@ -1580,22 +1733,23 @@
                     }
                   },
                   "block_order": [
-                    "text_FkW4Wn",
-                    "text_tNCAgQ"
+                    "text_i6DVKn",
+                    "text_kcci4b"
                   ]
                 }
               },
               "block_order": [
-                "icon_BCzUdi",
-                "group_HFTBk6"
+                "icon_PjBpeV",
+                "group_DbQmk8"
               ]
             }
           },
           "block_order": [
+            "group_tLLaBQ",
             "group_3wDMHV",
-            "group_hUQYwL",
-            "group_ytEKrU",
-            "group_6hc6NN"
+            "group_hrW87P",
+            "group_mNgEVr",
+            "group_fqPnx9"
           ]
         }
       },
