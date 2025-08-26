@@ -950,7 +950,7 @@
         },
         "group_VdLUnL": {
           "type": "group",
-          "name": "t:names.group",
+          "name": "Values Group",
           "settings": {
             "link": "",
             "open_in_new_tab": false,
@@ -990,6 +990,7 @@
           "blocks": {
             "group_3wDMHV": {
               "type": "group",
+              "name": "Group 1",
               "settings": {
                 "link": "",
                 "open_in_new_tab": false,
