@@ -121,8 +121,8 @@
               "name": "t:names.text",
               "settings": {
                 "text": "<p><strong>About Us</strong></p>",
-                "width": "fit-content",
-                "max_width": "normal",
+                "width": "100%",
+                "max_width": "none",
                 "alignment": "left",
                 "type_preset": "rte",
                 "font": "var(--font-body--family)",
@@ -147,8 +147,8 @@
               "name": "t:names.heading",
               "settings": {
                 "text": "<h2><strong>Our Journey Towards Smarter, Sustainable Packaging</strong></h2>",
-                "width": "fit-content",
-                "max_width": "normal",
+                "width": "100%",
+                "max_width": "none",
                 "alignment": "left",
                 "type_preset": "rte",
                 "font": "var(--font-body--family)",
@@ -173,8 +173,8 @@
               "name": "t:names.text",
               "settings": {
                 "text": "<p>Packaging might not sound exciting, but at Packpoint, we’re changing the way businesses think about it. Our mission is to make sustainable, efficient, and reliable packaging accessible to everyone – without the fear of high costs.</p>",
-                "width": "fit-content",
-                "max_width": "normal",
+                "width": "100%",
+                "max_width": "none",
                 "alignment": "left",
                 "type_preset": "rte",
                 "font": "var(--font-body--family)",
