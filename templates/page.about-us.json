@@ -78,7 +78,7 @@
         },
         "group_yPhTGQ": {
           "type": "group",
-          "name": "t:names.group",
+          "name": "About Us Section Content",
           "settings": {
             "link": "",
             "open_in_new_tab": false,
@@ -206,7 +206,7 @@
         "image_eUxaHm",
         "group_yPhTGQ"
       ],
-      "name": "t:names.custom_section",
+      "name": "About us Section",
       "settings": {
         "content_direction": "row",
         "vertical_on_mobile": true,
