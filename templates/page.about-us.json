@@ -1032,7 +1032,8 @@
                   "type": "icon",
                   "settings": {
                     "icon": "eye",
-                    "width": 32,
+                    "image_upload": "shopify://shop_images/service_plnjy.avif",
+                    "width": 200,
                     "link": "",
                     "open_in_new_tab": false
                   },
@@ -1183,7 +1184,8 @@
                   "type": "icon",
                   "settings": {
                     "icon": "eye",
-                    "width": 32,
+                    "image_upload": "shopify://shop_images/team_ykyuc.avif",
+                    "width": 200,
                     "link": "",
                     "open_in_new_tab": false
                   },
@@ -1334,7 +1336,8 @@
                   "type": "icon",
                   "settings": {
                     "icon": "eye",
-                    "width": 32,
+                    "image_upload": "shopify://shop_images/improve_ksxlz.avif",
+                    "width": 200,
                     "link": "",
                     "open_in_new_tab": false
                   },
@@ -1485,7 +1488,8 @@
                   "type": "icon",
                   "settings": {
                     "icon": "eye",
-                    "width": 32,
+                    "image_upload": "shopify://shop_images/family_khjkv.avif",
+                    "width": 200,
                     "link": "",
                     "open_in_new_tab": false
                   },
@@ -1905,7 +1909,8 @@
                   "type": "icon",
                   "settings": {
                     "icon": "eye",
-                    "width": 32,
+                    "image_upload": "shopify://shop_images/service_plnjy.avif",
+                    "width": 200,
                     "link": "",
                     "open_in_new_tab": false
                   },
