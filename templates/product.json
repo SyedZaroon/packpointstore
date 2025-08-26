@@ -301,7 +301,7 @@
             "type_preset": "h5",
             "inherit_color_scheme": true,
             "color_scheme": "",
-            "border": "solid",
+            "border": "none",
             "border_width": 1,
             "border_opacity": 100,
             "border_radius": 2,
@@ -316,7 +316,7 @@
               "name": "t:names.accordion_dash_row",
               "settings": {
                 "heading": "Description",
-                "open_by_default": true,
+                "open_by_default": false,
                 "icon": "none",
                 "width": 20
               },
@@ -367,7 +367,7 @@
                   "settings": {
                     "text": "<p>We will work quickly to ship your order as soon as possible. Once your order has shipped, you will receive an email with further information. Delivery times vary depending on your location.</p>",
                     "width": "100%",
-                    "max_width": "normal",
+                    "max_width": "none",
                     "alignment": "left",
                     "type_preset": "rte",
                     "font": "var(--font-body--family)",
