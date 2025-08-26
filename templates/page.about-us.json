@@ -990,7 +990,7 @@
           "blocks": {
             "group_tLLaBQ": {
               "type": "group",
-              "name": "Group 1",
+              "name": "Service",
               "settings": {
                 "link": "",
                 "open_in_new_tab": false,
@@ -1041,6 +1041,7 @@
                 },
                 "group_arEb9D": {
                   "type": "group",
+                  "name": "Service text",
                   "settings": {
                     "link": "",
                     "open_in_new_tab": false,
@@ -1142,7 +1143,7 @@
             },
             "group_3wDMHV": {
               "type": "group",
-              "name": "Group 2",
+              "name": "Teamwork",
               "settings": {
                 "link": "",
                 "open_in_new_tab": false,
@@ -1193,6 +1194,7 @@
                 },
                 "group_yrK3bR": {
                   "type": "group",
+                  "name": "Teamwork text",
                   "settings": {
                     "link": "",
                     "open_in_new_tab": false,
@@ -1294,7 +1296,7 @@
             },
             "group_hrW87P": {
               "type": "group",
-              "name": "Group 3",
+              "name": "Improvement",
               "settings": {
                 "link": "",
                 "open_in_new_tab": false,
@@ -1345,6 +1347,7 @@
                 },
                 "group_3C3xHP": {
                   "type": "group",
+                  "name": "Improvement text",
                   "settings": {
                     "link": "",
                     "open_in_new_tab": false,
@@ -1446,7 +1449,7 @@
             },
             "group_mNgEVr": {
               "type": "group",
-              "name": "Group 4",
+              "name": "Family",
               "settings": {
                 "link": "",
                 "open_in_new_tab": false,
@@ -1497,6 +1500,7 @@
                 },
                 "group_x3Mpzz": {
                   "type": "group",
+                  "name": "Family text",
                   "settings": {
                     "link": "",
                     "open_in_new_tab": false,
@@ -1803,7 +1807,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h4><strong>Our Core Values</strong></h4>",
+            "text": "<h4><strong>Your key benefits</strong></h4>",
             "width": "100%",
             "max_width": "none",
             "alignment": "center",
