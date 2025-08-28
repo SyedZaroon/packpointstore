@@ -1195,7 +1195,7 @@
         "group_VrMPhJ"
       ],
       "custom_css": [
-        ".group-block-content.layout-panel-flex.layout-panel-flex--row {justify-content: center;}"
+        "@media screen and (max-width:450px){.group-block-content.layout-panel-flex.layout-panel-flex--row {justify-content: center;}}"
       ],
       "name": "t:names.custom_section",
       "settings": {
