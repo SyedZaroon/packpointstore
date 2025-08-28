@@ -4412,6 +4412,6 @@ button.button.menu-list__link.button-unstyled {
 }
 
 [aria-controls="submenu-6"]:hover [aria-controls="submenu-6"]::after {
-    transform:rotate(0deg);
+    transform:rotate(180deg);
 }
 
