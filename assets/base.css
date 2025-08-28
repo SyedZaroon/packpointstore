@@ -4375,6 +4375,10 @@ button.shopify-payment-button__button.shopify-payment-button__button--unbranded 
 
 /* Footer */
 
+summary.menu__heading.h4 {
+    padding-block: unset;
+}
+
 .shopify-section-group-footer-group .spacing-style.layout-panel-flex.layout-panel-flex--row.section-content-wrapper.mobile-column {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
