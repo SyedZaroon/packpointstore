@@ -123,7 +123,7 @@
                   "settings": {
                     "icon": "map_pin",
                     "image_upload": "shopify://shop_images/pin.png",
-                    "width": 24,
+                    "width": 20,
                     "link": "",
                     "open_in_new_tab": false
                   },
@@ -207,7 +207,7 @@
                   "settings": {
                     "icon": "check_box",
                     "image_upload": "shopify://shop_images/call.png",
-                    "width": 24,
+                    "width": 20,
                     "link": "",
                     "open_in_new_tab": false
                   },
@@ -291,7 +291,7 @@
                   "settings": {
                     "icon": "map_pin",
                     "image_upload": "shopify://shop_images/mail.png",
-                    "width": 24,
+                    "width": 20,
                     "link": "",
                     "open_in_new_tab": false
                   },
