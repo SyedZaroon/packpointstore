@@ -457,6 +457,27 @@
           },
           "blocks": {}
         },
+        "menu_KYckK3": {
+          "type": "menu",
+          "name": "t:names.menu",
+          "settings": {
+            "menu": "main-menu",
+            "heading": "Custom Orders",
+            "menu_spacing": 12,
+            "show_as_accordion": false,
+            "accordion_icon": "caret",
+            "accordion_dividers": false,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "heading_preset": "h4",
+            "link_preset": "paragraph",
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        },
         "group_AnRQVn": {
           "type": "group",
           "name": "t:names.group",
@@ -502,10 +523,10 @@
               "name": "t:names.heading",
               "settings": {
                 "text": "<h4>Sign Up for Email</h4>",
-                "width": "fit-content",
-                "max_width": "normal",
+                "width": "100%",
+                "max_width": "none",
                 "alignment": "left",
-                "type_preset": "rte",
+                "type_preset": "h4",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
                 "line_height": "normal",
@@ -558,6 +579,7 @@
         "group_gbzpy4",
         "menu_BQRb8r",
         "menu_FcA3hf",
+        "menu_KYckK3",
         "group_AnRQVn"
       ],
       "name": "Footer",
