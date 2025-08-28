@@ -209,3 +209,6 @@ function findSubmenu(element) {
   const submenu = element?.parentElement?.querySelector('[ref="submenu[]"]');
   return submenu instanceof HTMLElement ? submenu : null;
 }
+
+const menu = document.getElementByClassName("menu-list__link");
+menu.setAttribute(aria-expanded:true);
