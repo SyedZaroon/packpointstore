@@ -4399,3 +4399,15 @@ button.button.menu-list__link.button-unstyled::after
 button.button.menu-list__link.button-unstyled {
     position: relative;
 }
+
+[aria-controls="submenu-6"]::after
+ {
+    position: absolute;
+    content: ">";
+    right: 0px;
+    transform:rotate(90deg);
+}
+
+[aria-controls="submenu-6"] {
+    position: relative;
+}
