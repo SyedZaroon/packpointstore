@@ -4383,4 +4383,5 @@ summary.menu__heading.h4 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     row-gap: 60px;
+    align-items: start;
 }
