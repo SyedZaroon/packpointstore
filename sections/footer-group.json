@@ -443,7 +443,7 @@
             "menu": "useful-links",
             "heading": "Insights",
             "menu_spacing": 12,
-            "show_as_accordion": true,
+            "show_as_accordion": false,
             "accordion_icon": "plus",
             "accordion_dividers": false,
             "inherit_color_scheme": true,
