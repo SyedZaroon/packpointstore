@@ -735,7 +735,7 @@
                   "name": "t:names.icon",
                   "settings": {
                     "icon": "price_tag",
-                    "width": 24,
+                    "width": 20,
                     "link": "",
                     "open_in_new_tab": false
                   },
