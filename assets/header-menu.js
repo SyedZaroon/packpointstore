@@ -210,6 +210,16 @@ function findSubmenu(element) {
   return submenu instanceof HTMLElement ? submenu : null;
 }
 
+// button select karo
+const btn = document.querySelector('button.menu-list__link[role="menuitem"]');
+
+// anchor select karo jiska aria-controls="submenu-6"
 const menu = document.querySelector('a.menu-list__link[aria-controls="submenu-6"]');
-  menu.setAttribute("aria-expanded", "true");
+
+if (btn && menu) {
+  btn.addEventListener("click", () => {
+    menu.setAttribute("aria-expanded", "true");
+  });
+}
+
 
