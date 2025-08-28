@@ -211,7 +211,5 @@ function findSubmenu(element) {
 }
 
 const menu = document.querySelector('a.menu-list__link[aria-controls="submenu-6"]');
-if (menu) {
   menu.setAttribute("aria-expanded", "true");
-}
 
