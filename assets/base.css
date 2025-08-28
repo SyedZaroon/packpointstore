@@ -4393,6 +4393,7 @@ button.button.menu-list__link.button-unstyled::after
     position: absolute;
     content: ">";
     right: 0px;
+    transform:rotate(90deg);
 }
 
 button.button.menu-list__link.button-unstyled {
