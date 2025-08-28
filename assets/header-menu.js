@@ -210,5 +210,8 @@ function findSubmenu(element) {
   return submenu instanceof HTMLElement ? submenu : null;
 }
 
-const menu = document.querySelector("a.menu-list__link");
-menu.setAttribute("aria-expanded", "true");
+const menu = document.querySelector('a.menu-list__link[aria-controls="submenu-6"]');
+if (menu) {
+  menu.setAttribute("aria-expanded", "true");
+}
+
