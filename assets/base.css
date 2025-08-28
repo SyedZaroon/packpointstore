@@ -4415,3 +4415,10 @@ button.button.menu-list__link.button-unstyled {
     transform:rotate(180deg);
 }
 
+@media screen and (max-width:1000px){
+  [aria-controls="submenu-6"]::after
+ {
+    display:none;
+}
+}
+
