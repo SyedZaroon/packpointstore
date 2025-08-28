@@ -1297,7 +1297,7 @@ button.shopify-payment-button__button--unbranded {
   font-family: var(--button-font-family-secondary);
   font-weight: var(--button-font-weight-secondary);
   text-transform: var(--button-text-case-secondary);
-  border-radius: var(--style-border-radius-buttons-secondary);
+  /* border-radius: var(--style-border-radius-buttons-secondary); */
 }
 
 button.shopify-payment-button__button--unbranded {
@@ -4287,9 +4287,7 @@ text-component {
     top: 20px;
     left: 50%;
     transform: translateX(-50%);
-    max-width: 1400px;
     width: 100%;
-    padding: 0px 20px;
 
 }
 
@@ -4337,6 +4335,10 @@ text-component {
   font-size: var(--font-h5--size);
 }
 
+.facets__actions.facets__actions--active {
+    display: none;
+}
+
 /*. Price */
 
 .product-details .price{
@@ -4354,13 +4356,25 @@ button.shopify-payment-button__button.shopify-payment-button__button--unbranded 
   border-color: #FF7A09 !important;
 }
 
-details.details {
-  border: 1px solid var(--color-border, rgb(0 0 0 / 0.06)) !important;
-      margin-bottom: 20px;
+.accordion--dividers .details-content {
+    padding-block: var(--padding-lg);
+    color:#545454;
+}
+/* Faqs */
+.details__header{
+          font-size: 15px !important;
+    }
+
+    summary.details__header {
+    height: 60px;
 }
 
-summary.details__header,
-.details-content {
-    padding: 10px;
+.accordion.accordion--Ad2NNckNRMnB6bzg3R__accordion_AENFAB.accordion--plus.border-style.spacing-style.accordion--dividers {
+    padding-inline: unset;
 }
-    
+
+/* Footer */
+
+summary.menu__heading.h4 {
+    padding-block: unset;
+}
