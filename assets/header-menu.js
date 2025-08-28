@@ -210,10 +210,9 @@ function findSubmenu(element) {
   return submenu instanceof HTMLElement ? submenu : null;
 }
 
-// button select karo
-const btn = document.querySelector('button.menu-list__link[role="menuitem"]');
+// Custom Header Menu Js for more button
 
-// anchor select karo jiska aria-controls="submenu-6"
+const btn = document.querySelector('button.menu-list__link[role="menuitem"]');
 const menu = document.querySelector('a.menu-list__link[aria-controls="submenu-6"]');
 
 if (btn && menu) {
