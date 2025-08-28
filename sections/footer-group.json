@@ -1014,7 +1014,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>©<strong>Copyright</strong> 2025</p>",
+            "text": "<p>© <strong>Copyright</strong> 2025 <strong>Company Number:</strong> 16492778</p>",
             "width": "fit-content",
             "max_width": "none",
             "alignment": "left",
@@ -1036,12 +1036,20 @@
           },
           "blocks": {}
         },
-        "payment_icons_7UBE7W": {
-          "type": "payment-icons",
-          "name": "t:names.payment_icons",
+        "menu_7iW9HJ": {
+          "type": "menu",
+          "name": "t:names.menu",
           "settings": {
-            "horizontal_alignment": "flex-start",
-            "gap": 10,
+            "menu": "main-menu",
+            "heading": "",
+            "menu_spacing": 12,
+            "show_as_accordion": false,
+            "accordion_icon": "caret",
+            "accordion_dividers": false,
+            "inherit_color_scheme": true,
+            "color_scheme": "",
+            "heading_preset": "h3",
+            "link_preset": "paragraph",
             "padding-block-start": 0,
             "padding-block-end": 0,
             "padding-inline-start": 0,
@@ -1052,7 +1060,7 @@
       },
       "block_order": [
         "text_JPzy6q",
-        "payment_icons_7UBE7W"
+        "menu_7iW9HJ"
       ],
       "name": "t:names.custom_section",
       "settings": {
