@@ -1022,7 +1022,7 @@
         "group_L4QUeH",
         "group_h8BNHB"
       ],
-      "name": "t:names.custom_section",
+      "name": "Row 2",
       "settings": {
         "content_direction": "row",
         "vertical_on_mobile": true,
@@ -1047,7 +1047,7 @@
         "overlay_color": "#00000026",
         "overlay_style": "solid",
         "gradient_direction": "to top",
-        "padding-block-start": 0,
+        "padding-block-start": 30,
         "padding-block-end": 20
       }
     },
