@@ -906,6 +906,7 @@
                   "name": "t:names.icon",
                   "settings": {
                     "icon": "price_tag",
+                    "image_upload": "shopify://shop_images/motorbike.png",
                     "width": 20,
                     "link": "",
                     "open_in_new_tab": false
