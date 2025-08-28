@@ -4385,7 +4385,9 @@ summary.menu__heading.h4 {
     row-gap: 30px;
     align-items: start;
 }
-
+.shopify-section-group-footer-group a.size-style.link:hover {
+    color: white;
+}
 /* Header Menu */
 
 button.button.menu-list__link.button-unstyled::after
