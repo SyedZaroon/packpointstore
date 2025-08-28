@@ -419,8 +419,8 @@
           "type": "menu",
           "name": "t:names.menu",
           "settings": {
-            "menu": "main-menu",
-            "heading": "Shop Now",
+            "menu": "footer-1",
+            "heading": "Shop",
             "menu_spacing": 12,
             "show_as_accordion": false,
             "accordion_icon": "caret",
