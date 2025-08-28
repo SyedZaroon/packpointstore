@@ -4399,6 +4399,9 @@ button.button.menu-list__link.button-unstyled::after
 button.button.menu-list__link.button-unstyled {
     position: relative;
 }
+[aria-controls="submenu-6"] {
+    position: relative;
+}
 
 [aria-controls="submenu-6"]::after
  {
@@ -4408,6 +4411,7 @@ button.button.menu-list__link.button-unstyled {
     transform:rotate(90deg);
 }
 
-[aria-controls="submenu-6"] {
-    position: relative;
+[aria-controls="submenu-6"]:hover [aria-controls="submenu-6"]::after {
+    transform:rotate(0deg);
 }
+
