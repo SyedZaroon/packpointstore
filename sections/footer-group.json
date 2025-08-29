@@ -1195,7 +1195,7 @@
         "group_VrMPhJ"
       ],
       "custom_css": [
-        "@media screen and (max-width:450px){.group-block-content.layout-panel-flex.layout-panel-flex--row {justify-content: center;}}"
+        "@media screen and (max-width: 450px) {.group-block-content.layout-panel-flex.layout-panel-flex--row,rte-formatter.spacing-style.text-block.text-block--AWlhSZElodnlhQ2w5b__text_JPzy6q.rte.rte p{justify-content: center; text-align: center; }}"
       ],
       "name": "t:names.custom_section",
       "settings": {
