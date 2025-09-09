@@ -33,7 +33,7 @@
     {% endif %}
   >
     <form class="variant-picker__form">
-      {%- for product_option in product_resource.variants -%}
+      {%- for product_option in product_resource.options_with_values -%}
         {%- liquid
           assign swatch_count = product_option.values | map: 'swatch' | compact | size
           assign variant_style = block_settings.variant_style
