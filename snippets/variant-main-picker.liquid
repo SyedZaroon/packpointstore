@@ -64,7 +64,7 @@
                 <span class="variant-option__swatch-value">{{ product_option.selected_value }}</span>
               {%- endif %}
             </legend>
-            {%- for product_option_value in product_option.values -%}
+            {% comment %} {%- for product_option_value in product_option.values -%}
               {%- if product_option_value.available -%}
               {% if product_option_value.size > longest_value and option_id_attribute %}
                 {% assign longest_value = product_option_value.size %}
@@ -111,7 +111,53 @@
                 {% render 'strikethrough-variant', product_option: product_option_value %}
               </label>
               {%- endif -%}
-            {%- endfor -%}
+            {%- endfor -%} {% endcomment %}
+
+            {%- for product_option_value in product_option.values -%}
+  {%- assign v = product_option_value.variant -%}
+  {%- if v == blank -%}
+    {%- continue -%} {# HIDE if variant deleted #}
+  {%- endif -%}
+
+  {% if product_option_value.size > longest_value and option_id_attribute %}
+    {% assign longest_value = product_option_value.size %}
+  {% endif %}
+
+  {%- assign is_available = v.available -%}
+
+  <label class="variant-option__button-label{% if variant_style == 'swatch' %} variant-option__button-label--has-swatch{% endif %}">
+    <input
+      type="radio"
+      name="{{ product_option.name | escape }}-{{ block.id }}-{{ product_resource.id }}"
+      value="{{ product_option_value | escape }}"
+      aria-label="{{ product_option_value.name }}"
+      {% unless is_available %}aria-disabled="true"{% endunless %}
+      data-input-id="{{ product_option.position }}-{{ forloop.index0 }}"
+      data-option-value-id="{{ product_option_value.id }}"
+      data-option-available="{{ is_available }}"
+      data-connected-product-url="{{ product_option_value.product_url }}"
+      {% if v.id %}data-variant-id="{{ v.id }}"{% endif %}
+      {% if product_option_value.selected and is_available %}checked{% endif %}
+    >
+
+    {% if variant_style == 'swatch' %}
+      {% liquid
+        assign featured_media = v.featured_media
+        if featured_media == blank and product_option_value.product_url
+          assign featured_media = v.product.featured_media
+        endif
+      %}
+      {% render 'swatch', swatch: product_option_value.swatch, variant_image: featured_media, mode: 'unscaled' %}
+    {% else %}
+      <span class="variant-option__button-label__text">
+        {{ product_option_value | escape }}
+      </span>
+    {% endif %}
+
+    {% render 'strikethrough-variant', product_option: product_option_value %}
+  </label>
+{%- endfor -%}
+
             {% if option_id_attribute %}
               {% style %}
                 [data-option-id="{{ fieldset_id }}"] {
