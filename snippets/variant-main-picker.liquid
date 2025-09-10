@@ -65,6 +65,7 @@
               {%- endif %}
             </legend>
             {%- for product_option_value in product_option.values -%}
+              {%- if product_option_value.available -%}
               {% if product_option_value.size > longest_value and option_id_attribute %}
                 {% assign longest_value = product_option_value.size %}
               {% endif %}
@@ -109,6 +110,7 @@
                 {% endif %}
                 {% render 'strikethrough-variant', product_option: product_option_value %}
               </label>
+              {%- endif -%}
             {%- endfor -%}
             {% if option_id_attribute %}
               {% style %}
