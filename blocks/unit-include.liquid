@@ -9,24 +9,17 @@
 console.log("hi");
 
 document.addEventListener("DOMContentLoaded", () => {
-  // Select all quantity selectors on the page
   const quantitySelectors = document.querySelectorAll(".quantity-selector");
-
-  if (!quantitySelectors.length) {
-    console.warn("No quantity selectors found on this page.");
-    return;
-  }
+  const unitValueElement = document.getElementById("variantAdditionalInfo-{{ section.id }}");
 
   quantitySelectors.forEach(selector => {
     const quantityInput = selector.querySelector("input[name='quantity']");
     const minusBtn = selector.querySelector("button[name='minus']");
     const plusBtn = selector.querySelector("button[name='plus']");
 
-    // Safety check (skip this selector if input is missing)
-    if (!quantityInput) return;
 
     function logQuantity() {
-      console.log("Quantity:", quantityInput.value);
+      unitValueElement.textContent = init_variant*quantityInput.value
     }
 
     // Attach event listeners safely
