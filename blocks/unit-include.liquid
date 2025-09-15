@@ -1,50 +1,65 @@
-
 <div id="variantAdditionalInfoWrapper-{{ section.id }}">
   {%- assign init_variant = product.selected_or_first_available_variant -%}
   <div id="variantAdditionalInfo-{{ section.id }}">
-    {{ init_variant.metafields.custom.unit_include }}
+    {% if init_variant.metafields.custom.unit_include %}
+      You will receive {{ init_variant.metafields.custom.unit_include }} units
+    {% endif %}
   </div>
 </div>
+
+{%- comment -%}
+  Expose all variants + metafield data to JS
+{%- endcomment -%}
+<script>
+  window.variantUnitIncludes = {
+    {% for variant in product.variants %}
+      "{{ variant.id }}": {{ variant.metafields.custom.unit_include | default: 0 | json }}{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  };
+</script>
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const quantitySelector = document.querySelector(".quantity-selector");
-    const customquantityInput = quantitySelector.querySelector("input[name='quantity']");
+    if (!quantitySelector) return;
+
+    const qtyInput = quantitySelector.querySelector("input[name='quantity']");
     const minusBtn = quantitySelector.querySelector("button[name='minus']");
     const plusBtn = quantitySelector.querySelector("button[name='plus']");
-
     const infoBox = document.getElementById("variantAdditionalInfo-{{ section.id }}");
 
-    // Keep track of currently selected variant's unit_include
-    let currentUnitInclude = {{ init_variant.metafields.custom.unit_include | default: 0 | json }};
+    // Default value
+    let currentUnitInclude = window.variantUnitIncludes["{{ init_variant.id }}"] || 0;
 
     function updateVariantInfo() {
-      const qty = parseInt(customquantityInput.value) || 1;
-      const result = currentUnitInclude * qty;
-      infoBox.textContent = currentUnitInclude > 0
-        ? `You will receive ${result} units`
-        : "";
+      const qty = parseInt(qtyInput.value) || 1;
+      if (currentUnitInclude > 0) {
+        infoBox.textContent = `You will receive ${currentUnitInclude * qty} units`;
+      } else {
+        infoBox.textContent = "";
+      }
     }
 
-    // Listen for quantity changes
-    customquantityInput.addEventListener("input", updateVariantInfo);
+    // ---- Quantity Listeners ----
+    qtyInput.addEventListener("input", updateVariantInfo);
     minusBtn.addEventListener("click", () => setTimeout(updateVariantInfo, 0));
     plusBtn.addEventListener("click", () => setTimeout(updateVariantInfo, 0));
 
-    // Listen for variant change (Shopify triggers this event in Dawn & OS 2.0 themes)
-    document.addEventListener("variant:change", function(event) {
-      const variant = event.detail.variant;
-      if (!variant) return;
-
-      // Update currentUnitInclude from our global object
-      currentUnitInclude = window.variantUnitIncludes[variant.id] || 0;
-      updateVariantInfo();
+    // ---- Variant Listeners ----
+    const variantInputs = document.querySelectorAll('input[name^="Select size"]');
+    variantInputs.forEach(input => {
+      input.addEventListener("change", (e) => {
+        const selectedVariantId = e.target.dataset.variantId;
+        currentUnitInclude = window.variantUnitIncludes[selectedVariantId] || 0;
+        updateVariantInfo();
+      });
     });
 
-    // Initialize once on page load
+    // Initialize on page load
     updateVariantInfo();
   });
 </script>
+
 
 
 
