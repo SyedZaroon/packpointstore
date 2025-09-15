@@ -13,17 +13,17 @@
 
   document.addEventListener("DOMContentLoaded", () => {
     const quantitySelector = document.querySelector(".quantity-selector");
-    const customquantityInput = quantitySelector.querySelector("input[name='quantity']");
+    const quantityInput = quantitySelector.querySelector("input[name='quantity']");
     const minusBtn = quantitySelector.querySelector("button[name='minus']");
     const plusBtn = quantitySelector.querySelector("button[name='plus']");
 
     function getQuantityValue() {
-      console.log("Quantity:", customquantityInput.value);
+      console.log("Quantity:", quantityInput.value);
       // You can also update something dynamically here
     }
 
     // Listen for input changes (typing)
-    customquantityInput.addEventListener("input", getQuantityValue);
+    quantityInput.addEventListener("input", getQuantityValue);
 
     // Listen for button clicks (plus / minus)
     minusBtn.addEventListener("click", () => {
