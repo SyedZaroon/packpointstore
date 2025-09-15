@@ -13,9 +13,9 @@
 
   document.addEventListener("DOMContentLoaded", () => {
     const quantitySelector = document.querySelector(".quantity-selector");
-    const quantityInput = quantitySelector.querySelector("input[name='quantity']");
-    const minusBtn = quantitySelector.querySelector("button[name='minus']");
-    const plusBtn = quantitySelector.querySelector("button[name='plus']");
+    const quantityInput = document.querySelector("input[name='quantity']");
+    const minusBtn = document.querySelector("button[name='minus']");
+    const plusBtn = document.querySelector("button[name='plus']");
 
     function getQuantityValue() {
       console.log("Quantity:", quantityInput.value);
