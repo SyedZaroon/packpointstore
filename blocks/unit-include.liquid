@@ -1,13 +1,10 @@
 <div id="variantAdditionalInfoWrapper-{{ section.id }}">
   {%- assign init_variant = product.selected_or_first_available_variant -%}
   {%- if init_variant != blank -%}
-
-     <div id="variantAdditionalInfo-{{ section.id }}">
-    Calculating...
-  </div>
-  
-{%- endif -%}
- 
+    <div id="variantAdditionalInfo-{{ section.id }}">
+      Calculating...
+    </div>
+  {%- endif -%}
 </div>
 
 <script>
@@ -15,10 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const quantitySelectors = document.querySelectorAll(".quantity-selector");
   const unitValueElement = document.getElementById("variantAdditionalInfo-{{ section.id }}");
 
-  // Get initial value from Liquid and convert to number
+  // Get initial value from Liquid as a number (fallback 0 if no metafield value)
   const unitBaseValue = Number({{ init_variant.metafields.custom.unit_include | default: 0 }});
-
-  unitValueElement.textContent = `You will receive ${unitBaseValue} units`
 
   if (!quantitySelectors.length || !unitValueElement) return;
 
@@ -29,16 +24,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!quantityInput) return;
 
-    function logQuantity() {
+    function updateUnitInfo() {
       const quantity = Number(quantityInput.value) || 1;
       const total = unitBaseValue * quantity;
-      unitValueElement.textContent = `You will receive ${total} units`;
+      unitValueElement.textContent = total; // Replace "Calculating..." with result
+      console.log(`Quantity: ${quantity}, Unit Value: ${unitBaseValue}, Total: ${total}`);
     }
 
-    // Event listeners
-    if (minusBtn) minusBtn.addEventListener("click", logQuantity);
-    if (plusBtn) plusBtn.addEventListener("click", logQuantity);
-    quantityInput.addEventListener("input", logQuantity);
+    // Attach event listeners
+    if (minusBtn) minusBtn.addEventListener("click", updateUnitInfo);
+    if (plusBtn) plusBtn.addEventListener("click", updateUnitInfo);
+    quantityInput.addEventListener("input", updateUnitInfo);
+
+    // Run once on page load to replace "Calculating..."
+    updateUnitInfo();
   });
 });
 </script>
