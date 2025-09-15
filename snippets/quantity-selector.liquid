@@ -13,7 +13,22 @@
 {% liquid
   assign variant = product.selected_or_first_available_variant
 %}
-{{ product.selected_or_first_available_variant.metafields.custom.unit_include }}
+<p id="unit-include">
+  {{ product.selected_or_first_available_variant.metafields.custom.unit_include }}
+</p>
+<script>
+  document.addEventListener('variant:change', (event) => {
+  const variant = event.detail.variant;
+  const unitIncludeElement = document.getElementById('unit-include');
+  
+  if (variant && variant.metafields?.custom?.unit_include) {
+    unitIncludeElement.textContent = `Unit Include: ${variant.metafields.custom.unit_include}`;
+  } else {
+    unitIncludeElement.textContent = '';
+  }
+});
+
+  </script>
 
 <quantity-selector-component
   class="quantity-selector{% if class %} {{ class }}{% endif %}"
