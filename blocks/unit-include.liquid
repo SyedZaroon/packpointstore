@@ -1,4 +1,3 @@
-
 <div id="variantAdditionalInfoWrapper-{{ section.id }}">
   {%- assign init_variant = product.selected_or_first_available_variant -%}
   <div id="variantAdditionalInfo-{{ section.id }}">
@@ -9,33 +8,42 @@
 <script>
   document.addEventListener("DOMContentLoaded", () => {
     const quantitySelector = document.querySelector(".quantity-selector");
+    if (!quantitySelector) return; // stop if quantity selector not found
+
     const customquantityInput = quantitySelector.querySelector("input[name='quantity']");
     const minusBtn = quantitySelector.querySelector("button[name='minus']");
     const plusBtn = quantitySelector.querySelector("button[name='plus']");
-
     const infoBox = document.getElementById("variantAdditionalInfo-{{ section.id }}");
-    const unitInclude = {{ init_variant.metafields.custom.unit_include | json }}; // safe for JS
+
+    // Safe fallback value if metafield is missing
+    let unitInclude = {{ init_variant.metafields.custom.unit_include | default: 1 | json }};
 
     function updateVariantInfo() {
       const qty = parseInt(customquantityInput.value) || 1;
       const result = unitInclude * qty;
-      infoBox.textContent = `You will receive ${result} units`; // update DOM in real time
+      infoBox.textContent = `You will receive ${result} units`;
     }
 
-    // Listen for input changes (typing)
+    // Input change (manual typing)
     customquantityInput.addEventListener("input", updateVariantInfo);
 
-    // Wait until Shopify updates quantity after clicking +/- then run
-    minusBtn.addEventListener("click", () => setTimeout(updateVariantInfo, 0));
-    plusBtn.addEventListener("click", () => setTimeout(updateVariantInfo, 0));
+    // +/- buttons (use timeout to wait until Shopify updates quantity input)
+    minusBtn?.addEventListener("click", () => setTimeout(updateVariantInfo, 0));
+    plusBtn?.addEventListener("click", () => setTimeout(updateVariantInfo, 0));
 
-    // Initialize once on page load
+    // Listen for variant change event (supported by Dawn & most modern themes)
+    document.addEventListener("variant:changed", (event) => {
+      const newVariant = event.detail?.variant;
+      if (!newVariant) return;
+      // Update unitInclude if metafield exists on new variant
+      unitInclude = newVariant?.metafields?.custom?.unit_include ?? 1;
+      updateVariantInfo();
+    });
+
+    // Run once on load
     updateVariantInfo();
   });
 </script>
-
-
-
 
 {% schema %}
 {
@@ -49,5 +57,3 @@
   ]
 }
 {% endschema %}
-
-
