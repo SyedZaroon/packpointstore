@@ -19,8 +19,7 @@
     function updateVariantInfo() {
       const qty = parseInt(customquantityInput.value) || 1;
       const result = unitInclude * qty;
-      infoBox.textContent = result; // update DOM in real time
-      console.log(`Quantity: ${qty}, Calculated: ${result}`);
+      infoBox.textContent = `You will receive ${result} units`; // update DOM in real time
     }
 
     // Listen for input changes (typing)
