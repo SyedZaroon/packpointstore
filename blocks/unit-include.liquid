@@ -1,0 +1,34 @@
+{% for variant in product.variants %}
+  {% if variant == product.selected_or_first_available_variant %}
+    <div id="variantAdditionalInfo">
+      {{ variant.metafields.custom.variant_additional_info }} 
+    </div>
+  {% endif %}
+  {% endfor %} 
+
+
+  <script>
+ var variantMetafieldInfo = {};
+ {% for variant in product.variants %}
+   variantMetafieldInfo[{{- variant.id -}}] = "{{ variant.metafields.custom.variant_additional_info }}";
+ {% endfor %}
+
+  const variantAddInfo = document.getElementById(`variantAdditionalInfo`);
+ if (variantMetafieldInfo[this.currentVariant.id] !== undefined) {
+   variantAddInfo.textContent = variantMetafieldInfo[this.currentVariant.id];
+ }
+ 
+</script>
+
+{% schema %}
+    {
+        "name": "Unit Include",
+        "settings": [],
+        "presets": [
+            {
+                "category": "Custom Block",
+                "name": "Unit Include"
+            }
+        ]
+    }
+{% endschema %}
