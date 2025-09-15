@@ -2,7 +2,7 @@
 <div id="variantAdditionalInfoWrapper-{{ section.id }}">
   {%- assign init_variant = product.selected_or_first_available_variant -%}
   <div id="variantAdditionalInfo-{{ section.id }}">
-    {{ init_variant.metafields.custom.unit_include }}
+    {{ init_variant.metafields.custom.unit_include}} * customquantityInput.value 
   </div>
 </div>
 
