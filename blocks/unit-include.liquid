@@ -7,6 +7,36 @@
 </div>
 
 
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const quantitySelector = document.querySelector(".quantity-selector");
+    const quantityInput = quantitySelector.querySelector("input[name='quantity']");
+    const minusBtn = quantitySelector.querySelector("button[name='minus']");
+    const plusBtn = quantitySelector.querySelector("button[name='plus']");
+
+    function getQuantityValue() {
+      console.log("Quantity:", quantityInput.value);
+      // You can also update something dynamically here
+    }
+
+    // Listen for input changes (typing)
+    quantityInput.addEventListener("input", getQuantityValue);
+
+    // Listen for button clicks (plus / minus)
+    minusBtn.addEventListener("click", () => {
+      quantityInput.value = Math.max(1, parseInt(quantityInput.value) - 1);
+      getQuantityValue();
+    });
+
+    plusBtn.addEventListener("click", () => {
+      quantityInput.value = parseInt(quantityInput.value) + 1;
+      getQuantityValue();
+    });
+  });
+</script>
+
+
+
 {% schema %}
 {
   "name": "Unit Include",
@@ -19,3 +49,5 @@
   ]
 }
 {% endschema %}
+
+
