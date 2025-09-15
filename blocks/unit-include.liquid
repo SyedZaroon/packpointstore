@@ -1,44 +1,30 @@
-
 <div id="variantAdditionalInfoWrapper-{{ section.id }}">
   {%- assign init_variant = product.selected_or_first_available_variant -%}
   <div id="variantAdditionalInfo-{{ section.id }}">
-    {{ init_variant.metafields.custom.unit_include}}
+    {{ init_variant.metafields.custom.unit_include }}
   </div>
 </div>
 
-
 <script>
-
-  console.log("hi");
-
   document.addEventListener("DOMContentLoaded", () => {
-    const quantitySelector = document.querySelector(".quantity-selector");
     const quantityInput = document.querySelector("input[name='quantity']");
     const minusBtn = document.querySelector("button[name='minus']");
     const plusBtn = document.querySelector("button[name='plus']");
 
+    if (!quantityInput) return; // safety check
+
     function getQuantityValue() {
       console.log("Quantity:", quantityInput.value);
-      // You can also update something dynamically here
     }
 
-    // Listen for input changes (typing)
+    // Input typing works normally
     quantityInput.addEventListener("input", getQuantityValue);
 
-    // Listen for button clicks (plus / minus)
-    minusBtn.addEventListener("click", () => {
-       console.log("pls")
-      getQuantityValue();
-    });
-
-    plusBtn.addEventListener("click", () => {
-      console.log("minus")
-      getQuantityValue();
-    });
+    // +/- buttons: wait until Shopify updates value
+    minusBtn?.addEventListener("click", () => setTimeout(getQuantityValue, 0));
+    plusBtn?.addEventListener("click", () => setTimeout(getQuantityValue, 0));
   });
 </script>
-
-
 
 {% schema %}
 {
@@ -52,5 +38,3 @@
   ]
 }
 {% endschema %}
-
-
