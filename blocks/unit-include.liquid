@@ -24,12 +24,10 @@
 
     // Listen for button clicks (plus / minus)
     minusBtn.addEventListener("click", () => {
-      customquantityInput.value = Math.max(1, parseInt(customquantityInput.value) - 1);
       getQuantityValue();
     });
 
     plusBtn.addEventListener("click", () => {
-      customquantityInput.value = parseInt(customquantityInput.value) + 1;
       getQuantityValue();
     });
   });
