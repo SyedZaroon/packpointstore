@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Get initial value from Liquid and convert to number
   const unitBaseValue = Number({{ init_variant.metafields.custom.unit_include | default: 0 }});
 
-  unitValueElement.textContent = unitBaseValue
+  unitValueElement.textContent = `You will receive ${unitBaseValue} units`
 
   if (!quantitySelectors.length || !unitValueElement) return;
 
