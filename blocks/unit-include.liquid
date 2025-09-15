@@ -6,24 +6,18 @@
 </div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    const quantityInput = document.querySelector("input[name='quantity']");
-    const minusBtn = document.querySelector("button[name='minus']");
-    const plusBtn = document.querySelector("button[name='plus']");
+document.addEventListener("DOMContentLoaded", () => {
+  const quantitySelector = document.querySelector(".quantity-selector");
+  const minusBtn = quantitySelector.querySelector("[name='minus']");
+  const plusBtn = quantitySelector.querySelector("[name='plus']");
+  const quantityInput = quantitySelector.querySelector("[name='quantity']");
 
-    if (!quantityInput) return; // safety check
+  const logQuantity = () => console.log("Quantity:", quantityInput.value);
 
-    function getQuantityValue() {
-      console.log("Quantity:", quantityInput.value);
-    }
-
-    // Input typing works normally
-    quantityInput.addEventListener("input", getQuantityValue);
-
-    // +/- buttons: wait until Shopify updates value
-    minusBtn?.addEventListener("click", () => setTimeout(getQuantityValue, 0));
-    plusBtn?.addEventListener("click", () => setTimeout(getQuantityValue, 0));
-  });
+  minusBtn.addEventListener("click", logQuantity);
+  plusBtn.addEventListener("click", logQuantity);
+  quantityInput.addEventListener("input", logQuantity); // logs whenever user types
+});
 </script>
 
 {% schema %}
