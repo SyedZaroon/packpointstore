@@ -13,9 +13,8 @@
 {% liquid
   assign variant = product.selected_or_first_available_variant
 %}
-<p id="unit-include">
-  {{ variant.metafields.global.custom.unit_include }}
-</p>
+{{ variant.metafields.custom.unit_include }}
+
 
 
 <quantity-selector-component
