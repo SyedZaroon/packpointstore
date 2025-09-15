@@ -1,34 +1,70 @@
-{% for variant in product.variants %}
-  {% if variant == product.selected_or_first_available_variant %}
-    <div id="variantAdditionalInfo">
-      {{ variant.metafields.custom.variant_additional_info }} 
-    </div>
-  {% endif %}
-  {% endfor %} 
+{%- comment -%}
+  Shows variant metafield `custom.variant_additional_info` and updates on variant change.
+{%- endcomment -%}
 
+<div id="variantAdditionalInfoWrapper-{{ section.id }}">
+  {%- assign init_variant = product.selected_or_first_available_variant -%}
+  <div id="variantAdditionalInfo-{{ section.id }}">
+    {{ init_variant.metafields.custom.variant_additional_info }}
+  </div>
+</div>
 
-  <script>
- var variantMetafieldInfo = {};
- {% for variant in product.variants %}
-   variantMetafieldInfo[{{- variant.id -}}] = "{{ variant.metafields.custom.variant_additional_info }}";
- {% endfor %}
+<script type="application/json" id="VariantMetaMap-{{ section.id }}">
+[
+  {%- for v in product.variants -%}
+    { "id": {{ v.id | json }}, "val": {{ v.metafields.custom.variant_additional_info | json }} }{% unless forloop.last %},{% endunless %}
+  {%- endfor -%}
+]
+</script>
 
-  const variantAddInfo = document.getElementById(`variantAdditionalInfo`);
- if (variantMetafieldInfo[this.currentVariant.id] !== undefined) {
-   variantAddInfo.textContent = variantMetafieldInfo[this.currentVariant.id];
- }
- 
+<script>
+(function() {
+  const section = document.getElementById('shopify-section-{{ section.id }}') || document;
+  const out = document.getElementById('variantAdditionalInfo-{{ section.id }}');
+  const mapEl = document.getElementById('VariantMetaMap-{{ section.id }}');
+
+  if (!out || !mapEl) return;
+
+  let metaMap = [];
+  try { metaMap = JSON.parse(mapEl.textContent || '[]'); } catch(e) {}
+
+  function getSelectedVariantId() {
+    // Find the product form inside this section and read hidden variant id
+    const form = section.querySelector('form[action*="/cart/add"]');
+    const idInput = form && form.querySelector('input[name="id"]');
+    return idInput ? parseInt(idInput.value, 10) : null;
+  }
+
+  function update() {
+    const vid = getSelectedVariantId();
+    if (!vid) return;
+    const rec = metaMap.find(x => x.id === vid);
+    // If your metafield contains plain text, textContent is fine.
+    // If it's rich text/HTML, you can switch to innerHTML.
+    out.textContent = rec && rec.val ? String(rec.val) : '';
+  }
+
+  // Handle Dawn/OS2.0 custom event
+  section.addEventListener('variant:change', update);
+  // Fallback: detect changes to hidden variant id input
+  section.addEventListener('change', (e) => {
+    if (e.target && e.target.name === 'id') update();
+  }, true);
+
+  document.addEventListener('DOMContentLoaded', update);
+  update();
+})();
 </script>
 
 {% schema %}
+{
+  "name": "Unit Include",
+  "settings": [],
+  "presets": [
     {
-        "name": "Unit Include",
-        "settings": [],
-        "presets": [
-            {
-                "category": "Custom Block",
-                "name": "Unit Include"
-            }
-        ]
+      "category": "Custom Block",
+      "name": "Unit Include"
     }
+  ]
+}
 {% endschema %}
