@@ -2,9 +2,10 @@
 <div id="variantAdditionalInfoWrapper-{{ section.id }}">
   {%- assign init_variant = product.selected_or_first_available_variant -%}
   <div id="variantAdditionalInfo-{{ section.id }}">
-    {{ init_variant.metafields.custom.unit_include }}
+    {{ init_variant.metafields.custom.unit_include}} * customquantityInput.value 
   </div>
 </div>
+
 
 <script>
   document.addEventListener("DOMContentLoaded", () => {
@@ -13,27 +14,24 @@
     const minusBtn = quantitySelector.querySelector("button[name='minus']");
     const plusBtn = quantitySelector.querySelector("button[name='plus']");
 
-    const infoBox = document.getElementById("variantAdditionalInfo-{{ section.id }}");
-    const unitInclude = {{ init_variant.metafields.custom.unit_include | json }}; // safe for JS
-
-    function updateVariantInfo() {
-      const qty = parseInt(customquantityInput.value) || 1;
-      const result = unitInclude * qty;
-      infoBox.textContent = ` You will receive ${result} units`; 
+    function getQuantityValue() {
+      console.log("Quantity:", customquantityInput.value);
+      // You can also update something dynamically here
     }
 
     // Listen for input changes (typing)
-    customquantityInput.addEventListener("input", updateVariantInfo);
+    customquantityInput.addEventListener("input", getQuantityValue);
 
-    // Wait until Shopify updates quantity after clicking +/- then run
-    minusBtn.addEventListener("click", () => setTimeout(updateVariantInfo, 0));
-    plusBtn.addEventListener("click", () => setTimeout(updateVariantInfo, 0));
+    // Listen for button clicks (plus / minus)
+    minusBtn.addEventListener("click", () => {
+      getQuantityValue();
+    });
 
-    // Initialize once on page load
-    updateVariantInfo();
+    plusBtn.addEventListener("click", () => {
+      getQuantityValue();
+    });
   });
 </script>
-
 
 
 
