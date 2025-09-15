@@ -13,7 +13,8 @@
 {% liquid
   assign variant = product.selected_or_first_available_variant
 %}
-<p>hi</p>
+{{ product.selected_or_first_available_variant.metafields.custom.unit_include }}
+
 <quantity-selector-component
   class="quantity-selector{% if class %} {{ class }}{% endif %}"
   {% if line_index == null %}
