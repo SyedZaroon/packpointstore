@@ -1,34 +1,8 @@
 <div id="variantAdditionalInfoWrapper-{{ section.id }}">
   {%- assign init_variant = product.selected_or_first_available_variant -%}
-  <div id="variantAdditionalInfo-{{ section.id }}">
-    {{ init_variant.metafields.custom.unit_include }}
-  </div>
+  <div id="variantAdditionalInfo-{{ section.id }}">{{ init_variant.metafields.custom.unit_include }}</div>
 </div>
-
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-  const quantitySelector = document.querySelector(".quantity-selector");
-  const minusBtn = quantitySelector.querySelector("[name='minus']");
-  const plusBtn = quantitySelector.querySelector("[name='plus']");
-  const quantityInput = quantitySelector.querySelector("[name='quantity']");
-
-  const logQuantity = () => console.log("Quantity:", quantityInput.value);
-
-  minusBtn.addEventListener("click", logQuantity);
-  plusBtn.addEventListener("click", logQuantity);
-  quantityInput.addEventListener("input", logQuantity); // logs whenever user types
-});
+  console.log("hi"); document.addEventListener("DOMContentLoaded", () => { const quantitySelector = document.querySelector(".quantity-selector"); const quantityInput = document.querySelector("input[name='quantity']"); const minusBtn = document.querySelector("button[name='minus']"); const plusBtn = document.querySelector("button[name='plus']"); function getQuantityValue() { console.log("Quantity:", quantityInput.value); // You can also update something dynamically here } // Listen for input changes (typing) quantityInput.addEventListener("input", getQuantityValue); // Listen for button clicks (plus / minus) minusBtn.addEventListener("click", () => { console.log("pls") getQuantityValue(); }); plusBtn.addEventListener("click", () => { console.log("minus") getQuantityValue(); }); });
 </script>
-
-{% schema %}
-{
-  "name": "Unit Include",
-  "settings": [],
-  "presets": [
-    {
-      "category": "Custom Block",
-      "name": "Unit Include"
-    }
-  ]
-}
-{% endschema %}
+{% schema %} { "name": "Unit Include", "settings": [], "presets": [ { "category": "Custom Block", "name": "Unit Include" } ] } {% endschema %}
