@@ -2,7 +2,7 @@
 <div id="variantAdditionalInfoWrapper-{{ section.id }}">
   {%- assign init_variant = product.selected_or_first_available_variant -%}
   <div id="variantAdditionalInfo-{{ section.id }}">
-    Calculating...
+    {{ init_variant.metafields.custom.unit_include }}
   </div>
 </div>
 
@@ -19,7 +19,7 @@
     function updateVariantInfo() {
       const qty = parseInt(customquantityInput.value) || 1;
       const result = unitInclude * qty;
-      infoBox.textContent = ` You will receive  ${result} units`; 
+      infoBox.textContent = ` You will receive ${result} units`; 
     }
 
     // Listen for input changes (typing)
