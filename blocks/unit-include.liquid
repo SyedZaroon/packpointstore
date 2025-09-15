@@ -1,8 +1,13 @@
 <div id="variantAdditionalInfoWrapper-{{ section.id }}">
   {%- assign init_variant = product.selected_or_first_available_variant -%}
-  <div id="variantAdditionalInfo-{{ section.id }}">
+  {%- if init_variant != blank -%}
+
+     <div id="variantAdditionalInfo-{{ section.id }}">
     Calculating...
   </div>
+  
+{%- endif -%}
+ 
 </div>
 
 <script>
