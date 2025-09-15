@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateUnitInfo() {
       const quantity = Number(quantityInput.value) || 1;
       const total = unitBaseValue * quantity;
-      unitValueElement.textContent = total;
+      unitValueElement.textContent = `You will receive ${total} units`;
       console.log(`Quantity: ${quantity}, Unit Value: ${unitBaseValue}, Total: ${total}`);
     }
 
