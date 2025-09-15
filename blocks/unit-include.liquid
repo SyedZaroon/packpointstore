@@ -13,7 +13,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const quantitySelectors = document.querySelectorAll(".quantity-selector");
   const unitValueElement = document.getElementById("variantAdditionalInfo-{{ section.id }}");
 
-  // Pass the metafield value as a number to JS
   const unitBaseValue = Number({{ unit_value | default: 0 }});
 
   if (!quantitySelectors.length || !unitValueElement) return;
@@ -36,7 +35,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (plusBtn) plusBtn.addEventListener("click", updateUnitInfo);
     quantityInput.addEventListener("input", updateUnitInfo);
 
-    // Run once on page load
     updateUnitInfo();
   });
 });
