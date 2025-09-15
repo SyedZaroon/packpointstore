@@ -247,14 +247,6 @@
                 "size_bottom_padding": 10
               },
               "blocks": {}
-            },
-            "custom_liquid_BNfKt7": {
-              "type": "custom-liquid",
-              "name": "t:names.custom_liquid",
-              "settings": {
-                "custom_liquid": "{% for variant in product.variants %}\n<div class=\"yagi-variant-description\" data-variant-id=\"{{ variant.id }}\" style=\"display:none;\">\n  {{ variant.metafields.custom.unit_include | metafield_tag }}\n</div>\n{% endfor %}\n\n<script>\nfunction yagiHideAllVariantDescriptionExcept(variant){\n  document.querySelectorAll('.yagi-variant-description').forEach(el => {\n    el.style.display = 'none';\n  });\n\n  const descriptionEl = document.querySelector(`.yagi-variant-description[data-variant-id=\"${variant}\"]`);\n  if (descriptionEl){ descriptionEl.style.display = 'block'; }\n}\n\nconst queryString = location.search;\nconst urlParams = new URLSearchParams(queryString);\nvar variantId = '{{ product.variants.first.id }}';\n\nif(urlParams.get('variant')){\n  variantId = urlParams.get('variant');\n}\n\nyagiHideAllVariantDescriptionExcept(variantId);\n\ndocument.addEventListener(\"DOMContentLoaded\", (event) => {\n  document.querySelector(\"input[type='hidden'].product-variant-id\").addEventListener('change', yagiVariantChanged);\n});\n\nfunction yagiVariantChanged() {\n  if (document.querySelector('.product-variant-id')?.value !== variantId) {\n    variantId = document.querySelector('.product-variant-id')?.value;\n\n    if(!variantId) { variantId == '{{ product.variants.first.id }}' }\n    yagiHideAllVariantDescriptionExcept(variantId);\n  }\n}\n</script>"
-              },
-              "blocks": {}
             }
           },
           "block_order": [
@@ -263,8 +255,7 @@
             "variant_picker_R3rGDr",
             "unit_include_GhwVjJ",
             "buy_buttons_eYQEYi",
-            "size_guide_D9qCQJ",
-            "custom_liquid_BNfKt7"
+            "size_guide_D9qCQJ"
           ]
         }
       },
