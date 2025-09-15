@@ -6,38 +6,32 @@
 </div>
 
 <script>
-console.log("hi");
-
 document.addEventListener("DOMContentLoaded", () => {
   const quantitySelectors = document.querySelectorAll(".quantity-selector");
   const unitValueElement = document.getElementById("variantAdditionalInfo-{{ section.id }}");
+
+  // Get initial value from Liquid and convert to number
+  const unitBaseValue = Number({{ init_variant.metafields.custom.unit_include | default: 0 }});
+
+  if (!quantitySelectors.length || !unitValueElement) return;
 
   quantitySelectors.forEach(selector => {
     const quantityInput = selector.querySelector("input[name='quantity']");
     const minusBtn = selector.querySelector("button[name='minus']");
     const plusBtn = selector.querySelector("button[name='plus']");
 
+    if (!quantityInput) return;
 
     function logQuantity() {
-      unitValueElement.textContent = init_variant*quantityInput.value
+      const quantity = Number(quantityInput.value) || 1;
+      const total = unitBaseValue * quantity;
+      unitValueElement.textContent = total;
+      console.log(`Quantity: ${quantity}, Unit Value: ${unitBaseValue}, Total: ${total}`);
     }
 
-    // Attach event listeners safely
-    if (minusBtn) {
-      minusBtn.addEventListener("click", () => {
-        console.log("Minus clicked");
-        logQuantity();
-      });
-    }
-
-    if (plusBtn) {
-      plusBtn.addEventListener("click", () => {
-        console.log("Plus clicked");
-        logQuantity();
-      });
-    }
-
-    // Listen for manual typing
+    // Event listeners
+    if (minusBtn) minusBtn.addEventListener("click", logQuantity);
+    if (plusBtn) plusBtn.addEventListener("click", logQuantity);
     quantityInput.addEventListener("input", logQuantity);
   });
 });
