@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function logQuantity() {
       const quantity = Number(quantityInput.value) || 1;
       const total = unitBaseValue * quantity;
-      unitValueElement.textContent = total;
+      unitValueElement.textContent = `You will receive ${total} units`;
     }
 
     // Event listeners
