@@ -1,7 +1,7 @@
 <div id="variantAdditionalInfoWrapper-{{ section.id }}">
   {%- assign init_variant = product.selected_or_first_available_variant -%}
   <div id="variantAdditionalInfo-{{ section.id }}">
-    {{ init_variant.metafields.custom.unit_include }}
+    Calculating...
   </div>
 </div>
 
@@ -12,6 +12,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Get initial value from Liquid and convert to number
   const unitBaseValue = Number({{ init_variant.metafields.custom.unit_include | default: 0 }});
+
+  unitValueElement.textContent = unitBaseValue
 
   if (!quantitySelectors.length || !unitValueElement) return;
 
