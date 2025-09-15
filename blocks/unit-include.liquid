@@ -1,10 +1,11 @@
+{%- assign init_variant = product.selected_or_first_available_variant -%}
+{%- assign unit_value = init_variant.metafields.custom.unit_include -%}
+
+{%- if unit_value != blank -%}
 <div id="variantAdditionalInfoWrapper-{{ section.id }}">
-  {%- assign init_variant = product.selected_or_first_available_variant -%}
-  {%- if init_variant != blank -%}
-    <div id="variantAdditionalInfo-{{ section.id }}">
-      Calculating...
-    </div>
-  {%- endif -%}
+  <div id="variantAdditionalInfo-{{ section.id }}">
+    Calculating...
+  </div>
 </div>
 
 <script>
@@ -12,8 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const quantitySelectors = document.querySelectorAll(".quantity-selector");
   const unitValueElement = document.getElementById("variantAdditionalInfo-{{ section.id }}");
 
-  // Get initial value from Liquid as a number (fallback 0 if no metafield value)
-  const unitBaseValue = Number({{ init_variant.metafields.custom.unit_include | default: 0 }});
+  // Pass the metafield value as a number to JS
+  const unitBaseValue = Number({{ unit_value | default: 0 }});
 
   if (!quantitySelectors.length || !unitValueElement) return;
 
@@ -27,20 +28,20 @@ document.addEventListener("DOMContentLoaded", () => {
     function updateUnitInfo() {
       const quantity = Number(quantityInput.value) || 1;
       const total = unitBaseValue * quantity;
-      unitValueElement.textContent = total; // Replace "Calculating..." with result
+      unitValueElement.textContent = total;
       console.log(`Quantity: ${quantity}, Unit Value: ${unitBaseValue}, Total: ${total}`);
     }
 
-    // Attach event listeners
     if (minusBtn) minusBtn.addEventListener("click", updateUnitInfo);
     if (plusBtn) plusBtn.addEventListener("click", updateUnitInfo);
     quantityInput.addEventListener("input", updateUnitInfo);
 
-    // Run once on page load to replace "Calculating..."
+    // Run once on page load
     updateUnitInfo();
   });
 });
 </script>
+{%- endif -%}
 
 {% schema %}
 {
