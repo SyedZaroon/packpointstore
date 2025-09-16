@@ -1,3 +1,107 @@
+
+<style>
+  /* Wrapper */
+.discount-table-wrapper {
+  margin: 1.5rem 0;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+
+/* Header */
+.discount-table-header {
+  padding: 1rem;
+  background: #f9fafb;
+  border-bottom: 1px solid #e5e7eb;
+  text-align: center;
+}
+.discount-table-header h3 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+.discount-table-header .discount-subtitle {
+  margin: 0.25rem 0 0;
+  font-size: 0.9rem;
+  color: #6b7280;
+}
+
+/* Table */
+.discount-table-container {
+  overflow-x: auto;
+}
+.discount-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.discount-table th,
+.discount-table td {
+  padding: 0.75rem 1rem;
+  text-align: center;
+  border-bottom: 1px solid #f0f0f0;
+}
+.discount-table th {
+  background: #f3f4f6;
+  font-weight: 600;
+  color: #374151;
+}
+.discount-row.even {
+  background: #ffffff;
+}
+.discount-row.odd {
+  background: #fafafa;
+}
+
+/* Quantity badge */
+.quantity-badge {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  background: #eef2ff;
+  color: #3730a3;
+  font-weight: 600;
+  font-size: 0.85rem;
+}
+
+/* Discount badge */
+.discount-badge {
+  display: inline-block;
+  padding: 0.25rem 0.6rem;
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  background: #f3f4f6;
+  color: #374151;
+}
+.discount-badge.has-discount {
+  background: #dcfce7;
+  color: #166534;
+}
+.discount-row.medium-discount .discount-badge {
+  background: #fef9c3;
+  color: #92400e;
+}
+.discount-row.high-discount .discount-badge {
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .discount-table th,
+  .discount-table td {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+  }
+  .discount-table-header h3 {
+    font-size: 1.1rem;
+  }
+}
+
+  </style>
+
 {%- assign init_variant = product.selected_or_first_available_variant -%}
 {%- assign initial_discount_data = init_variant.metafields.custom.discount_options | default: '[]' -%}
 
@@ -121,6 +225,8 @@ document.addEventListener("DOMContentLoaded", () => {
   renderTable(currentDiscountData);
 });
 </script>
+
+
 
 {% schema %}
 {
