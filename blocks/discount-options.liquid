@@ -192,7 +192,7 @@ quantitySelectors.forEach(selector => {
   const quantityInput = selector.querySelector("input[name='quantity']");
   const minusBtn = selector.querySelector("button[name='minus']");
   const plusBtn = selector.querySelector("button[name='plus']");
-  const price = docume.querySelector(".price").textContent;
+  const price = document.querySelector(".price").textContent;
 
   if (!quantityInput) return;
 
