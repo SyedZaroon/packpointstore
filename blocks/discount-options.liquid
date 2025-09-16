@@ -145,7 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
 }
 {% endschema %}
 
-{% stylesheet %}
+{% comment %} {% stylesheet %}
 .discount-table-wrapper {
   margin: 2rem 0;
   padding: 1.5rem;
@@ -343,4 +343,4 @@ document.addEventListener("DOMContentLoaded", () => {
 .discount-table-wrapper[data-style="bordered"] .discount-table td {
   border: 1px solid rgb(var(--color-border));
 }
-{% endstylesheet %}
+{% endstylesheet %} {% endcomment %}
