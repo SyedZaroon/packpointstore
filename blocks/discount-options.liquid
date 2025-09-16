@@ -178,63 +178,12 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
-  // Log Price
-
-  function logPrice(){
-    const productJson = {{ product | json }};
-     const variant = productJson.variants.find(v => v.id === currentVariantId);
-
-      if (variant) {
-    console.log(`Price: ${variant.price / 100}`); // Convert from cents
-  } else {
-    console.log("Variant not found!");
-  }
-  }
-
-  ///// Update Price ////////
-
-const quantitySelectors = document.querySelectorAll(".quantity-selector");
-
-quantitySelectors.forEach(selector => {
-  const quantityInput = selector.querySelector("input[name='quantity']");
-  const minusBtn = selector.querySelector("button[name='minus']");
-  const plusBtn = selector.querySelector("button[name='plus']");
-  
-
-  if (!quantityInput) return;
-
-  if (minusBtn) {
-    minusBtn.addEventListener("click", () => {
-      console.log("hi min");
-      logPrice();
-    });
-  }
-
-  if (plusBtn) {
-    plusBtn.addEventListener("click", () => {
-      console.log("hi plus");
-    });
-  }
-
-  quantityInput.addEventListener("input", () => {
-    console.log("hi input");
-  });
-
-  quantityInput.addEventListener("change", () => {
-    console.log("hi change");
-  });
-});
-
   // Initial render
   renderTable(currentDiscountData);
 });
 
 
-
-
 </script>
-
-
 
 {% schema %}
 {
