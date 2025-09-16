@@ -14,7 +14,8 @@
 {%- assign variants_discount_data = variants_discount_data | append: '}' -%}
 
 {%- if discount_data != blank -%}
-<div id="discountTableWrapper-{{ section.id }}" class="discount-table-wrapper">
+
+  <div id="discountTableWrapper-{{ section.id }}" class="discount-table-wrapper">
   <div class="discount-table-header">
     <h3>Volume Discounts</h3>
     <p class="discount-subtitle">Save more when you buy in bulk!</p>
@@ -33,10 +34,6 @@
         <!-- Table rows will be populated by JavaScript -->
       </tbody>
     </table>
-  </div>
-  
-  <div class="discount-note">
-    <small>* Prices shown include applicable discounts</small>
   </div>
 </div>
 
