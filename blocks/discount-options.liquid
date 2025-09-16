@@ -37,7 +37,7 @@
   </div>
 </div>
 
-{% comment %} <script>
+<script>
 document.addEventListener("DOMContentLoaded", () => {
   const discountTableBody = document.getElementById("discountTableBody-{{ section.id }}");
   const discountWrapper = document.getElementById("discountTableWrapper-{{ section.id }}");
@@ -126,7 +126,7 @@ document.addEventListener("DOMContentLoaded", () => {
     discountWrapper.style.display = 'none';
   }
 });
-</script> {% endcomment %}
+</script>
 {%- endif -%}
 
 {% schema %}
