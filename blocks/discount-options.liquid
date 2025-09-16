@@ -1,133 +1,126 @@
 {%- assign init_variant = product.selected_or_first_available_variant -%}
-{%- assign discount_data = init_variant.metafields.custom.discount_options -%}
+{%- assign initial_discount_data = init_variant.metafields.custom.discount_options | default: '[]' -%}
 
-{%- comment -%} Create JSON object with all variants and their discount data {%- endcomment -%}
-{%- assign variants_discount_data = '' -%}
-{%- for variant in product.variants -%}
-  {%- assign variant_discount_data = variant.metafields.custom.discount_options | default: '[]' -%}
-  {%- if forloop.first -%}
-    {%- assign variants_discount_data = variants_discount_data | append: '{\"' | append: variant.id | append: '\":' | append: variant_discount_data -%}
-  {%- else -%}
-    {%- assign variants_discount_data = variants_discount_data | append: ',\"' | append: variant.id | append: '\":' | append: variant_discount_data -%}
-  {%- endif -%}
-{%- endfor -%}
-{%- assign variants_discount_data = variants_discount_data | append: '}' -%}
-
-{%- if discount_data != blank -%}
-
-  <div id="discountTableWrapper-{{ section.id }}" class="discount-table-wrapper">
+<div id="discountTableWrapper-{{ section.id }}" class="discount-table-wrapper" style="display:none;">
   <div class="discount-table-header">
     <h3>Volume Discounts</h3>
     <p class="discount-subtitle">Save more when you buy in bulk!</p>
   </div>
-  
+
   <div id="discountTable-{{ section.id }}" class="discount-table-container">
     <table class="discount-table">
       <thead>
-        <tr>
-          <th>Quantity</th>
-          <th>Price per item</th>
-          <th>Discount</th>
-        </tr>
+        <tr id="discountTableHead-{{ section.id }}"></tr>
       </thead>
-      <tbody id="discountTableBody-{{ section.id }}">
-        <!-- Table rows will be populated by JavaScript -->
-      </tbody>
+      <tbody id="discountTableBody-{{ section.id }}"></tbody>
     </table>
   </div>
 </div>
 
-{% comment %} <script>
+<script>
 document.addEventListener("DOMContentLoaded", () => {
-  const discountTableBody = document.getElementById("discountTableBody-{{ section.id }}");
-  const discountWrapper = document.getElementById("discountTableWrapper-{{ section.id }}");
-  
-  // Parse variants discount data from Liquid
-  const variantsDiscountData = {{ variants_discount_data }};
-  
-  // Initial values
-  let currentVariantId = "{{ init_variant.id }}";
-  let currentDiscountData = [];
+  const tableHead = document.getElementById("discountTableHead-{{ section.id }}");
+  const tableBody = document.getElementById("discountTableBody-{{ section.id }}");
+  const wrapper  = document.getElementById("discountTableWrapper-{{ section.id }}");
 
-  if (!discountTableBody || !discountWrapper) return;
+  // Build a plain JS object with every variant's JSON (no double encoding)
+  const variantsDiscountData = {
+    {% for variant in product.variants %}
+      "{{ variant.id }}": {{ variant.metafields.custom.discount_options | default: '[]' }}{% unless forloop.last %},{% endunless %}
+    {% endfor %}
+  };
 
-  // Function to populate discount table
-  function populateDiscountTable(discountData) {
-    discountTableBody.innerHTML = '';
-    
-    if (!discountData || discountData.length === 0) {
-      discountWrapper.style.display = 'none';
+  // Initial state
+  let currentVariantId = String({{ init_variant.id }});
+  let currentDiscountData = {{ initial_discount_data }};
+
+  function buildHeader(keys) {
+    tableHead.innerHTML = '';
+    keys.forEach(k => {
+      const th = document.createElement('th');
+      th.textContent = k;
+      tableHead.appendChild(th);
+    });
+  }
+
+  function buildBody(keys, rows) {
+    tableBody.innerHTML = '';
+    rows.forEach((rowObj, idx) => {
+      const tr = document.createElement('tr');
+      tr.className = `discount-row ${idx % 2 === 0 ? 'even' : 'odd'}`;
+
+      // Optional highlight by discount key
+      const discountKey = keys.find(k => k.toLowerCase().includes('discount'));
+      if (discountKey && rowObj[discountKey]) {
+        const pct = parseInt(String(rowObj[discountKey]).replace(/[^\d]/g, '')) || 0;
+        if (pct >= 25) tr.classList.add('high-discount');
+        else if (pct >= 10) tr.classList.add('medium-discount');
+      }
+
+      keys.forEach(k => {
+        const td = document.createElement('td');
+        const val = rowObj[k] == null ? '' : rowObj[k];
+        td.textContent = typeof val === 'object' ? JSON.stringify(val) : String(val);
+        tr.appendChild(td);
+      });
+
+      tableBody.appendChild(tr);
+    });
+  }
+
+  function renderTable(data) {
+    if (!Array.isArray(data) || data.length === 0) {
+      wrapper.style.display = 'none';
       return;
     }
-    
-    discountWrapper.style.display = 'block';
-    
-    discountData.forEach((item, index) => {
-      const row = document.createElement('tr');
-      row.className = `discount-row ${index % 2 === 0 ? 'even' : 'odd'}`;
-      
-      // Add highlighting for higher discounts
-      const discountPercentage = parseInt(item.Discount.replace(/[^\d]/g, '')) || 0;
-      if (discountPercentage >= 25) {
-        row.classList.add('high-discount');
-      } else if (discountPercentage >= 10) {
-        row.classList.add('medium-discount');
-      }
-      
-      row.innerHTML = `
-        <td class="quantity-cell">
-          <span class="quantity-badge">${item.Quantity}</span>
-        </td>
-        <td class="price-cell">
-          <strong>${item['Price per item']}</strong>
-        </td>
-        <td class="discount-cell">
-          <span class="discount-badge ${discountPercentage > 0 ? 'has-discount' : ''}">${item.Discount}</span>
-        </td>
-      `;
-      
-      discountTableBody.appendChild(row);
-    });
-    
-    console.log(`Discount table updated for variant ${currentVariantId}:`, discountData);
+    const keys = Object.keys(data[0]);
+    if (keys.length === 0) {
+      wrapper.style.display = 'none';
+      return;
+    }
+    buildHeader(keys);
+    buildBody(keys, data);
+    wrapper.style.display = 'block';
   }
 
-  // Function to handle variant change
-  function handleVariantChange(variantId) {
-    if (variantsDiscountData[variantId]) {
-      try {
-        currentDiscountData = JSON.parse(variantsDiscountData[variantId]);
-        currentVariantId = variantId;
-        populateDiscountTable(currentDiscountData);
-      } catch (error) {
-        console.error('Error parsing discount data for variant:', variantId, error);
-        discountWrapper.style.display = 'none';
-      }
+  function updateForVariantId(variantId) {
+    const key = String(variantId);
+    const data = variantsDiscountData[key];
+    if (Array.isArray(data) && data.length) {
+      currentVariantId = key;
+      currentDiscountData = data;
+      renderTable(currentDiscountData);
     } else {
-      console.log('No discount data found for variant:', variantId);
-      discountWrapper.style.display = 'none';
+      // No data for this variant — hide table
+      wrapper.style.display = 'none';
     }
   }
 
-  // Listen for variant update events
-  document.addEventListener('variant:update', (event) => {
-    const variant = event.detail.resource;
-    if (variant && variant.id) {
-      handleVariantChange(variant.id.toString());
-    }
+  // Listen to multiple common theme events
+  document.addEventListener('variant:update', (e) => {
+    const id = e?.detail?.resource?.id;
+    if (id) updateForVariantId(id);
+  });
+  document.addEventListener('product:variant:change', (e) => {
+    const id = e?.detail?.variant?.id || e?.detail?.variantId;
+    if (id) updateForVariantId(id);
+  });
+  document.addEventListener('variant:changed', (e) => {
+    const id = e?.detail?.variant?.id || e?.detail?.variantId;
+    if (id) updateForVariantId(id);
   });
 
-  // Initial population
-  try {
-    currentDiscountData = JSON.parse(`{{ discount_data | escape }}`);
-    populateDiscountTable(currentDiscountData);
-  } catch (error) {
-    console.error('Error parsing initial discount data:', error);
-    discountWrapper.style.display = 'none';
-  }
+  // Fallback: watch the hidden variant id input inside product forms
+  document.querySelectorAll('form[action*="/cart/add"] [name="id"]').forEach((input) => {
+    input.addEventListener('change', () => {
+      if (input.value) updateForVariantId(input.value);
+    });
+  });
+
+  // Initial render
+  renderTable(currentDiscountData);
 });
-</script> {% endcomment %}
-{%- endif -%}
+</script>
 
 {% schema %}
 {
@@ -141,203 +134,3 @@ document.addEventListener("DOMContentLoaded", () => {
   ]
 }
 {% endschema %}
-
-{% comment %} {% stylesheet %}
-.discount-table-wrapper {
-  margin: 2rem 0;
-  padding: 1.5rem;
-  border: 1px solid rgb(var(--color-border));
-  border-radius: 8px;
-  background-color: rgb(var(--color-background));
-}
-
-.discount-table-header {
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-.discount-table-header h3 {
-  margin: 0 0 0.5rem 0;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: rgb(var(--color-foreground));
-}
-
-.discount-subtitle {
-  margin: 0;
-  font-size: 0.9rem;
-  color: rgb(var(--color-foreground-secondary));
-  opacity: 0.8;
-}
-
-.discount-table-container {
-  overflow-x: auto;
-  margin-bottom: 1rem;
-}
-
-.discount-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-family: inherit;
-}
-
-.discount-table th {
-  background-color: rgb(var(--color-background-secondary));
-  color: rgb(var(--color-foreground));
-  font-weight: 600;
-  padding: 12px 16px;
-  text-align: left;
-  border-bottom: 2px solid rgb(var(--color-border));
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.discount-table td {
-  padding: 12px 16px;
-  border-bottom: 1px solid rgb(var(--color-border-light, --color-border));
-  vertical-align: middle;
-}
-
-.discount-row:hover {
-  background-color: rgb(var(--color-background-secondary));
-  transition: background-color 0.2s ease;
-}
-
-.discount-row.even {
-  background-color: rgba(var(--color-foreground), 0.02);
-}
-
-.discount-row.high-discount {
-  background-color: rgba(var(--color-success, 76 175 80), 0.05);
-  border-left: 3px solid rgb(var(--color-success, 76 175 80));
-}
-
-.discount-row.medium-discount {
-  background-color: rgba(var(--color-warning, 255 193 7), 0.05);
-  border-left: 3px solid rgb(var(--color-warning, 255 193 7));
-}
-
-.quantity-cell {
-  font-weight: 500;
-  width: 20%;
-}
-
-.quantity-badge {
-  display: inline-block;
-  padding: 4px 12px;
-  background-color: rgb(var(--color-accent, --color-foreground));
-  color: rgb(var(--color-accent-foreground, --color-background));
-  border-radius: 20px;
-  font-size: 0.85rem;
-  font-weight: 600;
-  min-width: 24px;
-  text-align: center;
-}
-
-.price-cell {
-  font-size: 1rem;
-  color: rgb(var(--color-foreground));
-  width: 40%;
-}
-
-.discount-cell {
-  width: 40%;
-}
-
-.discount-badge {
-  display: inline-block;
-  padding: 4px 8px;
-  border-radius: 4px;
-  font-size: 0.85rem;
-  font-weight: 500;
-  background-color: rgb(var(--color-background-secondary));
-  color: rgb(var(--color-foreground-secondary));
-}
-
-.discount-badge.has-discount {
-  background-color: rgb(var(--color-success, 76 175 80));
-  color: white;
-}
-
-.discount-note {
-  text-align: center;
-  margin-top: 1rem;
-  color: rgb(var(--color-foreground-secondary));
-  font-size: 0.85rem;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .discount-table-wrapper {
-    padding: 1rem;
-    margin: 1rem 0;
-  }
-  
-  .discount-table-header h3 {
-    font-size: 1.25rem;
-  }
-  
-  .discount-table th,
-  .discount-table td {
-    padding: 8px 12px;
-    font-size: 0.85rem;
-  }
-  
-  .discount-table th {
-    font-size: 0.8rem;
-  }
-  
-  .quantity-badge {
-    padding: 2px 8px;
-    font-size: 0.8rem;
-  }
-  
-  .discount-badge {
-    padding: 2px 6px;
-    font-size: 0.8rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .discount-table-wrapper {
-    padding: 0.75rem;
-  }
-  
-  .discount-table th,
-  .discount-table td {
-    padding: 6px 8px;
-    font-size: 0.8rem;
-  }
-  
-  .discount-table-header h3 {
-    font-size: 1.1rem;
-  }
-  
-  .discount-subtitle {
-    font-size: 0.85rem;
-  }
-}
-
-/* Table style variations */
-.discount-table-wrapper[data-style="minimal"] {
-  border: none;
-  background-color: transparent;
-  padding: 1rem 0;
-}
-
-.discount-table-wrapper[data-style="minimal"] .discount-table th {
-  background-color: transparent;
-  border-bottom: 1px solid rgb(var(--color-border));
-}
-
-.discount-table-wrapper[data-style="striped"] .discount-row:nth-child(even) {
-  background-color: rgba(var(--color-foreground), 0.03);
-}
-
-.discount-table-wrapper[data-style="bordered"] .discount-table,
-.discount-table-wrapper[data-style="bordered"] .discount-table th,
-.discount-table-wrapper[data-style="bordered"] .discount-table td {
-  border: 1px solid rgb(var(--color-border));
-}
-{% endstylesheet %} {% endcomment %}
