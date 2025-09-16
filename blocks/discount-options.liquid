@@ -149,6 +149,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const data = variantsDiscountData[key];
     if (Array.isArray(data) && data.length) {
       currentVariantId = key;
+      console.log(currentVariantId);
       currentDiscountData = data;
       renderTable(currentDiscountData);
     } else {
@@ -184,15 +185,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 ///// Update Price ////////
 
-///// Update Price ////////
-
 const quantitySelectors = document.querySelectorAll(".quantity-selector");
 
 quantitySelectors.forEach(selector => {
   const quantityInput = selector.querySelector("input[name='quantity']");
   const minusBtn = selector.querySelector("button[name='minus']");
   const plusBtn = selector.querySelector("button[name='plus']");
-  const price = document.querySelector(".price").textContent;
+  
 
   if (!quantityInput) return;
 
