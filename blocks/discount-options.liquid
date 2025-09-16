@@ -40,7 +40,7 @@
   </div>
 </div>
 
-<script>
+{% comment %} <script>
 document.addEventListener("DOMContentLoaded", () => {
   const discountTableBody = document.getElementById("discountTableBody-{{ section.id }}");
   const discountWrapper = document.getElementById("discountTableWrapper-{{ section.id }}");
@@ -129,52 +129,13 @@ document.addEventListener("DOMContentLoaded", () => {
     discountWrapper.style.display = 'none';
   }
 });
-</script>
+</script> {% endcomment %}
 {%- endif -%}
 
 {% schema %}
 {
   "name": "Discount Options",
-  "settings": [
-    {
-      "type": "text",
-      "id": "table_title",
-      "label": "Table Title",
-      "default": "Volume Discounts"
-    },
-    {
-      "type": "text",
-      "id": "table_subtitle",
-      "label": "Table Subtitle",
-      "default": "Save more when you buy in bulk!"
-    },
-    {
-      "type": "checkbox",
-      "id": "show_discount_note",
-      "label": "Show discount note",
-      "default": true
-    },
-    {
-      "type": "select",
-      "id": "table_style",
-      "label": "Table Style",
-      "options": [
-        {
-          "value": "minimal",
-          "label": "Minimal"
-        },
-        {
-          "value": "bordered",
-          "label": "Bordered"
-        },
-        {
-          "value": "striped",
-          "label": "Striped"
-        }
-      ],
-      "default": "bordered"
-    }
-  ],
+  "settings": [],
   "presets": [
     {
       "category": "Custom Block",
