@@ -149,7 +149,6 @@ document.addEventListener("DOMContentLoaded", () => {
     const data = variantsDiscountData[key];
     if (Array.isArray(data) && data.length) {
       currentVariantId = key;
-      console.log(currentVariantId);
       currentDiscountData = data;
       renderTable(currentDiscountData);
     } else {
@@ -179,6 +178,19 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 
+  // Log Price
+
+  function logPrice(){
+    const productJson = {{ product | json }};
+     const variant = productJson.variants.find(v => v.id === currentVariantId);
+
+      if (variant) {
+    console.log(`Price: ${variant.price / 100}`); // Convert from cents
+  } else {
+    console.log("Variant not found!");
+  }
+  }
+
   // Initial render
   renderTable(currentDiscountData);
 });
@@ -198,7 +210,7 @@ quantitySelectors.forEach(selector => {
   if (minusBtn) {
     minusBtn.addEventListener("click", () => {
       console.log("hi min");
-      console.log(price);
+      logPrice();
     });
   }
 
