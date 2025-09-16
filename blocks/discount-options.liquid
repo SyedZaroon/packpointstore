@@ -192,12 +192,14 @@ quantitySelectors.forEach(selector => {
   const quantityInput = selector.querySelector("input[name='quantity']");
   const minusBtn = selector.querySelector("button[name='minus']");
   const plusBtn = selector.querySelector("button[name='plus']");
+  const price = docume.querySelector(".price").textContent;
 
   if (!quantityInput) return;
 
   if (minusBtn) {
     minusBtn.addEventListener("click", () => {
       console.log("hi min");
+      console.log(price);
     });
   }
 
