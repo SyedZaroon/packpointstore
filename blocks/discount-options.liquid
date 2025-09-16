@@ -105,18 +105,22 @@ document.addEventListener("DOMContentLoaded", () => {
     const id = e?.detail?.variant?.id || e?.detail?.variantId;
     if (id) updateForVariantId(id);
   });
+  document.addEventListener('variant:changed', (e) => {
+    const id = e?.detail?.variant?.id || e?.detail?.variantId;
+    if (id) updateForVariantId(id);
+  });
 
-  // Initial population
-  try {
-    currentDiscountData = JSON.parse(`{{ discount_data | escape }}`);
-    populateDiscountTable(currentDiscountData);
-  } catch (error) {
-    console.error('Error parsing initial discount data:', error);
-    discountWrapper.style.display = 'none';
-  }
+  // Fallback: watch the hidden variant id input inside product forms
+  document.querySelectorAll('form[action*="/cart/add"] [name="id"]').forEach((input) => {
+    input.addEventListener('change', () => {
+      if (input.value) updateForVariantId(input.value);
+    });
+  });
+
+  // Initial render
+  renderTable(currentDiscountData);
 });
-</script> {% endcomment %}
-{%- endif -%}
+</script>
 
 {% schema %}
 {
