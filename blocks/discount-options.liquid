@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const key = String(variantId);
     const data = variantsDiscountData[key];
     if (Array.isArray(data) && data.length) {
-      currentVariantId = key;
+      var currentVariantId = key;
       currentDiscountData = data;
       renderTable(currentDiscountData);
     } else {
