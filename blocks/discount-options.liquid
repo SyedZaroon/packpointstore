@@ -118,14 +118,6 @@ document.addEventListener("DOMContentLoaded", () => {
       const tr = document.createElement('tr');
       tr.className = `discount-row ${idx % 2 === 0 ? 'even' : 'odd'}`;
 
-      // Optional highlight by discount key
-      const discountKey = keys.find(k => k.toLowerCase().includes('discount'));
-      if (discountKey && rowObj[discountKey]) {
-        const pct = parseInt(String(rowObj[discountKey]).replace(/[^\d]/g, '')) || 0;
-        if (pct >= 25) tr.classList.add('high-discount');
-        else if (pct >= 10) tr.classList.add('medium-discount');
-      }
-
       keys.forEach(k => {
         const td = document.createElement('td');
         const val = rowObj[k] == null ? '' : rowObj[k];
