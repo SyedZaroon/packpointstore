@@ -1,6 +1,18 @@
 {%- assign init_variant = product.selected_or_first_available_variant -%}
 {%- assign unit_value = init_variant.metafields.custom.unit_include -%}
 
+{%- comment -%} Create JSON object with all variants and their metafield values {%- endcomment -%}
+{%- assign variants_data = '' -%}
+{%- for variant in product.variants -%}
+  {%- assign variant_unit_value = variant.metafields.custom.unit_include | default: 0 -%}
+  {%- if forloop.first -%}
+    {%- assign variants_data = variants_data | append: '{"' | append: variant.id | append: '":' | append: variant_unit_value -%}
+  {%- else -%}
+    {%- assign variants_data = variants_data | append: ',"' | append: variant.id | append: '":' | append: variant_unit_value -%}
+  {%- endif -%}
+{%- endfor -%}
+{%- assign variants_data = variants_data | append: '}' -%}
+
 {%- if unit_value != blank -%}
 <div id="variantAdditionalInfoWrapper-{{ section.id }}">
   <div id="variantAdditionalInfo-{{ section.id }}">
@@ -12,11 +24,51 @@
 document.addEventListener("DOMContentLoaded", () => {
   const quantitySelectors = document.querySelectorAll(".quantity-selector");
   const unitValueElement = document.getElementById("variantAdditionalInfo-{{ section.id }}");
-
-  const unitBaseValue = Number({{ unit_value | default: 0 }});
+  
+  // Parse variants data from Liquid
+  const variantsData = {{ variants_data }};
+  
+  // Initial values
+  let currentUnitBaseValue = Number({{ unit_value | default: 0 }});
+  let currentVariantId = "{{ init_variant.id }}";
 
   if (!quantitySelectors.length || !unitValueElement) return;
 
+  // Function to update unit info based on current variant and quantity
+  function updateUnitInfo() {
+    const quantityInput = document.querySelector(".quantity-selector input[name='quantity']");
+    if (!quantityInput) return;
+    
+    const quantity = Number(quantityInput.value) || 1;
+    const total = currentUnitBaseValue * quantity;
+    
+    if (currentUnitBaseValue > 0) {
+      unitValueElement.textContent = `You will receive ${total} units`;
+    } else {
+      unitValueElement.textContent = "Unit information not available";
+    }
+    
+    console.log(`Variant ID: ${currentVariantId}, Quantity: ${quantity}, Unit Value: ${currentUnitBaseValue}, Total: ${total}`);
+  }
+
+  // Function to update variant data when variant changes
+  function handleVariantChange(variantId) {
+    if (variantsData[variantId] !== undefined) {
+      currentUnitBaseValue = Number(variantsData[variantId]);
+      currentVariantId = variantId;
+      updateUnitInfo();
+    }
+  }
+
+  // Listen for variant update events
+  document.addEventListener('variant:update', (event) => {
+    const variant = event.detail.resource;
+    if (variant && variant.id) {
+      handleVariantChange(variant.id.toString());
+    }
+  });
+
+  // Set up quantity change listeners
   quantitySelectors.forEach(selector => {
     const quantityInput = selector.querySelector("input[name='quantity']");
     const minusBtn = selector.querySelector("button[name='minus']");
@@ -24,19 +76,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (!quantityInput) return;
 
-    function updateUnitInfo() {
-      const quantity = Number(quantityInput.value) || 1;
-      const total = unitBaseValue * quantity;
-      unitValueElement.textContent = `You will receive ${total} units`;
-      console.log(`Quantity: ${quantity}, Unit Value: ${unitBaseValue}, Total: ${total}`);
-    }
-
-    if (minusBtn) minusBtn.addEventListener("click", updateUnitInfo);
-    if (plusBtn) plusBtn.addEventListener("click", updateUnitInfo);
+    if (minusBtn) minusBtn.addEventListener("click", () => {
+      setTimeout(updateUnitInfo, 50); // Small delay to ensure quantity is updated
+    });
+    if (plusBtn) plusBtn.addEventListener("click", () => {
+      setTimeout(updateUnitInfo, 50); // Small delay to ensure quantity is updated
+    });
     quantityInput.addEventListener("input", updateUnitInfo);
-
-    updateUnitInfo();
+    quantityInput.addEventListener("change", updateUnitInfo);
   });
+
+  // Initial update
+  updateUnitInfo();
 });
 </script>
 {%- endif -%}

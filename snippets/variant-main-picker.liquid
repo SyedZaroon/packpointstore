@@ -5,6 +5,12 @@
   @param {object} [block] - The block object
 {%- enddoc -%}
 
+{%- if condition -%}
+  
+{%- else -%}
+  
+{%- endif -%}
+
 {% assign block_settings = block.settings %}
 
 {% unless product_resource.has_only_default_variant %}
