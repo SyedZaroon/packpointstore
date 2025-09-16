@@ -191,11 +191,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   }
 
-  // Initial render
-  renderTable(currentDiscountData);
-});
-
-///// Update Price ////////
+  ///// Update Price ////////
 
 const quantitySelectors = document.querySelectorAll(".quantity-selector");
 
@@ -228,6 +224,12 @@ quantitySelectors.forEach(selector => {
     console.log("hi change");
   });
 });
+
+  // Initial render
+  renderTable(currentDiscountData);
+});
+
+
 
 
 </script>
