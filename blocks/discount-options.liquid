@@ -182,25 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
   renderTable(currentDiscountData);
 });
 
-///// Update Price ////////
 
-const quantitySelectors = document.querySelectorAll(".quantity-selector");
-quantitySelectors.forEach(selector => {
-    const quantityInput = selector.querySelector("input[name='quantity']");
-    const minusBtn = selector.querySelector("button[name='minus']");
-    const plusBtn = selector.querySelector("button[name='plus']");
-
-    if (!quantityInput) return;
-
-    if (minusBtn) minusBtn.addEventListener("click", () => {
-      console.log("hi min");
-    });
-    if (plusBtn) plusBtn.addEventListener("click", () => {
-      console.log("hi plus");
-    });
-    quantityInput.addEventListener("input", ()=>console.log("hi input"););
-    quantityInput.addEventListener("change", ()=>console.log("hi change"););
-  });
 
 
 </script>
