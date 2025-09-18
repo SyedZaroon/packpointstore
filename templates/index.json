@@ -267,11 +267,7 @@
           "cardboard-boxes",
           "envelopes",
           "labels",
-          "mailing-bags",
-          "warehouse-equipment",
-          "tapes",
-          "void-fill",
-          "pallet-wrap"
+          "mailing-bags"
         ],
         "layout_type": "grid",
         "carousel_on_mobile": false,
