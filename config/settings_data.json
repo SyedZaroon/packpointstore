@@ -79,13 +79,6 @@
     "variant_button_radius": 14,
     "variant_button_width": "default-width-buttons",
     "content_for_index": [],
-    "blocks": {
-      "6076770253474975442": {
-        "type": "shopify://apps/yanet-volume-discount/blocks/embed/bb8aa9c5-8095-4b62-b73a-92eaddef81d1",
-        "disabled": false,
-        "settings": {}
-      }
-    },
     "color_schemes": {
       "scheme-1": {
         "settings": {
@@ -130,7 +123,7 @@
         "settings": {
           "background": "#fafafa",
           "foreground_heading": "#000000",
-          "foreground": "#000000",
+          "foreground": "#333333",
           "primary": "#ffffff",
           "primary_hover": "#ffffff",
           "border": "#ffffff",
