@@ -15,7 +15,12 @@
 {%- enddoc -%}
 
 <div
-  class="divider divider-{{ id }} spacing-style"
+  class=
+  "divider divider-{{ id }} spacing-style
+   {% if settings.alignment_settings == 'center' %}justify-center{% endif %}
+  {% if settings.alignment_settings == 'right' %}justify-right{% endif %}
+   {% if settings.alignment_settings == 'left' %}justify-left{% endif %}
+  "
   style="
     --divider-justify-content: {{ settings.alignment_horizontal | default: 'center' }};
     {% render 'spacing-style', settings: settings %}
@@ -42,7 +47,16 @@
     align-self: stretch;
     display: flex;
     align-items: center;
-    justify-content: var(--divider-justify-content);
+  }
+   .divider .justify-center {
+    justify-content: space-around;
+  }
+  .divider .justify-right {
+    justify-content: right;
+  }
+
+  .divider .justify-left{
+    justify-content: space-between;
   }
 
   .divider__line {
