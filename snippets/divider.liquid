@@ -28,7 +28,7 @@
     class="divider__line"
     style="
       --divider-border-thickness: {{ settings.thickness }}px;
-      border-bottom-color:{{ settings.divider_color }}
+      border-bottom-color:{{ settings.divider_color }};
       {% unless full_width %}
         --divider-border-rounded: {% if settings.corner_radius == 'rounded' %}1{% else %}0{% endif %};
       {% endunless %}
