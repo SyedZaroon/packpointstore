@@ -394,7 +394,9 @@
                 "corner_radius": "square",
                 "width_percent": 44,
                 "padding-block-start": 0,
-                "padding-block-end": 0
+                "padding-block-end": 0,
+                "divider_color": "#000000",
+                "alignment_settings": "left"
               },
               "blocks": {}
             },
