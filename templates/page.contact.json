@@ -519,23 +519,11 @@
                         "open_in_new_tab": false
                       },
                       "blocks": {}
-                    },
-                    "icon_irRfjq": {
-                      "type": "icon",
-                      "name": "Whatsapp",
-                      "settings": {
-                        "icon": "whatsapp",
-                        "width": 24,
-                        "link": "",
-                        "open_in_new_tab": false
-                      },
-                      "blocks": {}
                     }
                   },
                   "block_order": [
                     "icon_xrTHm7",
-                    "icon_nTDdBA",
-                    "icon_irRfjq"
+                    "icon_nTDdBA"
                   ]
                 }
               },
