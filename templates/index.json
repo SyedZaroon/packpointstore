@@ -540,6 +540,9 @@
         "group_tFE8Nt",
         "accordion_Qp4xfn"
       ],
+      "custom_css": [
+        ".section--page-width {width: 94%; margin: 30px auto;}"
+      ],
       "name": "t:names.custom_section",
       "settings": {
         "content_direction": "row",
