@@ -930,7 +930,7 @@
             "width": "100%",
             "max_width": "none",
             "alignment": "center",
-            "type_preset": "h4",
+            "type_preset": "h2",
             "font": "var(--font-body--family)",
             "font_size": "1rem",
             "line_height": "normal",
