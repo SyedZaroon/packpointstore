@@ -1751,7 +1751,7 @@
             "link": "",
             "image_ratio": "square",
             "width": "custom",
-            "custom_width": 49,
+            "custom_width": 55,
             "width_mobile": "custom",
             "custom_width_mobile": 100,
             "height": "fit",
