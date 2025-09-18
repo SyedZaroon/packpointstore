@@ -396,7 +396,7 @@
                 "padding-block-start": 0,
                 "padding-block-end": 0,
                 "divider_color": "#000000",
-                "alignment_settings": "right"
+                "alignment_settings": "left"
               },
               "blocks": {}
             },
