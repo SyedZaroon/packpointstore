@@ -392,7 +392,7 @@
               "settings": {
                 "thickness": 1,
                 "corner_radius": "square",
-                "width_percent": 100,
+                "width_percent": 44,
                 "padding-block-start": 0,
                 "padding-block-end": 0
               },
