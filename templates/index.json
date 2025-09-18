@@ -710,6 +710,7 @@
         "image_B4m7Ge",
         "group_rHEqhP"
       ],
+      "disabled": true,
       "name": "t:names.image_with_text",
       "settings": {
         "content_direction": "row",
