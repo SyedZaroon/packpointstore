@@ -294,7 +294,7 @@
           "type": "button",
           "name": "t:names.button",
           "settings": {
-            "label": "All Collections",
+            "label": "View All Collections",
             "link": "shopify://collections",
             "open_in_new_tab": false,
             "style_class": "button",
