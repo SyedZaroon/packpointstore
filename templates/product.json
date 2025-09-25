@@ -180,7 +180,9 @@
                 "corner_radius": "square",
                 "width_percent": 100,
                 "padding-block-start": 0,
-                "padding-block-end": 0
+                "padding-block-end": 0,
+                "divider_color": "#ffffff",
+                "alignment_settings": "left"
               },
               "blocks": {}
             },
@@ -251,6 +253,7 @@
             "discount_options_bQJxUJ": {
               "type": "discount-options",
               "name": "Discount Options",
+              "disabled": true,
               "settings": {},
               "blocks": {}
             }
