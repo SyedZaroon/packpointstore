@@ -4431,5 +4431,5 @@ button.button.menu-list__link.button-unstyled {
 }
 
 tr.wholesale-grid-table.active_row {
-    background: #FFF9F4;
+    background: #FFF9F4 !important;
 }
