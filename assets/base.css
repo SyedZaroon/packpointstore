@@ -4430,3 +4430,7 @@ button.button.menu-list__link.button-unstyled {
 }
 }
 
+tr.wholesale-grid-table.active_row {
+    background: #F5F5F5;
+    background: #FFF9F4;
+}
