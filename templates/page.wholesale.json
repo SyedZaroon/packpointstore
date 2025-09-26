@@ -49,9 +49,21 @@
         "padding-block-start": 150,
         "padding-block-end": 70
       }
+    },
+    "custom_liquid_GVJ9iU": {
+      "type": "custom-liquid",
+      "name": "t:names.custom_liquid",
+      "settings": {
+        "custom_liquid": "<div id=\"wsaio-form\" data-app=\"wholesale-all-in-one\" data-id=\"2fac3b30-9d06-4a83-afcf-cc0c56255b3b\" data-shop=\"packpointstore.myshopify.com\"></div><script>(function(d, s, id){var js,wjs=d.getElementsByTagName(s)[0];if(d.getElementById(id)) return;js=d.createElement(s);js.id=id;js.src=\"https://wholesales.digitalcoo.com/forms/embed.js\";wjs.parentNode.insertBefore(js,wjs);}(document,'script','wsaio-customer-form-embed'));</script>",
+        "color_scheme": "",
+        "section_width": "page-width",
+        "padding-block-start": 0,
+        "padding-block-end": 0
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "custom_liquid_GVJ9iU"
   ]
 }
