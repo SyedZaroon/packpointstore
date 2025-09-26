@@ -16,7 +16,7 @@
 {%- if unit_value != blank -%}
 <div id="variantAdditionalInfoWrapper-{{ section.id }}">
   <div id="variantAdditionalInfo-{{ section.id }}">
-    Calculating...
+    <span>Calculating...</span>
   </div>
 </div>
 
@@ -54,7 +54,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const total = currentUnitBaseValue * quantity;
     
     if (currentUnitBaseValue > 0) {
-      unitValueElement.textContent = `You will receive <span id="unit-total"> ${total} </span> units`;
+      unitValueElement.innerHTML="";
+      unitValueElement.innerHTML = `You will receive <span id="unit-total"> ${total} </span> units`;
     } else {
       unitValueElement.textContent = "Unit information not available";
     }
