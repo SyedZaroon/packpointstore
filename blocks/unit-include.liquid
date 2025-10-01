@@ -6,32 +6,42 @@
 {%- for variant in product.variants -%}
   {%- assign variant_unit_value = variant.metafields.custom.unit_include | default: 0 -%}
   {%- if forloop.first -%}
-    {%- assign variants_data = variants_data | append: '{"' | append: variant.id | append: '":' | append: variant_unit_value -%}
+    {%- assign variants_data = variants_data
+      | append: '{"'
+      | append: variant.id
+      | append: '":'
+      | append: variant_unit_value
+    -%}
   {%- else -%}
-    {%- assign variants_data = variants_data | append: ',"' | append: variant.id | append: '":' | append: variant_unit_value -%}
+    {%- assign variants_data = variants_data
+      | append: ',"'
+      | append: variant.id
+      | append: '":'
+      | append: variant_unit_value
+    -%}
   {%- endif -%}
 {%- endfor -%}
 {%- assign variants_data = variants_data | append: '}' -%}
 
 {%- if unit_value != blank -%}
-<div id="variantAdditionalInfoWrapper-{{ section.id }}">
-  <div id="variantAdditionalInfo-{{ section.id }}">
-    <span>Calculating...</span>
+  <div id="variantAdditionalInfoWrapper-{{ section.id }}">
+    <div id="variantAdditionalInfo-{{ section.id }}">
+      <span>Calculating...</span>
+    </div>
   </div>
-</div>
 
-<style>
-  div#variantAdditionalInfo-template--26300302950749__main{
-  margin-bottom:-20px;
-  color: #FF7A09;
-    font-size: 16px;
-}
-#unit-total{
-  font-weight:800;
-}
-</style>
+  <style>
+      div#variantAdditionalInfo-template--26300302950749__main{
+      margin-bottom:-20px;
+      color: #FF7A09;
+        font-size: 16px;
+    }
+    #unit-total{
+      font-weight:800;
+    }
+  </style>
 
-<script>
+  <script>
 document.addEventListener("DOMContentLoaded", () => {
 
   {% comment %} const hiddenInput = document.getElementById("hiddenInput");
@@ -107,7 +117,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Initial update
   updateUnitInfo();
 });
-</script>
+  </script>
 {%- endif -%}
 
 {% schema %}
