@@ -34,8 +34,8 @@
 <script>
 document.addEventListener("DOMContentLoaded", () => {
 
-  const hiddenInput = document.getElementById("hiddenInput");
-  console.log(hiddenInput.value)
+  {% comment %} const hiddenInput = document.getElementById("hiddenInput");
+  console.log(hiddenInput.value) {% endcomment %}
 
   const quantitySelectors = document.querySelectorAll(".quantity-selector");
   const unitValueElement = document.getElementById("variantAdditionalInfo-{{ section.id }}");
