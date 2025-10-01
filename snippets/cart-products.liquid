@@ -249,7 +249,7 @@
                   </div>
 
                   {% if item.properties._unit_include %}
-                    <p>You will receive: {{ item.properties._unit_include }} units</p>
+                    <p>You will receive: {{ item.properties._unit_include | times: item.quantity }} }} units</p>
                   {% endif %}
                 </td>
 
