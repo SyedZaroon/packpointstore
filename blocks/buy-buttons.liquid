@@ -65,6 +65,11 @@
           ref="variantId"
           value="{{ product.selected_or_first_available_variant.id }}"
         >
+          <input
+  type="hidden"
+  name="properties[_unit_include]"
+  value="{{ product.selected_or_first_available_variant.metafields.custom.unit_include | default: 0 }}"
+>
         {%- if block_settings.gift_card_form and product.gift_card? -%}
           {%- render 'gift-card-recipient-form', product: product, form: form, section: section, block: block -%}
         {%- endif -%}
