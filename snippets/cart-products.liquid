@@ -247,12 +247,14 @@
                       {% endif %}
                     {% endif %}
                   </div>
-                </td>
-                 {% if item.properties._unit_include %}
-                  <td>
+
+                    {% if item.properties._unit_include %}
+
       <p>You will receive: {{ item.properties._unit_include }} units</p>
-                  </td>
+
     {% endif %}
+                </td>
+               
                 <td
                   class="cart-items__quantity"
                   role="cell"
