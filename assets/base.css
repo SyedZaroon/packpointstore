@@ -4435,6 +4435,6 @@ tr.wholesale-grid-table.active_row {
 }
 
 /* Variant Picker */
-[aria-disabled="true"] svg{
+[aria-disabled="true"] .variant-option__button-label svg{
   stroke: black !important;
 }
