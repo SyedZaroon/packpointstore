@@ -71,7 +71,6 @@
               {%- endif %}
             </legend>
             {%- for product_option_value in product_option.values -%}
-  {% if product_option_value.variant %}
 
               <label class="variant-option__button-label{% if variant_style == 'swatch' %} variant-option__button-label--has-swatch{% endif %}">
                 <input
@@ -115,7 +114,6 @@
                 {% render 'strikethrough-variant', product_option: product_option_value %}
               </label>
 
-              {% endif %}
             {%- endfor -%}
             {% if option_id_attribute %}
               {% style %}
