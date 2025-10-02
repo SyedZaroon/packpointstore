@@ -4435,6 +4435,6 @@ tr.wholesale-grid-table.active_row {
 }
 
 /* Variant Picker */
-.variant-option__button-label svg{
-  stroke: rgb(26 26 26 / 50%); !important;
+.variant-option__button-label svg {
+    stroke: #1a1a1a7f !important;
 }
