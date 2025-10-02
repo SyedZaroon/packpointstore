@@ -71,7 +71,7 @@
               {%- endif %}
             </legend>
             {%- for product_option_value in product_option.values -%}
-                  {% if product_option_value.variant and product_option_value.variant.inventory_quantity >= 0 %}
+                  {% if product_option_value.variant.inventory_quantity >= 0 %}
 
               <label class="variant-option__button-label{% if variant_style == 'swatch' %} variant-option__button-label--has-swatch{% endif %}">
                 <input
