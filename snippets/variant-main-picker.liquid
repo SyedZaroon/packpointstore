@@ -71,6 +71,13 @@
               {%- endif %}
             </legend>
             {%- for product_option_value in product_option.values -%}
+             {%- for v in product_resource.variants -%}
+    {% if v.options contains product_option_value %}
+      {% assign option_in_real_variant = true %}
+    {% endif %}
+  {%- endfor -%}
+
+  {% if option_in_real_variant %}
               <label class="variant-option__button-label{% if variant_style == 'swatch' %} variant-option__button-label--has-swatch{% endif %}">
                 <input
                   type="radio"
@@ -112,6 +119,7 @@
                 {% endif %}
                 {% render 'strikethrough-variant', product_option: product_option_value %}
               </label>
+              {% endif %}
             {%- endfor -%}
             {% if option_id_attribute %}
               {% style %}
