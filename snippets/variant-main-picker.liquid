@@ -71,7 +71,6 @@
               {%- endif %}
             </legend>
             {%- for product_option_value in product_option.values -%}
-             <script> console.log(product_option)</script>
               {% comment %} {%- if product_option_value.available -%}{% endcomment %}
               {% if product_option_value.size > longest_value and option_id_attribute %}
                 {% assign longest_value = product_option_value.size %}
