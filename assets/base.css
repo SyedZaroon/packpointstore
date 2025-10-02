@@ -4436,7 +4436,7 @@ tr.wholesale-grid-table.active_row {
 
 /* Variant Picker */
 .variant-option__button-label svg {
-    stroke: #1a1a1a7f !important;
+    stroke: #1a1a1a !important;
 }
 
 [aria-disabled="true"]:checked .variant-option__button-label svg {
