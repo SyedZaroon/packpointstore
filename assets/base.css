@@ -4439,6 +4439,6 @@ tr.wholesale-grid-table.active_row {
     stroke: #1a1a1a7f !important;
 }
 
-[aria-disabled="true"] checked .variant-option__button-label svg {
+[aria-disabled="true"]:checked .variant-option__button-label svg {
     stroke: black !important;
 }
