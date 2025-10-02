@@ -71,10 +71,7 @@
               {%- endif %}
             </legend>
             {%- for product_option_value in product_option.values -%}
-              {%- if product_option_value.available -%}
-              {% if product_option_value.size > longest_value and option_id_attribute %}
-                {% assign longest_value = product_option_value.size %}
-              {% endif %} 
+            {% if product_option_value.variant %}
               <label class="variant-option__button-label{% if variant_style == 'swatch' %} variant-option__button-label--has-swatch{% endif %}">
                 <input
                   type="radio"
