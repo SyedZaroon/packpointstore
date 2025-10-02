@@ -4435,6 +4435,6 @@ tr.wholesale-grid-table.active_row {
 }
 
 /* Variant Picker */
-aria-disabled="true"{
+[aria-disabled="true"]{
   cursor:not-allowed;
 }
