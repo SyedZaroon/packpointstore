@@ -71,11 +71,7 @@
               {%- endif %}
             </legend>
             {%- for product_option_value in product_option.values -%}
-              {%- assign current_variant = product.variants 
-    | where: product_option.name, product_option_value 
-    | first 
-  -%}
-
+              {%- assign current_variant = product_option_value.variant -%}
   {%- if current_variant -%} 
               <label class="variant-option__button-label{% if variant_style == 'swatch' %} variant-option__button-label--has-swatch{% endif %}">
                 <input
