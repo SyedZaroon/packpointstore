@@ -4435,3 +4435,6 @@ tr.wholesale-grid-table.active_row {
 }
 
 /* Variant Picker */
+[aria-disabled="true"] svg{
+  stroke: black;
+}
