@@ -4433,3 +4433,8 @@ button.button.menu-list__link.button-unstyled {
 tr.wholesale-grid-table.active_row {
     background: #FFF9F4 !important;
 }
+
+/* Variant Picker */
+aria-disabled="true"{
+  cursor:not-allowed;
+}
