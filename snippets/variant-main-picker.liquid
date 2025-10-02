@@ -71,10 +71,10 @@
               {%- endif %}
             </legend>
             {%- for product_option_value in product_option.values -%}
-              {% comment %} {%- if product_option_value.available -%}
-              {% if product_option_value.size > longest_value and option_id_attribute %}
-                {% assign longest_value = product_option_value.size %}
-              {% endif %} {% endcomment %}
+                {% assign variant_for_value = product.variants | where: 'option' | first %}
+  {% assign current_variant = product.variants | where: product_option.name, product_option_value | first %}
+
+  {% if current_variant %}
               <label class="variant-option__button-label{% if variant_style == 'swatch' %} variant-option__button-label--has-swatch{% endif %}">
                 <input
                   type="radio"
@@ -116,7 +116,7 @@
                 {% endif %}
                 {% render 'strikethrough-variant', product_option: product_option_value %}
               </label>
-              {% comment %} {%- endif -%} {% endcomment %}
+              {%- endif -%}
             {%- endfor -%}
             {% if option_id_attribute %}
               {% style %}
