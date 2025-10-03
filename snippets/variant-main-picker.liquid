@@ -70,7 +70,22 @@
                 <span class="variant-option__swatch-value">{{ product_option.selected_value }}</span>
               {%- endif %}
             </legend>
+
+            {%- assign option_index = product_option.position | minus: 1 -%}
+{%- assign valid_values = "" -%}
+
+{%- for variant in product.variants -%}
+  {%- assign value = variant.options[option_index] -%}
+  {%- if value and valid_values contains value == false -%}
+    {%- assign valid_values = valid_values | append: value | append: "," -%}
+  {%- endif -%}
+{%- endfor -%}
+
+{%- assign valid_values_array = valid_values | split: "," -%}
+
+
             {%- for product_option_value in product_option.values -%}
+  {%- if valid_values_array contains product_option_value -%}
 
               <label class="variant-option__button-label{% if variant_style == 'swatch' %} variant-option__button-label--has-swatch{% endif %}">
                 <input
@@ -113,6 +128,7 @@
                 {% endif %}
                 {% render 'strikethrough-variant', product_option: product_option_value %}
               </label>
+              {%- endif -%}
             {%- endfor -%}
             {% if option_id_attribute %}
               {% style %}
