@@ -71,14 +71,17 @@
               {%- endif %}
             </legend>
 
-            {%- assign option_index = product_option.position | minus: 1 -%}
+           {%- assign option_index = product_option.position | minus: 1 -%}
 {%- assign valid_values = "" -%}
 
 {%- for variant in product.variants -%}
   {%- assign value = variant.options[option_index] -%}
-  {%- if value and valid_values contains value == false -%}
-    {%- assign valid_values = valid_values | append: value | append: "," -%}
-  {%- endif -%}
+
+  {%- unless value == blank -%}
+    {%- unless valid_values contains value -%}
+      {%- assign valid_values = valid_values | append: value | append: "," -%}
+    {%- endunless -%}
+  {%- endunless -%}
 {%- endfor -%}
 
 {%- assign valid_values_array = valid_values | split: "," -%}
