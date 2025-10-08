@@ -42,7 +42,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>From wholesale supplies to bespoke and industry-specific packaging, Packpoint is the expert partner you can trust.”</p>",
+            "text": "<p>From wholesale supplies to bespoke and industry-specific packaging, Packpoint is the expert partner you can trust.</p>",
             "width": "fit-content",
             "max_width": "normal",
             "alignment": "left",
