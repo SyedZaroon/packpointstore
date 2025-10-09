@@ -196,7 +196,13 @@
         "padding-inline-end": 0,
         "color_scheme": "scheme-1",
         "padding-block-start": 0,
-        "padding-block-end": 32
+        "padding-block-end": 32,
+        "pagination_type": "traditional",
+        "products_per_page": 12,
+        "load_more_text": "Load More Products",
+        "show_pagination_info": true,
+        "show_page_numbers": true,
+        "max_page_links": 7
       }
     }
   },
