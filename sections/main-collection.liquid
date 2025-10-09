@@ -1,9 +1,8 @@
 
 
 <script
-  src="{{ 'results-list.js' | asset_url }}"
-  type="module"
-  fetchpriority="low"
+  src="{{ 'pagination.js' | asset_url }}"
+  defer
 ></script>
 
 {% javascript %}
@@ -24,10 +23,9 @@
 
 {% comment %} We always render this full-width, as the child blocks have width: page/full settings {% endcomment %}
 <div class="section-background color-{{ section.settings.color_scheme }}"></div>
-<results-list
+<div
   class="section product-grid-container color-{{ section.settings.color_scheme }}"
   style="--padding-block-start: {{ section.settings.padding-block-start }}px; --padding-block-end: {{ section.settings.padding-block-end }}px;"
-  section-id="{{ section.id }}"
 >
   {% render 'skip-to-content-link', href: '#ResultsList', text: 'accessibility.skip_to_results_list' %}
 
@@ -41,7 +39,7 @@
       results_size: collection.products_count
     %}
 
-    {% paginate collection.products by 24 %}
+    {% paginate collection.products by section.settings.products_per_page %}
       {% capture children %}
         {% for product in collection.products %}
           <li
@@ -62,11 +60,12 @@
         section: section,
         children: children,
         products: collection.products,
-        paginate: paginate
+        paginate: paginate,
+        pagination_settings: section.settings
       %}
     {% endpaginate %}
   </div>
-</results-list>
+</div>
 
 {% stylesheet %}
   .main-collection-grid {
@@ -302,6 +301,69 @@
       "step": 1,
       "unit": "px",
       "default": 8
+    },
+    {
+      "type": "header",
+      "content": "Pagination Settings"
+    },
+    {
+      "type": "select",
+      "id": "pagination_type",
+      "label": "Pagination Type",
+      "options": [
+        {
+          "value": "traditional",
+          "label": "Traditional Pagination"
+        },
+        {
+          "value": "load_more",
+          "label": "Load More Button"
+        },
+        {
+          "value": "infinite_scroll",
+          "label": "Infinite Scroll"
+        }
+      ],
+      "default": "traditional"
+    },
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "label": "Products per page",
+      "min": 12,
+      "max": 48,
+      "step": 12,
+      "default": 24
+    },
+    {
+      "type": "text",
+      "id": "load_more_text",
+      "label": "Load More Button Text",
+      "default": "Load More Products",
+      "visible_if": "{{ section.settings.pagination_type == 'load_more' }}"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_pagination_info",
+      "label": "Show pagination info (e.g., 'Showing 1-24 of 100 items')",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_page_numbers",
+      "label": "Show page numbers",
+      "default": true,
+      "visible_if": "{{ section.settings.pagination_type == 'traditional' }}"
+    },
+    {
+      "type": "range",
+      "id": "max_page_links",
+      "label": "Maximum page links to show",
+      "min": 3,
+      "max": 15,
+      "step": 2,
+      "default": 7,
+      "visible_if": "{{ section.settings.pagination_type == 'traditional' and section.settings.show_page_numbers }}"
     }
   ],
   "presets": []

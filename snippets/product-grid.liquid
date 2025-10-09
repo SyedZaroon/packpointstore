@@ -108,22 +108,23 @@
         </p>
       </div>
     {% else %}
-      <span ref="viewMorePrevious"></span>
-
       {% if title %}
         <h4 class="main-collection-grid__title">{{ title }}</h4>
       {% endif %}
       <ul
         class="product-grid product-grid--{{ section.id }} product-grid--{{ section.settings.layout_type }} {% if section.settings.mobile_product_card_size == 'large' %} product-grid-mobile--large{% endif %}"
         product-grid-view="default"
-        ref="grid"
         role="list"
-        data-last-page="{{ paginate.pages }}"
         data-product-card-size="{{ section.settings.product_card_size }}"
       >
         {{ children }}
       </ul>
-      <span ref="viewMoreNext"></span>
+      
+      {% comment %} Add pagination controls {% endcomment %}
+      {% if paginate %}
+        {% render 'pagination', paginate: paginate, settings: pagination_settings %}
+      {% endif %}
+      
     {% endif %}
   </div>
 </div>

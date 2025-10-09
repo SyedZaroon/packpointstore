@@ -1,0 +1,384 @@
+{%- comment -%}
+  Renders pagination controls for collections and search pages.
+  
+  Usage:
+  {% render 'pagination', paginate: paginate, settings: settings %}
+  
+  @param {object} paginate - Shopify pagination object
+  @param {object} settings - Section settings for pagination customization
+{%- endcomment -%}
+
+{%- liquid
+  assign pagination_type = settings.pagination_type | default: 'traditional'
+  assign show_pagination_info = settings.show_pagination_info | default: true
+  assign show_page_numbers = settings.show_page_numbers | default: true
+  assign max_page_links = settings.max_page_links | default: 7
+  assign load_more_text = settings.load_more_text | default: 'Load More Products'
+-%}
+
+{%- if paginate.pages > 1 or pagination_type == 'load_more' or pagination_type == 'infinite_scroll' -%}
+  <div class="pagination-wrapper pagination-wrapper--{{ pagination_type }}" 
+       data-pagination-type="{{ pagination_type }}"
+       data-current-page="{{ paginate.current_page }}"
+       data-total-pages="{{ paginate.pages }}">
+    
+    {%- comment -%} Traditional Pagination {%- endcomment -%}
+    {%- if pagination_type == 'traditional' and paginate.pages > 1 -%}
+      <nav class="pagination" role="navigation" aria-label="Pagination">
+        <ul class="pagination__list" role="list">
+          {%- comment -%} Previous page button {%- endcomment -%}
+          {%- if paginate.previous -%}
+            <li class="pagination__item pagination__item--prev">
+              <a href="{{ paginate.previous.url }}" class="pagination__link pagination__link--prev" aria-label="Previous page">
+                <svg class="icon icon--chevron-left" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M10 4L6 8L10 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span class="pagination__text">Previous</span>
+              </a>
+            </li>
+          {%- endif -%}
+
+          {%- comment -%} Page numbers {%- endcomment -%}
+          {%- if show_page_numbers -%}
+            {%- for part in paginate.parts -%}
+              {%- if part.is_link -%}
+                <li class="pagination__item">
+                  <a href="{{ part.url }}" class="pagination__link" aria-label="Page {{ part.title }}">
+                    {{ part.title }}
+                  </a>
+                </li>
+              {%- else -%}
+                {%- comment -%} Current page {%- endcomment -%}
+                <li class="pagination__item pagination__item--current">
+                  <span class="pagination__link pagination__link--current" aria-current="page" aria-label="Current page {{ part.title }}">
+                    {{ part.title }}
+                  </span>
+                </li>
+              {%- endif -%}
+            {%- endfor -%}
+          {%- endif -%}
+
+          {%- comment -%} Next page button {%- endcomment -%}
+          {%- if paginate.next -%}
+            <li class="pagination__item pagination__item--next">
+              <a href="{{ paginate.next.url }}" class="pagination__link pagination__link--next" aria-label="Next page">
+                <span class="pagination__text">Next</span>
+                <svg class="icon icon--chevron-right" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path d="M6 4L10 8L6 12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </a>
+            </li>
+          {%- endif -%}
+        </ul>
+      </nav>
+    {%- endif -%}
+    
+    {%- comment -%} Load More Button {%- endcomment -%}
+    {%- if pagination_type == 'load_more' and paginate.next -%}
+      <div class="pagination pagination--load-more">
+        <button type="button" 
+                class="pagination__load-more-btn btn"
+                data-next-url="{{ paginate.next.url }}"
+                aria-label="Load more products">
+          <span class="pagination__load-more-text">{{ load_more_text }}</span>
+          <div class="pagination__loading" style="display: none;">
+            <svg class="pagination__spinner" width="20" height="20" viewBox="0 0 20 20" fill="none">
+              <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="32" stroke-dashoffset="32">
+                <animate attributeName="stroke-dashoffset" dur="1s" values="32;0;32" repeatCount="indefinite"/>
+              </circle>
+            </svg>
+            <span>Loading...</span>
+          </div>
+        </button>
+      </div>
+    {%- endif -%}
+    
+    {%- comment -%} Infinite Scroll Markers {%- endcomment -%}
+    {%- if pagination_type == 'infinite_scroll' -%}
+      {%- if paginate.previous -%}
+        <span class="pagination__infinite-marker pagination__infinite-marker--previous" 
+              data-page="{{ paginate.current_page | minus: 1 }}"
+              data-url="{{ paginate.previous.url }}"></span>
+      {%- endif -%}
+      {%- if paginate.next -%}
+        <span class="pagination__infinite-marker pagination__infinite-marker--next" 
+              data-page="{{ paginate.current_page | plus: 1 }}"
+              data-url="{{ paginate.next.url }}"></span>
+      {%- endif -%}
+    {%- endif -%}
+    
+    {%- comment -%} Page info {%- endcomment -%}
+    {%- if show_pagination_info -%}
+      <div class="pagination__info">
+        {% comment %} <span class="pagination__info-text">
+          Showing {{ paginate.current_offset | plus: 1 }}-{{ paginate.current_offset | plus: paginate.current_page_size | at_most: paginate.items }} of {{ paginate.items }} items
+        </span> {% endcomment %}
+      </div>
+    {%- endif -%}
+  </div>
+{%- endif -%}
+
+{% stylesheet %}
+  .pagination-wrapper {
+    margin-top: var(--spacing-lg, 2rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-md, 1rem);
+    position: relative;
+  }
+
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs, 0.5rem);
+  }
+
+  .pagination__list {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs, 0.5rem);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .pagination__item {
+    display: flex;
+  }
+
+  .pagination__link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+    padding: var(--spacing-xs, 0.5rem) var(--spacing-sm, 0.75rem);
+    border: 1px solid rgb(var(--color-border));
+    border-radius: var(--border-radius, 4px);
+    background-color: rgb(var(--color-background));
+    color: rgb(var(--color-foreground));
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    gap: var(--spacing-xs, 0.5rem);
+  }
+
+  .pagination__link:hover,
+  .pagination__link:focus-visible {
+    background-color: rgb(var(--color-background-2));
+    border-color: rgb(var(--color-border-2));
+    transform: translateY(-1px);
+  }
+
+  .pagination__link--current {
+    background-color: rgb(var(--color-button));
+    border-color: rgb(var(--color-button));
+    color: rgb(var(--color-button-text));
+    cursor: default;
+  }
+
+  .pagination__link--current:hover,
+  .pagination__link--current:focus-visible {
+    transform: none;
+  }
+
+  .pagination__dots {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.5rem;
+    min-height: 2.5rem;
+    padding: var(--spacing-xs, 0.5rem);
+    color: rgb(var(--color-foreground-75));
+  }
+
+  .pagination__text {
+    font-size: var(--font-size-sm, 0.875rem);
+  }
+
+  .pagination__info {
+    text-align: center;
+  }
+
+  .pagination__info-text {
+    font-size: var(--font-size-sm, 0.875rem);
+    color: rgb(var(--color-foreground-75));
+  }
+
+  /* Mobile styles */
+  @media screen and (max-width: 749px) {
+    .pagination__text {
+      display: none;
+    }
+
+    .pagination__link--prev,
+    .pagination__link--next {
+      min-width: 2.5rem;
+    }
+
+    .pagination {
+      gap: var(--spacing-2xs, 0.25rem);
+    }
+
+    .pagination__link {
+      min-width: 2.25rem;
+      min-height: 2.25rem;
+      padding: var(--spacing-2xs, 0.25rem) var(--spacing-xs, 0.5rem);
+      font-size: var(--font-size-sm, 0.875rem);
+    }
+  }
+
+  /* Loading state */
+  .pagination--loading {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .pagination__loading {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgb(var(--color-background));
+    padding: var(--spacing-sm, 0.75rem) var(--spacing-md, 1rem);
+    border-radius: var(--border-radius, 4px);
+    border: 1px solid rgb(var(--color-border));
+    font-size: var(--font-size-sm, 0.875rem);
+    color: rgb(var(--color-foreground-75));
+  }
+
+  /* Icon styles */
+  .pagination__link .icon {
+    width: 1rem;
+    height: 1rem;
+    flex-shrink: 0;
+  }
+
+  /* Load More Button Styles */
+  .pagination--load-more {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .pagination__load-more-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs, 0.5rem);
+    padding: var(--spacing-md, 1rem) var(--spacing-lg, 1.5rem);
+    background-color: rgb(var(--color-button));
+    color: rgb(var(--color-button-text));
+    border: none;
+    border-radius: var(--border-radius, 4px);
+    font-size: var(--font-size-base, 1rem);
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-height: 48px;
+  }
+
+  .pagination__load-more-btn:hover:not(:disabled) {
+    background-color: rgb(var(--color-button-hover));
+    transform: translateY(-1px);
+  }
+
+  .pagination__load-more-btn:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+  }
+
+  .pagination__loading {
+    display: none;
+    align-items: center;
+    gap: var(--spacing-xs, 0.5rem);
+  }
+
+  .pagination__spinner {
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* Infinite Scroll Markers */
+  .pagination__infinite-marker {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .pagination__infinite-marker--next {
+    bottom: -100px;
+  }
+
+  .pagination__infinite-marker--previous {
+    top: -100px;
+  }
+
+  /* Pagination Type Specific Styles */
+  .pagination-wrapper--load_more .pagination,
+  .pagination-wrapper--infinite_scroll .pagination {
+    display: none;
+  }
+
+  .pagination-wrapper--traditional .pagination--load-more {
+    display: none;
+  }
+
+  /* Loading States */
+  .pagination--loading {
+    opacity: 0.6;
+    pointer-events: none;
+  }
+
+  .pagination--loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top-color: rgb(var(--color-foreground));
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+  }
+
+  /* Responsive pagination */
+  @media screen and (max-width: 480px) {
+    .pagination__item:not(.pagination__item--prev):not(.pagination__item--next):not(.pagination__item--current) {
+      display: none;
+    }
+
+    .pagination__item--dots {
+      display: none;
+    }
+
+    .pagination__load-more-btn {
+      padding: var(--spacing-sm, 0.75rem) var(--spacing-md, 1rem);
+      font-size: var(--font-size-sm, 0.875rem);
+      min-height: 44px;
+    }
+  }
+
+  /* Product grid animation for load more */
+  .product-grid__item {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .product-grid__item[style*="opacity: 0"] {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+{% endstylesheet %}
