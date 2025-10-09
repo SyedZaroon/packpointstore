@@ -351,6 +351,7 @@
             "accordion_xCw9pJ": {
               "type": "accordion",
               "name": "t:names.accordion",
+              "disabled": true,
               "settings": {
                 "icon": "plus",
                 "dividers": true,
