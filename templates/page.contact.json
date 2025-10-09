@@ -461,6 +461,7 @@
                 "group_DeE4tD": {
                   "type": "group",
                   "name": "Social Links",
+                  "disabled": true,
                   "settings": {
                     "link": "",
                     "open_in_new_tab": false,
