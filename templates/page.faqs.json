@@ -180,7 +180,7 @@
                 "accordion_row_CgphKC": {
                   "type": "_accordion-row",
                   "settings": {
-                    "heading": "Are any purchases final sale?",
+                    "heading": "Do you provide eco-friendly packaging options?",
                     "open_by_default": false,
                     "icon": "none",
                     "width": 20
@@ -189,7 +189,7 @@
                     "text_yxm9bH": {
                       "type": "text",
                       "settings": {
-                        "text": "<p>We are unable to accept returns on certain items. These will be carefully marked before purchase.</p>",
+                        "text": "<p>Yes! We offer a wide range of <strong>sustainable, recyclable, and biodegradable packaging materials</strong> to help businesses reduce their environmental impact.</p>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
@@ -261,8 +261,8 @@
                   "type": "_accordion-row",
                   "name": "t:names.accordion_dash_row",
                   "settings": {
-                    "heading": "Where are your products manufactured?",
-                    "open_by_default": false,
+                    "heading": "Can you create custom or branded packaging?",
+                    "open_by_default": true,
                     "icon": "none",
                     "width": 20
                   },
@@ -271,7 +271,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>Our products are manufactured both locally and globally. We carefully select our manufacturing partners to ensure our products are high quality and a fair value. </p>",
+                        "text": "<p>Definitely. We specialize in <strong>bespoke packaging solutions</strong> tailored to your brand’s needs — from custom sizes to printed designs.</p>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
