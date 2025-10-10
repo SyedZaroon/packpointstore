@@ -6,7 +6,8 @@
  * or related systems. Please exercise caution as any changes
  * made to this file may be overwritten.
  * ------------------------------------------------------------
- */{
+ */
+{
   "sections": {
     "search": {
       "type": "search-header",
@@ -39,7 +40,7 @@
           "static": true,
           "settings": {
             "width": "custom",
-            "custom_width": 50,
+            "custom_width": 100,
             "inherit_color_scheme": true,
             "color_scheme": ""
           },
