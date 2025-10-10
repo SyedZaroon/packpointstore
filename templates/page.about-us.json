@@ -1987,6 +1987,7 @@
                     },
                     "text_9x6XU7": {
                       "type": "text",
+                      "disabled": true,
                       "settings": {
                         "text": "<p>Dedicated Account Manager - Resolutions within 4 hours</p>",
                         "width": "100%",
@@ -2140,6 +2141,7 @@
                     },
                     "text_cizqnE": {
                       "type": "text",
+                      "disabled": true,
                       "settings": {
                         "text": "<p>2500 products always in stock</p>",
                         "width": "100%",
@@ -2293,6 +2295,7 @@
                     },
                     "text_nFjTFg": {
                       "type": "text",
+                      "disabled": true,
                       "settings": {
                         "text": "<p>Innovative expert solutions</p>",
                         "width": "100%",
@@ -2446,6 +2449,7 @@
                     },
                     "text_jxepKM": {
                       "type": "text",
+                      "disabled": true,
                       "settings": {
                         "text": "<p>*Order before 15:00 - 98% OTIF</p>",
                         "width": "100%",
