@@ -357,6 +357,7 @@
             "accordion_row_H86bmy": {
               "type": "_accordion-row",
               "name": "t:names.accordion_row",
+              "disabled": true,
               "settings": {
                 "heading": "When will I get my order?",
                 "open_by_default": false,
