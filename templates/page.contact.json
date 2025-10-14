@@ -461,7 +461,6 @@
                 "group_DeE4tD": {
                   "type": "group",
                   "name": "Social Links",
-                  "disabled": true,
                   "settings": {
                     "link": "",
                     "open_in_new_tab": false,
@@ -505,7 +504,7 @@
                       "settings": {
                         "icon": "facebook",
                         "width": 24,
-                        "link": "",
+                        "link": "https://www.facebook.com/profile.php?id=61579695222921",
                         "open_in_new_tab": false
                       },
                       "blocks": {}
@@ -513,6 +512,7 @@
                     "icon_nTDdBA": {
                       "type": "icon",
                       "name": "instagram",
+                      "disabled": true,
                       "settings": {
                         "icon": "instagram",
                         "width": 24,
