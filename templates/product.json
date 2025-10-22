@@ -230,7 +230,7 @@
                   "settings": {
                     "text": "<p>Free Delivery Above £50.</p>",
                     "width": "fit-content",
-                    "max_width": "none",
+                    "max_width": "narrow",
                     "alignment": "left",
                     "type_preset": "h4",
                     "font": "var(--font-body--family)",
