@@ -339,6 +339,9 @@
           ]
         }
       },
+      "custom_css": [
+        ".text-block{width: fit-content; max-width: fit-content;}"
+      ],
       "settings": {
         "content_width": "content-center-aligned",
         "desktop_media_position": "left",
