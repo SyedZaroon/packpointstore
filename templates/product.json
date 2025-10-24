@@ -203,7 +203,7 @@
                 "border_radius": 0,
                 "placeholder": "",
                 "toggle_overlay": true,
-                "overlay_color": "#ffecd9",
+                "overlay_color": "#fff9f4",
                 "overlay_style": "solid",
                 "gradient_direction": "to top",
                 "padding-block-start": 16,
