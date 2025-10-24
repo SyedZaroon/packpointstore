@@ -119,6 +119,60 @@
         "padding-block-end": 72
       }
     },
+    "marquee_pm7i4H": {
+      "type": "marquee",
+      "blocks": {
+        "icon_Yk4hfA": {
+          "type": "icon",
+          "name": "t:names.icon",
+          "settings": {
+            "icon": "price_tag",
+            "image_upload": "shopify://shop_images/fi-sr-truck-side.png",
+            "width": 24,
+            "link": "",
+            "open_in_new_tab": false
+          },
+          "blocks": {}
+        },
+        "text_qq7Y3P": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Free Delivery Above £50.</p>",
+            "width": "fit-content",
+            "max_width": "narrow",
+            "alignment": "left",
+            "type_preset": "custom",
+            "font": "var(--font-body--family)",
+            "font_size": "1rem",
+            "line_height": "tight",
+            "letter_spacing": "tight",
+            "case": "none",
+            "wrap": "nowrap",
+            "color": "var(--color-foreground)",
+            "background": false,
+            "background_color": "#00000026",
+            "corner_radius": 0,
+            "padding-block-start": 0,
+            "padding-block-end": 0,
+            "padding-inline-start": 0,
+            "padding-inline-end": 0
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "icon_Yk4hfA",
+        "text_qq7Y3P"
+      ],
+      "name": "t:names.marquee_section",
+      "settings": {
+        "movement_direction": "normal",
+        "color_scheme": "scheme-6",
+        "padding-block-start": 24,
+        "padding-block-end": 24,
+        "gap_between_elements": 24
+      }
+    },
     "collection_list_cQMHCB": {
       "type": "collection-list",
       "blocks": {
@@ -848,6 +902,7 @@
   },
   "order": [
     "hero_jVaWmY",
+    "marquee_pm7i4H",
     "collection_list_cQMHCB",
     "section_8gYmkF",
     "section_gxfMhN",
