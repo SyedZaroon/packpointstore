@@ -260,7 +260,7 @@
             "text_HkJzaN": {
               "type": "text",
               "settings": {
-                "text": "<p>Next Day Delivery for £20</p>",
+                "text": "<p>Next Day Delivery for £20.</p>",
                 "width": "fit-content",
                 "max_width": "narrow",
                 "alignment": "left",
