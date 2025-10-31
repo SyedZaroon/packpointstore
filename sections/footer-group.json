@@ -263,7 +263,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p><strong>Company Name:</strong> 16492778</p>",
+                    "text": "<p><strong>Company Number:</strong> 16492778</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
