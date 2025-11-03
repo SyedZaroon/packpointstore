@@ -271,7 +271,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>Definitely. We specialize in <strong>bespoke packaging solutions</strong> tailored to your brand’s needs — from custom sizes to printed designs.</p>",
+                        "text": "<p>Definitely, we specialise in <strong>bespoke packaging solutions</strong> tailored to your brand’s needs — from custom sizes to printed designs.</p>",
                         "width": "100%",
                         "max_width": "none",
                         "alignment": "left",
