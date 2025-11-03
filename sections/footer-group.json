@@ -334,7 +334,7 @@
                   "type": "text",
                   "name": "t:names.text",
                   "settings": {
-                    "text": "<p><strong>Email: </strong>info@packpoint.co.uk packpointstore@gmail.com</p>",
+                    "text": "<p><strong>Email: </strong>info@packpoint.co.uk</p>",
                     "width": "fit-content",
                     "max_width": "normal",
                     "alignment": "left",
