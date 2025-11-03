@@ -144,7 +144,7 @@
               "type": "product-description",
               "name": "t:names.product_description",
               "settings": {
-                "text": "<p>Packaging might not sound exciting, but at Packpoint, we’re changing the way businesses think about it. Our mission is to make sustainable, efficient, and reliable packaging accessible to everyone – without the fear of high costs.</p>",
+                "text": "<p>Packaging might not sound exciting, but at Packpoint, we’re changing the way businesses think about it. Our mission is to make sustainable, efficient, and reliable packaging accessible to everyone – without the fear of high costs.</p><p>For any enquiries, our team is ready to assist and typically responds within <strong>24 hours</strong>.</p>",
                 "width": "fit-content",
                 "max_width": "normal",
                 "alignment": "left",
