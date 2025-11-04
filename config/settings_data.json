@@ -94,7 +94,7 @@
           "wsaio_main_js_file": "",
           "wsaio_main_liquid_file": "",
           "wsaio_modules_liquid_file": "",
-          "wsaio_addons_liquid_file": "",
+          "wsaio_addons_liquid_file": "<style>\n.discount-table-wrapper{\ndisplay:none!important;\n}\n</style>",
           "wsaio_custom_css_file": ""
         }
       }
