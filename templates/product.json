@@ -323,7 +323,6 @@
             "discount_options_bQJxUJ": {
               "type": "discount-options",
               "name": "Discount Options",
-              "disabled": true,
               "settings": {},
               "blocks": {}
             }
