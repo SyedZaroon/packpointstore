@@ -81,9 +81,14 @@
     "variant_button_width": "default-width-buttons",
     "content_for_index": [],
     "blocks": {
+      "18356332299842544250": {
+        "type": "shopify://apps/b4b-variants-products/blocks/variable_init/4b5ec290-6de8-4c3d-b99f-b8721f30ea87",
+        "disabled": false,
+        "settings": {}
+      },
       "18209738915288330680": {
         "type": "shopify://apps/wholesale-all-in-one/blocks/wholesale-all-in-one/5a3d95fb-5647-47d5-8445-d5858f91ff9d",
-        "disabled": false,
+        "disabled": true,
         "settings": {
           "wsaio_app_access_token": "horizon_wsaiouvh6qz_JQ",
           "wsaio_main_js_file": "",
@@ -92,11 +97,6 @@
           "wsaio_addons_liquid_file": "",
           "wsaio_custom_css_file": ""
         }
-      },
-      "18356332299842544250": {
-        "type": "shopify://apps/b4b-variants-products/blocks/variable_init/4b5ec290-6de8-4c3d-b99f-b8721f30ea87",
-        "disabled": false,
-        "settings": {}
       }
     },
     "color_schemes": {
