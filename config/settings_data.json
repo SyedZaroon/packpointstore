@@ -86,10 +86,17 @@
         "disabled": false,
         "settings": {}
       },
-      "17899005752291538835": {
-        "type": "shopify://apps/loadify-preloader/blocks/loadify-block/a901f8d1-8a96-4e38-a7d8-fdf18b278bfc",
+      "18209738915288330680": {
+        "type": "shopify://apps/wholesale-all-in-one/blocks/wholesale-all-in-one/5a3d95fb-5647-47d5-8445-d5858f91ff9d",
         "disabled": false,
-        "settings": {}
+        "settings": {
+          "wsaio_app_access_token": "",
+          "wsaio_main_js_file": "",
+          "wsaio_main_liquid_file": "",
+          "wsaio_modules_liquid_file": "",
+          "wsaio_addons_liquid_file": "",
+          "wsaio_custom_css_file": ""
+        }
       }
     },
     "color_schemes": {
