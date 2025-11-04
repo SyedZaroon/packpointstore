@@ -95,7 +95,7 @@
       },
       "18356332299842544250": {
         "type": "shopify://apps/b4b-variants-products/blocks/variable_init/4b5ec290-6de8-4c3d-b99f-b8721f30ea87",
-        "disabled": true,
+        "disabled": false,
         "settings": {}
       }
     },
