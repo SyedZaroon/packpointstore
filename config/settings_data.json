@@ -88,7 +88,7 @@
       },
       "18209738915288330680": {
         "type": "shopify://apps/wholesale-all-in-one/blocks/wholesale-all-in-one/5a3d95fb-5647-47d5-8445-d5858f91ff9d",
-        "disabled": true,
+        "disabled": false,
         "settings": {
           "wsaio_app_access_token": "horizon_wsaiouvh6qz_JQ",
           "wsaio_main_js_file": "",
