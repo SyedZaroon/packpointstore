@@ -172,6 +172,14 @@
                 "price_tVjtKg"
               ]
             },
+            "custom_liquid_hTDL8J": {
+              "type": "custom-liquid",
+              "name": "t:names.custom_liquid",
+              "settings": {
+                "custom_liquid": "<a href=\"https://www.trustpilot.com/review/packpoint.co.uk\"> \n\n<div style=\"display:flex; gap:5px; align-items: center; justify-content:center\">\n<div style=\" display:flex; gap:5px; align-items: center; justify-content:center;\">\n<p style=\"margin:0px\" class=\"paragraph\">Average</p><img src=\"https://cdn.shopify.com/s/files/1/0977/9530/9917/files/stars-3.5.svg?v=1762434704\" style=\" width:120px; height=20px\" />\n</div>\n\n<div style=\" display:flex; gap:5px; align-items: center; justify-content:center; flex-wrap: wrap;\">\n<p style=\"margin:0px\" class=\"paragraph\">See our reviews on</p><img src=\"https://cdn.shopify.com/s/files/1/0977/9530/9917/files/Trustpilot-Logo-black.png?v=1762438464\" style=\" width:120px; height=20px\" />\n</div>\n</div>\n\n</a>"
+              },
+              "blocks": {}
+            },
             "group_fQf9Rt": {
               "type": "group",
               "name": "Free Delivery",
@@ -329,6 +337,7 @@
           },
           "block_order": [
             "group_icgrde",
+            "custom_liquid_hTDL8J",
             "group_fQf9Rt",
             "variant_picker_R3rGDr",
             "unit_include_GhwVjJ",
