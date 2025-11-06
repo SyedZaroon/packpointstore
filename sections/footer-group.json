@@ -708,7 +708,7 @@
                   "type": "custom-liquid",
                   "name": "t:names.custom_liquid",
                   "settings": {
-                    "custom_liquid": "<div style=\"display:flex; gap:5px; align-items: center\"><p style=\"margin-bottom:0px\" class=\"paragraph\">Average</p><img src=\"https://cdn.shopify.com/s/files/1/0977/9530/9917/files/stars-3.5.svg?v=1762434704\" style=\" width:120px; height=20px\" /><p style=\"margin-bottom:0px\" class=\"paragraph\">See our reviews on</p></div>"
+                    "custom_liquid": "<div style=\"display:flex; gap:5px; align-items: center\"><p style=\"margin:0px\" class=\"paragraph\">Average</p><img src=\"https://cdn.shopify.com/s/files/1/0977/9530/9917/files/stars-3.5.svg?v=1762434704\" style=\" width:120px; height=20px\" /><p style=\"margin:0px\" class=\"paragraph\">See our reviews on</p></div>"
                   },
                   "blocks": {}
                 }
