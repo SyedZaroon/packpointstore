@@ -225,7 +225,7 @@
                   "type": "custom-liquid",
                   "name": "t:names.custom_liquid",
                   "settings": {
-                    "custom_liquid": "<!-- TrustBox widget - Review Collector -->\n<div class=\"trustpilot-widget\" data-locale=\"en-US\" data-template-id=\"56278e9abfbbba0bdcd568bc\" data-businessunit-id=\"690220c3755d9734fd93ae4c\" data-style-height=\"52px\" data-style-width=\"100%\" data-token=\"ca79d59c-a2ac-4325-9a5e-80527b138e53\">\n  <a href=\"https://www.trustpilot.com/review/packpoint.co.uk\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->"
+                    "custom_liquid": "<!-- TrustBox widget - Review Collector -->\n<div class=\"trustpilot-widget\" data-locale=\"en-US\" data-template-id=\"56278e9abfbbba0bdcd568bc\" data-businessunit-id=\"690220c3755d9734fd93ae4c\" data-style-height=\"52px\" data-style-width=\"100%\" data-token=\"ca79d59c-a2ac-4325-9a5e-80527b138e53\">\n  <a href=\"https://www.trustpilot.com/review/packpoint.co.uk\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->\n\n<style>\n.tp-widget-wrapper {\n    text-align: left;\n}\n</style>"
                   },
                   "blocks": {}
                 }
