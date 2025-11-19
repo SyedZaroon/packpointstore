@@ -32,7 +32,7 @@
           "type": "_header-menu",
           "static": true,
           "settings": {
-            "menu": "shop-now",
+            "menu": "main-menu",
             "menu_style": "collection_images",
             "featured_products_aspect_ratio": "4 / 5",
             "featured_collections_aspect_ratio": "16 / 9",
