@@ -708,7 +708,7 @@
                   "type": "custom-liquid",
                   "name": "Trust pilot widget",
                   "settings": {
-                    "custom_liquid": "<a href=\"https://www.trustpilot.com/review/packpoint.co.uk\"> \n\n<div style=\"display:flex; gap:5px; align-items: center; justify-content:center; flex-wrap:wrap\">\n<div style=\" display:flex; gap:5px; align-items: center; justify-content:center;\">\n<p style=\"margin:0px\" class=\"paragraph\">Great</p><img src=\"https://cdn.shopify.com/s/files/1/0977/9530/9917/files/stars-4.svg?v=1762873935\" style=\" width:120px; height=20px\" />\n</div>\n\n<div style=\" display:flex; gap:5px; align-items: center; justify-content:center; flex-wrap: wrap;\">\n<p style=\"margin:0px\" class=\"paragraph\">See our reviews on</p><img src=\"https://cdn.shopify.com/s/files/1/0977/9530/9917/files/logo-white.svg?v=1762435414\" style=\" width:120px; height=20px\" />\n</div>\n</div>\n\n</a>"
+                    "custom_liquid": "<!-- TrustBox widget - Review Collector -->\n<div class=\"trustpilot-widget\" data-locale=\"en-US\" data-template-id=\"56278e9abfbbba0bdcd568bc\" data-businessunit-id=\"690220c3755d9734fd93ae4c\" data-style-height=\"52px\" data-style-width=\"100%\" data-token=\"ca79d59c-a2ac-4325-9a5e-80527b138e53\">\n  <a href=\"https://www.trustpilot.com/review/packpoint.co.uk\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->"
                   },
                   "blocks": {}
                 }

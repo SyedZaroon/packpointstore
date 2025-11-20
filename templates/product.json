@@ -175,10 +175,64 @@
             "custom_liquid_hTDL8J": {
               "type": "custom-liquid",
               "name": "Trust pilot widget",
+              "disabled": true,
               "settings": {
                 "custom_liquid": "<a href=\"https://www.trustpilot.com/review/packpoint.co.uk\"> \n\n<div style=\"display:flex; gap:5px; align-items: center; flex-wrap:wrap\">\n<div style=\" display:flex; gap:5px; align-items: center; justify-content:center;\">\n<p style=\"margin:0px\" class=\"paragraph\">Great</p><img src=\"https://cdn.shopify.com/s/files/1/0977/9530/9917/files/stars-4.svg?v=1762873935\" style=\" width:120px; height:20px;\" />\n</div>\n\n<div style=\" display:flex; gap:5px; align-items: center; justify-content:center; flex-wrap: wrap;\">\n<p style=\"margin:0px\" class=\"paragraph\">See our reviews on</p><img src=\"https://cdn.shopify.com/s/files/1/0977/9530/9917/files/Trustpilot-Logo-black.png?v=1762438464\" style=\" width:120px;  margin-top:-5px\" />\n</div>\n</div>\n\n</a>"
               },
               "blocks": {}
+            },
+            "group_YqdJmn": {
+              "type": "group",
+              "name": "t:names.group",
+              "settings": {
+                "link": "",
+                "open_in_new_tab": false,
+                "content_direction": "column",
+                "vertical_on_mobile": true,
+                "horizontal_alignment": "flex-start",
+                "vertical_alignment": "center",
+                "align_baseline": false,
+                "horizontal_alignment_flex_direction_column": "flex-start",
+                "vertical_alignment_flex_direction_column": "center",
+                "gap": 0,
+                "width": "fit-content",
+                "custom_width": 37,
+                "width_mobile": "fit-content",
+                "custom_width_mobile": 100,
+                "height": "fit",
+                "custom_height": 100,
+                "inherit_color_scheme": true,
+                "color_scheme": "",
+                "background_media": "none",
+                "video_position": "cover",
+                "background_image_position": "cover",
+                "border": "none",
+                "border_width": 1,
+                "border_opacity": 100,
+                "border_radius": 0,
+                "placeholder": "",
+                "toggle_overlay": false,
+                "overlay_color": "#00000026",
+                "overlay_style": "solid",
+                "gradient_direction": "to top",
+                "padding-block-start": 0,
+                "padding-block-end": 0,
+                "padding-inline-start": 0,
+                "padding-inline-end": 0
+              },
+              "blocks": {
+                "custom_liquid_EYXA4E": {
+                  "type": "custom-liquid",
+                  "name": "t:names.custom_liquid",
+                  "settings": {
+                    "custom_liquid": "<!-- TrustBox widget - Review Collector -->\n<div class=\"trustpilot-widget\" data-locale=\"en-US\" data-template-id=\"56278e9abfbbba0bdcd568bc\" data-businessunit-id=\"690220c3755d9734fd93ae4c\" data-style-height=\"52px\" data-style-width=\"100%\" data-token=\"ca79d59c-a2ac-4325-9a5e-80527b138e53\">\n  <a href=\"https://www.trustpilot.com/review/packpoint.co.uk\" target=\"_blank\" rel=\"noopener\">Trustpilot</a>\n</div>\n<!-- End TrustBox widget -->\n\n<style>\n.tp-widget-wrapper {\n    text-align: left !important;\n}\n</style>"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "custom_liquid_EYXA4E"
+              ]
             },
             "group_fQf9Rt": {
               "type": "group",
@@ -338,6 +392,7 @@
           "block_order": [
             "group_icgrde",
             "custom_liquid_hTDL8J",
+            "group_YqdJmn",
             "group_fQf9Rt",
             "variant_picker_R3rGDr",
             "unit_include_GhwVjJ",
