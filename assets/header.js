@@ -115,13 +115,13 @@ class HeaderComponent extends Component {
    */
   #updateMenuVisibility(hideMenu) {
     if (hideMenu) {
-      this.refs.headerDrawerContainer.classList.remove('desktop:hidden');
+      // this.refs.headerDrawerContainer.classList.remove('desktop:hidden'); custom code
       this.#menuDrawerHiddenWidth = window.innerWidth;
-      this.refs.headerMenu.classList.add('hidden');
+      this.refs.headerMenu.classList.add("hidden");
     } else {
-      this.refs.headerDrawerContainer.classList.add('desktop:hidden');
+      // this.refs.headerDrawerContainer.classList.add('desktop:hidden'); custom code
       this.#menuDrawerHiddenWidth = null;
-      this.refs.headerMenu.classList.remove('hidden');
+      this.refs.headerMenu.classList.remove("hidden");
     }
   }
 

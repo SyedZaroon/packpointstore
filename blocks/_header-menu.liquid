@@ -22,7 +22,7 @@
 {% case variant %}
   {% when 'mobile' %}
     <div
-      class="header__drawer desktop:hidden"
+      class="header__drawer header__drawer__custom"
       ref="headerDrawerContainer"
       style="{{ title_case_style }}"
       {{ block.shopify_attributes }}
@@ -84,6 +84,27 @@
 {% endcase %}
 
 {% stylesheet %}
+
+  .header__drawer__custom {
+    display: none !important;
+  }
+
+  @media screen and (max-width: 1203px) {
+    .header__drawer__custom {
+      display: flex !important;
+    }
+  }
+
+  .header-menu__inner nav{
+    display: none !important;
+  }
+
+   @media screen and (min-width: 1203px) {
+    .header-menu__inner nav {
+      display: block !important;
+    }
+  }
+
   .menu-list--mobile {
     &.menu-list {
       display: grid;
