@@ -493,11 +493,23 @@
                     "open_in_new_tab": false
                   },
                   "blocks": {}
+                },
+                "icon_3NdjXD": {
+                  "type": "icon",
+                  "name": "t:names.icon",
+                  "settings": {
+                    "icon": "youtube",
+                    "width": 24,
+                    "link": "https://discord.com/channels/@me/1422587562274586887/1443221144433070170",
+                    "open_in_new_tab": false
+                  },
+                  "blocks": {}
                 }
               },
               "block_order": [
                 "icon_C8d3az",
-                "icon_eMkkXr"
+                "icon_eMkkXr",
+                "icon_3NdjXD"
               ]
             }
           },
