@@ -262,7 +262,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>Unit 2 Sedgley Park Trading Estate, Prestwich, Manchester, England, M25 9WD</p>",
+                        "text": "<p>Unit 10 Hardicker Street M19 2RB</p>",
                         "width": "fit-content",
                         "max_width": "normal",
                         "alignment": "left",
