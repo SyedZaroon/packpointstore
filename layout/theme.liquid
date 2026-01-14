@@ -48,7 +48,7 @@
 
   <body class="page-width-{{ settings.page_width }} card-hover-effect-{{ settings.card_hover_effect }}">
     <!-- Preloader -->
-<div id="preloader" style="
+{% comment %} <div id="preloader" style="
   position: fixed;
   top: 0;
   left: 0;
@@ -68,7 +68,7 @@
     border-radius: 50%;
     animation: spin 1s linear infinite;
   "></div>
-</div>
+</div> {% endcomment %}
 
     {% render 'skip-to-content-link', href: '#MainContent', text: 'accessibility.skip_to_text' %}
     <div id="header-group">
@@ -100,7 +100,7 @@
     {% if settings.quick_add or settings.mobile_quick_add %}
       {% render 'quick-add-modal' %}
     {% endif %}
-
+{% comment %} 
     <script>
   window.addEventListener('load', function() {
     var preloader = document.getElementById('preloader');
@@ -111,7 +111,7 @@
       }, 500);
     }
   });
-</script>
+</script> {% endcomment %}
 
   </body>
 </html>
