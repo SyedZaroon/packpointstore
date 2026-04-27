@@ -322,7 +322,7 @@
               "type": "variant-picker",
               "settings": {
                 "variant_style": "dropdowns",
-                "show_swatches": true,
+                "show_swatches": false,
                 "alignment": "left",
                 "padding-block-start": 0,
                 "padding-block-end": 0,
