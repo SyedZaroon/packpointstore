@@ -247,10 +247,10 @@
                       {% endif %}
                     {% endif %}
                   </div>
-
+{% comment %} 
                   {% if item.properties._unit_include %}
                     <p style="color:#FF7A09" >You will receive: <span id="unit-total"> {{ item.properties._unit_include | times: item.quantity }}</span> units</p>
-                  {% endif %}
+                  {% endif %} {% endcomment %}
                 </td>
 
                 <td
