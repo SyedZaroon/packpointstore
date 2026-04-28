@@ -5,11 +5,7 @@
   @param {object} [block] - The block object
 {%- enddoc -%}
 
-{%- if condition -%}
-  
-{%- else -%}
-  
-{%- endif -%}
+
 
 {% assign block_settings = block.settings %}
 
@@ -73,9 +69,7 @@
 
 
             {%- for product_option_value in product_option.values -%}
-               {%- if product_option_value.available == false -%}
-            {%- continue -%}
-          {%- endif -%}
+              {%- if product_option_value.available -%}
 
               <label class="variant-option__button-label{% if variant_style == 'swatch' %} variant-option__button-label--has-swatch{% endif %}">
                 <input
@@ -83,9 +77,6 @@
                   name="{{ product_option.name | escape }}-{{ block.id }}-{{ product_resource.id }}"
                   value="{{ product_option_value | escape }}"
                   aria-label="{{ product_option_value.name }}"
-                  {% if product_option_value.available == false %}
-                    aria-disabled="true"
-                  {% endif %}
                   data-input-id="{{ product_option.position }}-{{ forloop.index0 }}"
                   data-option-value-id="{{ product_option_value.id }}"
                   data-option-available="{{ product_option_value.available }}"
@@ -118,6 +109,7 @@
                 {% endif %}
                 {% render 'strikethrough-variant', product_option: product_option_value %}
               </label>
+              {%- endif -%}
             {%- endfor -%}
             {% if option_id_attribute %}
               {% style %}
@@ -157,23 +149,25 @@
                 name="options[{{ product_option.name | escape }}]"
                 class="variant-option__select"
               >
-                {%- for product_option_value in product_option.values -%}
+
+                
+                {%- for product_option_value in product_option.values -%}                    
+                  {%- if product_option_value.available -%}
+                    
+
                   <option
                     value="{{ product_option_value | escape }}"
                     data-input-id="{{ product_option.position }}-{{ forloop.index0 }}"
                     data-option-value-id="{{ product_option_value.id }}"
                     data-variant-id="{{ product_option_value.variant.id }}"
                     data-connected-product-url="{{ product_option_value.product_url }}"
-                    {% if product_option_value.selected %}
+                    {%- if product_option_value.selected  -%}
                       selected="selected"
                     {% endif %}
                   >
-                    {% if product_option_value.available == false %}
-                      {{ product_option_value | escape }} - {{ 'content.unavailable' | t }}
-                    {% else %}
-                      {{ product_option_value | escape }}
-                    {% endif %}
+                    {{ product_option_value | escape }}
                   </option>
+                  {%- endif -%}
                 {%- endfor -%}
               </select>
               <svg
@@ -342,10 +336,6 @@
     }
   }
 
-  .variant-option__button-label:has([data-option-available='false']) {
-    color: rgb(var(--color-variant-text-rgb) / var(--opacity-60));
-  }
-
   .facets__inputs-list--swatches-grid .variant-option__button-label--has-swatch:hover .swatch {
     --focus-outline: var(--focus-outline-width) solid rgb(var(--color-foreground-rgb) / var(--opacity-35-55));
     outline: var(--focus-outline);
@@ -410,15 +400,16 @@
     }
   }
 
-  .variant-option__button-label:has([data-option-available='false']):has(:checked) {
-    --variant-picker-stroke-color: rgb(var(--color-variant-text-rgb) / var(--opacity-60));
-
-    background-color: inherit;
-    color: rgb(var(--color-variant-text-rgb) / var(--opacity-60));
-    border-color: var(--color-selected-variant-border);
+  .facets__inputs-list--swatches-grid .variant-option__button-label--has-swatch:has(:checked) {
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-outline-offset);
   }
 
-  .variant-option__button-label input,
+  .variant-option__button-label--has-swatch:has(:checked) {
+    --focus-outline: var(--focus-outline-width) solid var(--color-foreground);
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-outline-offset);
+  }
   .variant-option--images input {
     /* remove the checkbox from the page flow */
     position: absolute;
@@ -454,6 +445,7 @@
     overflow: clip;
     transition: background-color var(--animation-speed) var(--animation-easing),
       border-color var(--animation-speed) var(--animation-easing);
+      border-color: var(--style-border-color-inputs);
   }
 
   .variant-option__select-wrapper:has(.swatch) {
@@ -516,5 +508,4 @@
   }
 
 {% endstylesheet %}
-
 

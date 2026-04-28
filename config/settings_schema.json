@@ -1955,6 +1955,12 @@
         "default": 8
       },
       {
+        "type": "color",
+        "id": "inputs_border_color",
+        "label": "Border color",
+        "default": "#ffffff"
+      },
+      {
         "type": "select",
         "id": "type_preset",
         "label": "t:settings.type_preset",
