@@ -383,12 +383,6 @@
                 "size_bottom_padding": 10
               },
               "blocks": {}
-            },
-            "discount_options_bQJxUJ": {
-              "type": "discount-options",
-              "name": "Discount Options",
-              "settings": {},
-              "blocks": {}
             }
           },
           "block_order": [
@@ -399,8 +393,7 @@
             "variant_picker_R3rGDr",
             "unit_include_GhwVjJ",
             "buy_buttons_eYQEYi",
-            "size_guide_D9qCQJ",
-            "discount_options_bQJxUJ"
+            "size_guide_D9qCQJ"
           ]
         }
       },
