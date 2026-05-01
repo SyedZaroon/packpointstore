@@ -1,5 +1,3 @@
-
-
 <script
   src="{{ 'pagination.js' | asset_url }}"
   defer
@@ -369,3 +367,162 @@
   "presets": []
 }
 {% endschema %}
+
+<script>
+  (function() {
+    const products = [
+      {% for product in collection.products %}
+        {{ product | json }}{% unless forloop.last %},{% endunless %}
+      {% endfor %}
+    ];
+
+    const storeCurrency = {{ cart.currency.symbol | json }};
+
+    function formatPrice(cents) {
+      const amount = (cents / 100).toFixed(2);
+      return storeCurrency + amount;
+    }
+
+    const collectionGrid = document.querySelector('.product-grid--grid');
+    if (!collectionGrid) return;
+
+    const cards = document.querySelectorAll('.product-grid__item');
+
+    const cardsMap = new Map();
+    cards.forEach(function(card) {
+      cardsMap.set(card.dataset.productId, card);
+    });
+
+    const fragment = document.createDocumentFragment();
+
+    products.forEach(function(product) {
+      const card = cardsMap.get(String(product.id));
+      if (!card) return;
+
+      let variantsToRender = product.variants || [];
+      let availableVariants;
+
+      
+
+      // if product has variants with availability filter
+if (product.options.includes("Select Size")) {
+
+  console.log(product.options);
+  const selectSizeIndex = product.options.findIndex(option => option === "Select Size");
+
+  const optionKey = `option${selectSizeIndex + 1}`;
+
+  console.log('Select size index:', optionKey);
+
+  const uniqueMap = new Map();
+
+  availableVariants = variantsToRender.filter(v => {
+    const key = v[optionKey];
+
+    if (uniqueMap.has(key)) return false;
+
+    uniqueMap.set(key, true);
+    return true;
+  });
+
+} else {
+  availableVariants = variantsToRender.filter(v => v.available);
+}
+
+if (availableVariants.length === 0) {
+  const firstVariant = product.variants?.[0];
+
+  availableVariants = [{
+    ...firstVariant,
+    id: product.id,
+    title: 'Default',
+    price: product.price || firstVariant?.price || 0,
+    featured_image: product.featured_image
+  }];
+}
+
+      availableVariants.forEach(function(variant) {
+        if (!variant.available) return;
+        const clone = card.cloneNode(true);
+        clone.setAttribute('data-variant-id', variant.id);
+
+        // === TITLE ===
+        var titleEl = clone.querySelector('[ref="productTitleLink"] p');
+        if (titleEl) {
+          titleEl.textContent = product.title + ' - ' + variant.title;
+        }
+        // Also update the zoomed-out title if present
+        var zoomTitle = clone.querySelector('.product-grid-view-zoom-out--details h3');
+        if (zoomTitle) {
+          zoomTitle.textContent = product.title + ' - ' + variant.title;
+        }
+
+        // === PRICE ===
+        var priceEls = clone.querySelectorAll('[ref="priceContainer"] .price');
+        priceEls.forEach(function(el) {
+          el.textContent = formatPrice(variant.price);
+        });
+
+        // === COMPARE-AT PRICE ===
+        var compareEls = clone.querySelectorAll('[ref="priceContainer"] .compare-at-price');
+        if (variant.compare_at_price && variant.compare_at_price > variant.price) {
+          compareEls.forEach(function(el) {
+            el.textContent = formatPrice(variant.compare_at_price);
+          });
+        } else {
+          // No sale — remove compare-at-price elements
+          compareEls.forEach(function(el) {
+            var group = el.closest('[role="group"]');
+            if (group) group.remove();
+          });
+        }
+
+        // === IMAGE ===
+        if (variant.featured_image && variant.featured_image.src) {
+          var imgSrc = variant.featured_image.src;
+          var gallery = clone.querySelector('[ref="cardGallery"]');
+          if (gallery) {
+            var imgs = gallery.querySelectorAll('img');
+            if (imgs.length > 0) {
+              // Show only the first slide image, update it to the variant image
+              imgs[0].setAttribute('src', imgSrc);
+              imgs[0].setAttribute('srcset', '');
+              imgs[0].removeAttribute('loading');
+              // Hide all other slide images
+              var slides = gallery.querySelectorAll('slideshow-slide');
+              slides.forEach(function(slide, i) {
+                if (i > 0) slide.setAttribute('hidden', '');
+                else slide.removeAttribute('hidden');
+              });
+            }
+          }
+        }
+
+        // === LINKS ===
+        var variantUrl = '/products/' + product.handle + '?variant=' + variant.id;
+        var linkSelectors = [
+          '[ref="productCardLink"]',
+          '[ref="cardGalleryLink"]',
+          '[ref="productTitleLink"]'
+        ];
+        linkSelectors.forEach(function(sel) {
+          var links = clone.querySelectorAll(sel);
+          links.forEach(function(link) {
+            link.setAttribute('href', variantUrl);
+          });
+        });
+
+        // === ARIA LABEL ===
+        var galleryLink = clone.querySelector('[ref="cardGalleryLink"]');
+        if (galleryLink) {
+          galleryLink.setAttribute('aria-label', product.title + ' - ' + variant.title);
+        }
+
+        fragment.appendChild(clone);
+      });
+    });
+
+    collectionGrid.innerHTML = '';
+    collectionGrid.appendChild(fragment);
+  })();
+</script>

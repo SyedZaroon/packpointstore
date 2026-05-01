@@ -1,0 +1,62 @@
+  
+const products = [
+  {% for product in collection.products %}
+    {{ product | json }}{% unless forloop.last %},{% endunless %}
+  {% endfor %}
+];
+<script>
+const collectionGrid = document.querySelector('.product-grid--grid');
+const templateCards = document.querySelectorAll('.product-grid__item');
+const storeCurrency = "{{ cart.currency.symbol }}";
+
+// Clear grid once
+collectionGrid.innerHTML = '';
+
+// Convert NodeList once
+const cardsMap = new Map();
+
+templateCards.forEach(card => {
+  cardsMap.set(card.dataset.productId, card);
+});
+
+// Use DocumentFragment (VERY IMPORTANT for performance)
+const fragment = document.createDocumentFragment();
+
+for (const product of products) {
+  const template = cardsMap.get(String(product.id));
+  if (!template) continue;
+
+  const availableVariants = product.variants.filter(v => v.available);
+
+  for (const variant of availableVariants) {
+
+    const clone = template.cloneNode(true);
+
+    clone.dataset.variantId = variant.id;
+
+    // PRICE FIX (robust)
+    const priceWrapper = clone.querySelector('product-price [ref="priceContainer"] .price');
+
+    if (priceWrapper) {
+      console.log(priceWrapper);
+      const price = (variant.price / 100).toFixed(2);
+
+      priceWrapper.textContent = `
+          ${storeCurrency} ${price}
+      `;
+    }
+
+    // TITLE
+    const titleEl = clone.querySelector('[ref="productTitleLink"] p');
+
+    if (titleEl) {
+      titleEl.textContent = `${product.title} - ${variant.title}`;
+    }
+
+    fragment.appendChild(clone);
+  }
+}
+
+// Single DOM update (FAST 🚀)
+collectionGrid.appendChild(fragment);
+</script>

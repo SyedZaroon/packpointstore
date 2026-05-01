@@ -7,6 +7,7 @@ import { ThemeEvents, VariantUpdateEvent } from '@theme/events';
  * 1. Variant picker (in quick add modal or product page)
  * 2. Swatches variant picker (in product cards)
  */
+
 class ProductPrice extends HTMLElement {
   connectedCallback() {
     const closestSection = this.closest('.shopify-section, dialog');
