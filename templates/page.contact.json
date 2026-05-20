@@ -430,7 +430,7 @@
                       "type": "text",
                       "name": "t:names.text",
                       "settings": {
-                        "text": "<p>info@packpoint.co.uk</p>",
+                        "text": "<p>support@packpoint.co.uk</p>",
                         "width": "fit-content",
                         "max_width": "normal",
                         "alignment": "left",
