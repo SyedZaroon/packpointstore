@@ -744,6 +744,9 @@
         "menu_FcA3hf",
         "group_tDC38t"
       ],
+      "custom_css": [
+        "@media screen and(max-width:415px){details.menu__details.spacing-style {padding-inline-start: 0px;}}"
+      ],
       "name": "Footer",
       "settings": {
         "content_direction": "row",
