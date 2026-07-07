@@ -1,0 +1,26 @@
+
+.primary-btn{
+    background-color: #FF7A08;
+    padding: 14px 28px;
+    color: #FFFDF9;
+    font-size: 15px;
+    font-weight: 500;
+
+}
+.landing-page-header {
+    background-color: #F6EEE1;
+}
+
+.landing-page-header-wrapper {
+    justify-content: space-between;
+    align-items: center;
+    display: flex;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #15120E24
+}
+
+.landing-page-header-logo {
+    width: 200px;
+    height: auto;
+}
