@@ -39,7 +39,9 @@
           "blocks": {}
         }
       },
-      "block_order": ["heading"],
+      "block_order": [
+        "heading"
+      ],
       "disabled": true,
       "settings": {
         "content_direction": "column",
@@ -88,7 +90,10 @@
           "blocks": {}
         }
       },
-      "block_order": ["logo_QDGxnT", "button_gU3MQd"],
+      "block_order": [
+        "logo_QDGxnT",
+        "button_gU3MQd"
+      ],
       "name": "Header",
       "settings": {
         "content_direction": "row",
@@ -151,7 +156,7 @@
             "gap": 12,
             "width": "custom",
             "custom_width": 50,
-            "width_mobile": "fill",
+            "width_mobile": "custom",
             "custom_width_mobile": 100,
             "height": "fit",
             "custom_height": 100,
@@ -278,7 +283,10 @@
                   "blocks": {}
                 }
               },
-              "block_order": ["button_n4HHYq", "button_QeQh6N"]
+              "block_order": [
+                "button_n4HHYq",
+                "button_QeQh6N"
+              ]
             }
           },
           "block_order": [
@@ -311,7 +319,10 @@
           "blocks": {}
         }
       },
-      "block_order": ["group_4QmAnK", "image_mpnJUf"],
+      "block_order": [
+        "group_4QmAnK",
+        "image_mpnJUf"
+      ],
       "name": "Hero Section",
       "settings": {
         "content_direction": "row",
@@ -499,7 +510,10 @@
           "blocks": {}
         }
       },
-      "block_order": ["text_3nnkVF", "custom_icon_box_aXVE3R"],
+      "block_order": [
+        "text_3nnkVF",
+        "custom_icon_box_aXVE3R"
+      ],
       "name": "Custom Package Section",
       "settings": {
         "content_direction": "column",
@@ -599,7 +613,9 @@
               "blocks": {}
             }
           },
-          "block_order": ["text_P76mUd"]
+          "block_order": [
+            "text_P76mUd"
+          ]
         },
         "static-collection-card": {
           "type": "_collection-card",
@@ -661,11 +677,17 @@
               "blocks": {}
             }
           },
-          "block_order": ["collection_title_C8Rq6Q"]
+          "block_order": [
+            "collection_title_C8Rq6Q"
+          ]
         }
       },
-      "block_order": ["group_EwwdkH"],
-      "custom_css": [".collection-card {height: 427px;}"],
+      "block_order": [
+        "group_EwwdkH"
+      ],
+      "custom_css": [
+        ".collection-card {height: 427px;}"
+      ],
       "name": "t:names.collections_grid",
       "settings": {
         "collection_list": [
@@ -952,7 +974,10 @@
                       "blocks": {}
                     }
                   },
-                  "block_order": ["custom_liquid_kHiPWL", "text_yx63tm"]
+                  "block_order": [
+                    "custom_liquid_kHiPWL",
+                    "text_yx63tm"
+                  ]
                 }
               },
               "block_order": [
@@ -1152,7 +1177,10 @@
                       "blocks": {}
                     }
                   },
-                  "block_order": ["custom_liquid_rPW4dL", "text_hhPYx8"]
+                  "block_order": [
+                    "custom_liquid_rPW4dL",
+                    "text_hhPYx8"
+                  ]
                 }
               },
               "block_order": [
@@ -1352,7 +1380,10 @@
                       "blocks": {}
                     }
                   },
-                  "block_order": ["custom_liquid_jRXLry", "text_jqVix8"]
+                  "block_order": [
+                    "custom_liquid_jRXLry",
+                    "text_jqVix8"
+                  ]
                 }
               },
               "block_order": [
@@ -1363,10 +1394,17 @@
               ]
             }
           },
-          "block_order": ["group_w9JbYY", "group_6icypX", "group_fGDa6z"]
+          "block_order": [
+            "group_w9JbYY",
+            "group_6icypX",
+            "group_fGDa6z"
+          ]
         }
       },
-      "block_order": ["text_NCn4nt", "group_VcAPrU"],
+      "block_order": [
+        "text_NCn4nt",
+        "group_VcAPrU"
+      ],
       "name": "THREE WAYS",
       "settings": {
         "content_direction": "column",
@@ -1536,13 +1574,21 @@
                   "blocks": {}
                 }
               },
-              "block_order": ["button_kDwyyB", "button_xFHD6g"]
+              "block_order": [
+                "button_kDwyyB",
+                "button_xFHD6g"
+              ]
             }
           },
-          "block_order": ["text_f8qRTK", "group_7yjaGr"]
+          "block_order": [
+            "text_f8qRTK",
+            "group_7yjaGr"
+          ]
         }
       },
-      "block_order": ["group_4iRWPz"],
+      "block_order": [
+        "group_4iRWPz"
+      ],
       "name": "t:names.custom_section",
       "settings": {
         "content_direction": "column",
