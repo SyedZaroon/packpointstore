@@ -539,7 +539,7 @@
             "link_preset": "paragraph",
             "padding-block-start": 0,
             "padding-block-end": 0,
-            "padding-inline-start": 0,
+            "padding-inline-start": 50,
             "padding-inline-end": 0
           },
           "blocks": {}
