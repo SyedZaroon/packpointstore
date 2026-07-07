@@ -72,7 +72,9 @@
 
     {% render 'skip-to-content-link', href: '#MainContent', text: 'accessibility.skip_to_text' %}
     <div id="header-group">
+      {% unless request.page_type == 'page' and page.handle == 'landing-page' %}
       {% sections 'header-group' %}
+      {% endunless %}
     </div>
 
     <script
