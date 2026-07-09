@@ -326,9 +326,7 @@
         "group_4QmAnK",
         "image_mpnJUf"
       ],
-      "custom_css": [
-        "@media and screen (max-width: 431px) {h2.dual-color-text {font-size: 30px;}}"
-      ],
+      "custom_css": [],
       "name": "Hero Section",
       "settings": {
         "content_direction": "row",
