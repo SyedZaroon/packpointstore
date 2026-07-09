@@ -1603,7 +1603,7 @@
         "group_4iRWPz"
       ],
       "custom_css": [
-        "@media screen and (max-width: 431px) {h3 {font-size: 25px; }}"
+        "@media screen and (max-width: 431px) {h3 {font-size: 25px; } a.size-style.button, a.size-style.button-secondary {padding: 9px; }}"
       ],
       "name": "t:names.custom_section",
       "settings": {
