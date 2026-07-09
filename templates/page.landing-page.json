@@ -1602,6 +1602,9 @@
       "block_order": [
         "group_4iRWPz"
       ],
+      "custom_css": [
+        "@media screen and (max-width: 431px) {h3 {font-size: 25px; } h4 {font-size: 20px; }}"
+      ],
       "name": "t:names.custom_section",
       "settings": {
         "content_direction": "column",
