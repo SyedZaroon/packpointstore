@@ -745,7 +745,7 @@
         "group_tDC38t"
       ],
       "custom_css": [
-        "@media screen and (max-width: 430px) {details.menu__details.spacing-style {padding: 0; }}"
+        "@media screen and (max-width: 431px) {details.menu__details.spacing-style {padding: 0; }}"
       ],
       "name": "Footer",
       "settings": {
