@@ -1484,10 +1484,10 @@
             "overlay_color": "#00000026",
             "overlay_style": "solid",
             "gradient_direction": "to top",
-            "padding-block-start": 30,
-            "padding-block-end": 30,
-            "padding-inline-start": 30,
-            "padding-inline-end": 30
+            "padding-block-start": 64,
+            "padding-block-end": 64,
+            "padding-inline-start": 64,
+            "padding-inline-end": 64
           },
           "blocks": {
             "text_f8qRTK": {
@@ -1603,7 +1603,7 @@
         "group_4iRWPz"
       ],
       "custom_css": [
-        "@media screen and (max-width: 431px) {h3 {font-size: 25px; } h4 {font-size: 20px; }}"
+        "@media screen and (max-width: 431px) {h3 {font-size: 25px; } h4 {font-size: 20px; } .group-block.group-block--height-fit.group-block--width-fill.border-style.spacing-style.size-style{padding: 30px; }}"
       ],
       "name": "t:names.custom_section",
       "settings": {
