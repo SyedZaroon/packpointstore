@@ -326,7 +326,9 @@
         "group_4QmAnK",
         "image_mpnJUf"
       ],
-      "custom_css": [],
+      "custom_css": [
+        "@media screen and (max-width: 431px) {a.size-style.button {padding: 9px; }}"
+      ],
       "name": "Hero Section",
       "settings": {
         "content_direction": "row",
