@@ -327,7 +327,7 @@
         "image_mpnJUf"
       ],
       "custom_css": [
-        "@media screen and (max-width: 431px) {a.size-style.button {padding: 9px; }}"
+        "@media screen and (max-width: 431px) {a.size-style.button, a.size-style.button-secondary{padding: 9px; }}"
       ],
       "name": "Hero Section",
       "settings": {
