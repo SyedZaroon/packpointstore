@@ -95,7 +95,7 @@
         "button_gU3MQd"
       ],
       "custom_css": [
-        "@media screen and (max-width: 431px) {a.size-style.button {padding: 9px; } }"
+        "@media screen and (max-width: 431px) {a.size-style.button {padding: 9px; }}"
       ],
       "name": "Header",
       "settings": {
@@ -325,6 +325,9 @@
       "block_order": [
         "group_4QmAnK",
         "image_mpnJUf"
+      ],
+      "custom_css": [
+        "@media and screen (max-width: 431px) {h2.dual-color-text {font-size: 30px;}}"
       ],
       "name": "Hero Section",
       "settings": {
