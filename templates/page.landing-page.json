@@ -94,6 +94,9 @@
         "logo_QDGxnT",
         "button_gU3MQd"
       ],
+      "custom_css": [
+        "@media and screen (max-width:431px){a.size-style.button{padding: 9px;}}"
+      ],
       "name": "Header",
       "settings": {
         "content_direction": "row",
