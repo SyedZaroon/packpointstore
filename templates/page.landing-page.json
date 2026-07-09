@@ -1415,6 +1415,9 @@
         "text_NCn4nt",
         "group_VcAPrU"
       ],
+      "custom_css": [
+        "@media screen and (max-width: 431px) {h2 {font-size: 25px; }}"
+      ],
       "name": "THREE WAYS",
       "settings": {
         "content_direction": "column",
