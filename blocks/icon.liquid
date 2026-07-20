@@ -27,17 +27,25 @@
   {{ icon }}
 {%- endif -%}
 
-{% stylesheet %}
+<style>
   .icon-block {
     display: flex;
-    fill: currentcolor;
+    fill: currentColor;
     flex-shrink: 0;
   }
 
   .icon-block__media {
     height: auto;
   }
-{% endstylesheet %}
+
+  .icon-block-{{ block.id }} {
+    color: {% if block.settings.use_custom_color == 'custom' %}
+        {{ block.settings.icon_color }}
+      {% else %}
+        ""
+      {% endif %};
+  }
+</style>
 
 {% schema %}
 {
@@ -177,6 +185,10 @@
           "value": "price_tag",
           "label": "t:options.price_tag"
         },
+                {
+          "value": "lowest_price",
+          "label": "Price Win"
+        },
         {
           "value": "question_mark",
           "label": "t:options.question_mark"
@@ -208,6 +220,11 @@
         {
           "value": "silhouette",
           "label": "t:options.silhouette"
+        },
+        {
+          "value": "shield",
+          "label": "shield"
+
         },
         {
           "value": "bluesky",
@@ -288,9 +305,40 @@
         {
           "value": "call",
           "label": "call"
+        },
+        {
+          "value": "check",
+          "label": "check"
+        },
+                {
+          "value": "gift",
+          "label": "gift"
         }
       ],
       "default": "apple"
+    },
+    {
+      "type": "radio",
+      "id": "use_custom_color",
+      "label": "Icon Color",
+      "options": [
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "custom",
+          "label": "Custom"
+        }
+      ],
+      "default": "default"
+    },
+    {
+      "type": "color",
+      "id": "icon_color",
+      "label": "Icon Color",
+      "default": "#000000",
+      "visible_if": "{{ block.settings.use_custom_color == 'custom' }}"
     },
     {
       "type": "image_picker",

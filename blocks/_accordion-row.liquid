@@ -1,6 +1,8 @@
 
 {% assign block_settings = block.settings %}
 
+
+{% if block_settings.heading != blank %}
 <accordion-custom
   {% if block_settings.open_by_default %}
     open-by-default-on-desktop
@@ -33,6 +35,7 @@
     </div>
   </details>
 </accordion-custom>
+{% endif %}
 
 {% stylesheet %}
   .details__icon {

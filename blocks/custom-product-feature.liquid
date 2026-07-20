@@ -1,0 +1,95 @@
+<section class="why-choose-us" style="width: 100%;">
+  <div class="page-width">
+
+
+    <div class="features-grid">
+
+      <div class="feature-card">
+        <img src="/cdn/shop/files/icon.png?v=1784278044&amp;width=1200" alt="" srcset="/cdn/shop/files/icon.png?v=1784278044&amp;width=240 240w, /cdn/shop/files/icon.png?v=1784278044&amp;width=352 352w, /cdn/shop/files/icon.png?v=1784278044&amp;width=832 832w, /cdn/shop/files/icon.png?v=1784278044&amp;width=1200 1200w" width="1200" height="1200" loading="lazy" class="icon-block__media icon-block-AeWhaRGpQcGpQeHVvN__icon_pKiXtE" style="width: 46px;" sizes="(min-width: 1024px) 1024px, 100vw, 100vw">
+        <h5><strong>48hr Delivery</strong></h5>
+        <p>UK-wide dispatch – fast, reliable and fully tracked.</p>
+      </div>
+
+      <div class="feature-card">
+        <img src="/cdn/shop/files/icon_4.png?v=1784278528&amp;width=1200" alt="" srcset="/cdn/shop/files/icon_4.png?v=1784278528&amp;width=240 240w, /cdn/shop/files/icon_4.png?v=1784278528&amp;width=352 352w, /cdn/shop/files/icon_4.png?v=1784278528&amp;width=832 832w, /cdn/shop/files/icon_4.png?v=1784278528&amp;width=1200 1200w" width="1200" height="1200" loading="lazy" class="icon-block__media icon-block-AY1cyWWJFbEx2RlUwa__icon_YVCqAr" style="width: 46px;" sizes="(min-width: 1024px) 1024px, 100vw, 100vw">
+        <h5><strong>Best Price Guaranteed</strong></h5>
+        <p>We won't be beaten – transparent pricing every time.</p>
+      </div>
+
+      <div class="feature-card">
+        <img src="/cdn/shop/files/icon_2.png?v=1784278506&amp;width=1200" alt="" srcset="/cdn/shop/files/icon_2.png?v=1784278506&amp;width=240 240w, /cdn/shop/files/icon_2.png?v=1784278506&amp;width=352 352w, /cdn/shop/files/icon_2.png?v=1784278506&amp;width=832 832w, /cdn/shop/files/icon_2.png?v=1784278506&amp;width=1200 1200w" width="1200" height="1200" loading="lazy" class="icon-block__media icon-block-ANjhVSFZjbXhhcmN5U__icon_fyMRqW" style="width: 46px;" sizes="(min-width: 1024px) 1024px, 100vw, 100vw">
+        <h5><strong>Free Replacement</strong></h5>
+        <p>Lost or damaged? We'll resend it with no hassle.</p>
+      </div>
+
+      <div class="feature-card">
+        <img src="/cdn/shop/files/icon_3.png?v=1784278508&amp;width=1200" alt="" srcset="/cdn/shop/files/icon_3.png?v=1784278508&amp;width=240 240w, /cdn/shop/files/icon_3.png?v=1784278508&amp;width=352 352w, /cdn/shop/files/icon_3.png?v=1784278508&amp;width=832 832w, /cdn/shop/files/icon_3.png?v=1784278508&amp;width=1200 1200w" width="1200" height="1200" loading="lazy" class="icon-block__media icon-block-AVGJud1dJbXlmdXk1N__icon_fLqQwz" style="width: 46px;" sizes="(min-width: 1024px) 1024px, 100vw, 100vw">
+        <h5><strong>Reorder in One Click</strong></h5>
+        <p>Saved sizes and quantities for repeat orders instantly.</p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+    .shopify-block{
+        display: contents !important;
+    }
+
+.section-heading{
+    text-align:center;
+    margin-bottom:60px;
+}
+
+
+.features-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:30px;
+}
+
+.feature-card h5{
+    margin:14px 0 0 !important;
+}
+
+.feature-card p{
+    margin:6px 0 0 !important;
+}
+
+.feature-card{
+    background:#fff;
+    border: 1px solid #F0F0F0;
+    padding:24px;
+}
+
+
+</style>
+
+{% schema %}
+{
+  "name": "Why Choose Us",
+  "tag": "section",
+  "class": "why-choose-us-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Why Customers Choose Us"
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Sub Heading",
+      "default": "Premium products backed by fast delivery, transparent pricing and trusted customer service."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Why Choose Us"
+    }
+  ]
+}
+{% endschema %}
