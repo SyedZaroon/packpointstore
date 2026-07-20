@@ -71,7 +71,7 @@
                 "use_custom_color": "default",
                 "icon_color": "#000000",
                 "image_upload": "shopify://shop_images/truck.png",
-                "width": 20,
+                "width": 16,
                 "link": "",
                 "open_in_new_tab": false
               },
@@ -170,7 +170,7 @@
                 "use_custom_color": "default",
                 "icon_color": "#000000",
                 "image_upload": "shopify://shop_images/Vector_1.png",
-                "width": 20,
+                "width": 16,
                 "link": "",
                 "open_in_new_tab": false
               },
@@ -269,7 +269,7 @@
                 "use_custom_color": "default",
                 "icon_color": "#000000",
                 "image_upload": "shopify://shop_images/gift.png",
-                "width": 20,
+                "width": 16,
                 "link": "",
                 "open_in_new_tab": false
               },
