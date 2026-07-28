@@ -477,6 +477,8 @@
                   "name": "facebook",
                   "settings": {
                     "icon": "facebook",
+                    "use_custom_color": "default",
+                    "icon_color": "#000000",
                     "width": 24,
                     "link": "https://www.facebook.com/profile.php?id=61579695222921",
                     "open_in_new_tab": false
@@ -488,6 +490,8 @@
                   "name": "instagram",
                   "settings": {
                     "icon": "instagram",
+                    "use_custom_color": "default",
+                    "icon_color": "#000000",
                     "width": 24,
                     "link": "https://www.instagram.com/packpointstore/",
                     "open_in_new_tab": false
@@ -499,6 +503,8 @@
                   "name": "t:names.icon",
                   "settings": {
                     "icon": "youtube",
+                    "use_custom_color": "default",
+                    "icon_color": "#000000",
                     "width": 24,
                     "link": "https://www.youtube.com/@PackPointStore",
                     "open_in_new_tab": false
@@ -855,6 +861,8 @@
                   "name": "t:names.icon",
                   "settings": {
                     "icon": "price_tag",
+                    "use_custom_color": "default",
+                    "icon_color": "#000000",
                     "image_upload": "shopify://shop_images/shopping-bag.png",
                     "width": 20,
                     "link": "",
@@ -939,6 +947,8 @@
                   "name": "t:names.icon",
                   "settings": {
                     "icon": "price_tag",
+                    "use_custom_color": "default",
+                    "icon_color": "#000000",
                     "image_upload": "shopify://shop_images/fast-delivery.png",
                     "width": 20,
                     "link": "",
@@ -1023,6 +1033,8 @@
                   "name": "t:names.icon",
                   "settings": {
                     "icon": "price_tag",
+                    "use_custom_color": "default",
+                    "icon_color": "#000000",
                     "image_upload": "shopify://shop_images/motorbike.png",
                     "width": 20,
                     "link": "",
@@ -1192,7 +1204,7 @@
           "type": "text",
           "name": "t:names.text",
           "settings": {
-            "text": "<p>© <strong>Copyright</strong> 2025 <strong>Company Number:</strong> 16492778</p>",
+            "text": "<p>© <strong>Copyright</strong> 2026 <strong>Company Number:</strong> 16492778</p>",
             "width": "fit-content",
             "max_width": "none",
             "alignment": "left",
